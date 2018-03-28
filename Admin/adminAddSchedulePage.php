@@ -1,3 +1,17 @@
+<?php
+	$servername = "localhost";
+	$username = "root";
+	$password = "1234";
+	$dbname = "universidaddelaguna";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -36,10 +50,16 @@
 			<div class="col-sm-4">
 				<h3>Curriculum:</h3>
 					<div class="form-group">
-  							<select class="form-control" id="curriculum">
-    							<option>Curriculum 2010</option>
-    							<option>Curriculum 2015</option>
-    					
+  							<select class="form-control" id="curriculum" onchange=>
+    							<?php
+									$sql = "SELECT curriculumCode FROM curriculum";
+									$result = $conn->query($sql);
+
+							   		while($row = $result->fetch_assoc()) {
+							        	echo "<option>".$row["curriculumCode"]."</option>";
+							    	}
+									$conn->close();
+								?>
  							</select>
 					</div>
 				
@@ -52,7 +72,6 @@
   							<select class="form-control" id="semester">
     							<option>1</option>
     							<option>2</option>
-    					
  							</select>
 				</div>
 				
@@ -222,8 +241,10 @@
  			<button type="button" class="btn btn-success">Add Schedule</button>
   			<button type="button" class="btn btn-default">Clear All</button>
 		</div>
-
-
 	</body>
+
+	<script type="text/javascript">
+		
+	</script>
 
 </html>
