@@ -1,0 +1,533 @@
+body{
+	background-color: #fbf7de;
+	background-image: url("bg.png");
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+*{ /* reset rule*/
+	margin: 0px;
+	padding: 0px;
+}
+
+
+.header1 {
+	background-color: #2D486A;
+	height: 60px;
+	width: auto;
+	font-family: "Futura LT";
+	color: #96A4B5;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header1 ul {
+	list-style-type: none;
+}
+
+.header1 ul li {
+	display: inline-block;
+	margin: auto 10px auto 10px;
+}
+
+@media(max-width: 768px){
+
+	.header1{
+		height: 40px;
+	}
+
+	.header1 ul li
+	{
+		font-size: 8pt;
+	}
+	.header1 img
+	{
+		width: 10pt;
+		height: 10pt;
+	}
+}
+
+.container1 {
+	float: center;
+}
+
+.col-sm-4 img {
+	width: 300px;
+	height: 85px;
+	margin:5px;
+
+}
+
+
+.col-sm-4 ul {
+	list-style-type: none;
+	padding-left: 5px;
+	text-align: center;
+	margin-top: 50px;
+	
+}
+
+.col-sm-4 ul li {
+	font-size: 15pt;
+	display: inline-block;
+	margin: auto 20px auto 5px;
+	color: #2D486A;
+}
+
+.form input
+{
+	margin: 10px;
+}
+.form button
+{
+	margin-top: 5px;
+}
+
+@media (max-width: 768px)
+{
+	.logo 
+	{
+		width: 200px;
+		height: 55px;
+	}
+	.header2
+	{
+		height: 70px;
+	}
+	.header2 ul li
+	{
+		font-size: 10px;
+	}
+}
+
+
+.building
+{
+	float: left;
+	width: 500px;
+	height: 500px;
+	
+}
+.con1
+{
+	float:right;
+	height: 166px;
+	width: 458px;
+	background-color: #2D486A;
+}
+
+.text{
+	z-index: 100;
+  	float-right: right;
+  	padding-right: 10px;
+  	padding-top: 15px;
+  	padding-left: 10px;
+  	color: white;
+  	font-size: 30px;
+  	font-family: "OptimusPrinceps";
+}
+
+.desc{
+	z-index: 100;
+  	color: white;
+  	font-size: 17px;
+  	padding-top: 15px;
+  	padding-left: 10px;
+  	font-family: "Futura LT";
+}
+
+.con2
+{
+	float:right;
+	height: 166px;
+	width: 458px;
+	background-color: #bdc3c7;
+}
+
+.text2{
+	z-index: 100;
+  	color: #2D486A;
+  	font-size: 30px;
+  	padding-right: 10px;
+  	padding-top: 15px;
+  	padding-left: 10px;
+  	font-family: "OptimusPrinceps";
+}
+
+.desc2{
+	z-index: 100;
+  	color: black;
+  	font-size: 17px;
+  	padding-top: 15px;
+  	padding-left: 10px;
+  	font-family: "Futura LT";
+}
+
+.con3
+{
+	float:right;
+	height: 168px;
+	width: 458px;
+	background-color: white;
+}
+.text3
+{
+	z-index: 100;
+  	color: #2D486A;
+  	font-size: 30px;
+  	padding-right: 10px;
+  	padding-top: 15px;
+  	padding-left: 10px;
+  	font-family: "OptimusPrinceps";	
+}
+
+.desc3{
+	z-index: 100;
+  	color: black;
+  	font-size: 17px;
+  	padding-top: 15px;
+  	padding-left: 10px;
+  	font-family: "Futura LT";
+}
+
+@media(max-width: 768px)
+{
+	.building
+	{
+		width: 350px;
+		height: 350px;
+	}
+	.con1
+	{
+		height: 116px;
+		width: 395px;
+	}
+
+	.text
+	{
+  	font-size: 20px;
+	}
+
+	.desc
+	{
+  	font-size: 10px;
+	}
+	.con2
+	{
+		height: 116px;
+		width: 395px;
+	}
+
+	.text2
+	{
+  	font-size: 20px;
+	}
+
+	.desc2
+	{
+  	font-size: 10px;
+	}
+	.con3
+	{
+		height: 119px;
+		width: 395px;
+	}
+	.text3
+	{
+  	font-size: 20px;
+	}
+
+	.desc3
+	{
+  	font-size: 10px;
+	}
+}
+
+.coursebox
+{
+	width: 250px;
+	height: 250px;
+	background-color: #bdc3c7;
+	float: left;
+	margin-top: 50px;
+	margin-right: 70px;
+	margin-left: 70px;
+
+
+}
+
+.text4
+{
+	z-index: 100;
+  	color: #2D486A;
+  	font-size: 20px;
+  	font-family: "OptimusPrinceps";
+  	margin-top: 60px;
+  	margin-left: 10px;
+}
+
+.desc4{
+	z-index: 100;
+  	color: black;
+  	font-size: 15px;
+  	font-family: "Futura LT";
+  	margin-top: 30px;
+  	margin-left: 10px;
+}
+.row1 ul
+{
+	list-style-type: none;
+}
+.row1 ul li
+{
+
+	display: inline-block;
+	margin: 50px 30px 10px 30px;
+}
+.row1 img
+{
+	height: 120px;
+	width: 120px
+	margin:100px;
+}
+
+.row2 ul
+{
+	list-style-type: none;
+}
+
+.row2 ul li
+{
+	display: inline-block;
+	margin: 0px 30px 50px 30px;
+}
+.row2 img
+{
+	height: 120px;
+	width: 120px
+	margin: 100px;
+}
+
+@media(max-width: 768px)
+{
+	.coursebox
+	{
+		width: 150px;
+		height: 150px;
+	}
+
+	.text4
+	{
+		font-size: 15px;
+		margin-top: 45px;
+	}
+	.desc4
+	{
+		font-size: 10px;
+		margin-top: 8px;
+	}
+
+	.row1 img
+	{
+		height: 70px;
+		width: 70px;
+	}
+	.row2 img
+	{
+		height: 70px;
+		width: 70px;
+	}
+}
+
+.header3
+{
+	font-size: 40px;
+	font-family: "Futura LT";
+	padding-left: 380px;
+	color: #2D486A;
+}
+
+.stats
+{
+	height: 200px;
+	background-color: #bdc3c7;
+	margin-top: 20px;
+}
+
+
+.statsheader
+{
+	font-family: "Futura LT";
+	color: #2D486A;
+	font-size: 40pt;
+}
+
+.statsheader ul
+{
+	list-style-type: none;
+}
+
+.statsheader ul li
+{
+	display: inline-block;
+	margin: 20px 75px 20px 110px;
+}
+
+.statsdesc
+{
+	font-family: "Futura LT";
+	font-size: 15px;
+}
+
+.statsdesc ul
+{
+	list-style-type: none;
+}
+
+.statsdesc ul li
+{
+	display: inline-block;
+	margin: 0px 20px 20px 65px;
+}
+
+@media(max-width: 768px)
+{
+	.header3
+	{
+		font-size: 20pt;
+		padding-left: 280px;
+	}
+	.stats
+	{
+		height: 150px;
+	}
+	.statsheader
+	{
+		font-size: 25pt;
+	}
+	.statsheader ul li
+	{
+		margin: 20px 80px 10px 90px;
+	}
+	.statsdesc
+	{
+		font-size: 12px;
+	}
+	.statsdesc ul li
+	{
+		margin: 0px 20px 20px 40px;
+	}
+}
+
+.eimg img{
+	margin: 100px 0px 20px 0px;
+
+}
+
+@media(max-width: 768px)
+{
+	.eimg img
+	{
+		width: 750px;
+		height: 600px;
+	}
+}
+
+.divider
+{
+	height: 50px;
+	background-color: #2D486A;
+	margin-bottom: 30px;
+}
+
+
+.logofooter img{
+	width: 300px;
+	height: 85px;
+	margin-bottom: 30px;
+}
+
+.footertext
+{
+	float:left;
+	margin-right: 50px;
+}
+.footertext ul{
+	list-style-type: none;
+	display: block;
+	color: #2D486A;
+}
+
+.fimg
+{
+	width: 15px;
+	height: 15px;
+}
+
+.footertext ul li
+{
+	font-family: "Futura LT";
+	font-size: 14px;
+}
+
+
+.footer2
+{
+	color: #2D486A;
+
+}
+
+.footer2 h1{
+	font-family: "Futura LT";
+	font-size: 20pt;
+}
+
+.footer2 ul{
+	list-style-type: none;
+	display: block;
+	font-family: "Futura LT";
+	font-size:  15px;
+}
+
+.sns
+{
+	float: right;
+	margin-top: 100px;
+	margin-right: 100px;
+
+}
+
+.sns h1{
+	font-family: "Futura LT";
+	font-size:  40px;
+	font-style: italic;
+	font-weight: normal;
+	color: #2D486A;
+}
+
+.sns img
+{
+	width: 30px;
+	height: 30px; 
+}
+
+.sns ul
+{
+	list-style-type: none;
+}
+
+.sns ul li
+{
+	display: inline-block;
+	margin: auto 0px auto 15px;
+}
+
+.dropdown-menu
+{
+	background-color: #fbf7de;
+
+}
+
