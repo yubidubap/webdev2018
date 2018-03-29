@@ -29,28 +29,40 @@
 	<body>
 
 		<div class="header">
-
 			<ul>
-
 				<li><a href="">Profile</a></li>
 				<li><a href="">Accounts</a></li>
 				<li><a href="">Add Schedule</a></li>
 				<li><a href="">View Schedule</a></li>
 
 				<li>SIGN OUT</li>
-
 			</ul>
 
 			<img src="Quadrant1\logo.png">
-
 		</div>
+
 		<div class="row">
-			
+			<div class="col-sm-4">
+				<h3>Course:</h3>
+					<div class="form-group">
+  							<select class="form-control" id="course">
+    							<?php
+									$sql = "SELECT courseCode FROM Course";
+									$result = $conn->query($sql);
+
+							   		while($row = $result->fetch_assoc()) {
+							        	echo "<option>".$row["courseCode"]."</option>";
+							    	}
+								?>
+ 							</select>
+					</div>
+					<h2></h2>
+			</div>
 
 			<div class="col-sm-4">
 				<h3>Curriculum:</h3>
 					<div class="form-group">
-  							<select class="form-control" id="curriculum" onchange=>
+  							<select class="form-control" id="curriculum">
     							<?php
 									$sql = "SELECT curriculumCode FROM curriculum";
 									$result = $conn->query($sql);
@@ -58,11 +70,9 @@
 							   		while($row = $result->fetch_assoc()) {
 							        	echo "<option>".$row["curriculumCode"]."</option>";
 							    	}
-									$conn->close();
 								?>
  							</select>
 					</div>
-				
 					<h2></h2>
 			</div>
 
@@ -73,41 +83,40 @@
     							<option>1</option>
     							<option>2</option>
  							</select>
-				</div>
-				
-					<h2></h2>
-			</div>
-
-			<div class="col-sm-4">
-				<h3>Subject:</h3>
-					<select class="selectpicker" data-live-search="true" id="course">
-						<option>System Analysis and Design</option>
-  						<option>Software Engineering</option>
-  						<option>Web Development</option>
-		
-					</select>
+					</div>
 					<h2></h2>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="form-group">
-  					<label for="section">Section:</label>
-  					<select class="form-control" id="section">
-    					<option>1</option>
-    					<option>2</option>
-    					
- 					</select>
-				</div>
-				
-				
-					
+				<h3>Subject:</h3>
+					<select class="selectpicker" data-live-search="true" id="subject">
+					</select>
+					<h2></h2>
 			</div>
-		
 
 			<div class="col-sm-4">
-				<label for="lecturebtn">Lecture Room</label>
+				<h3>Section:</h3>
+				<div class="form-group">
+  					<select class="form-control" id="section">
+			    		<?php
+							$sql = "SELECT sectionCode FROM section";
+							$result = $conn->query($sql);
+
+					   		while($row = $result->fetch_assoc()) {
+					        	echo "<option>".$row["sectionCode"]."</option>";
+					    	}
+
+						?>
+ 					</select>
+				</div>	
+			</div>
+		</div>
+
+		<div class="row">
+					<div class="col-sm-6">
+				<label for="lecturebtn"><h3>Lecture Room</h3></label>
 				<div class="form-group">
 					<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#lecturebtn">Add</button>
 
@@ -139,24 +148,24 @@
 
 							<div class="form-group">
 								<div class="container">
-									<h4>Day:</h>
+									<h4>Day:</h4>
 										<div class="checkbox">
-											<label><input type="checkbox" value="">Monday</label>
+											<label><input type="checkbox" value="MO">Monday</label>
 										</div>
 										<div class="checkbox">
-  											<label><input type="checkbox" value="">Tuesday</label>
+  											<label><input type="checkbox" value="TU">Tuesday</label>
 										</div>
 										<div class="checkbox">
-  											<label><input type="checkbox" value="">Wednesday</label>
+  											<label><input type="checkbox" value="WE">Wednesday</label>
 										</div>
 										<div class="checkbox">
-  											<label><input type="checkbox" value="">Thursday</label>
+  											<label><input type="checkbox" value="TH">Thursday</label>
 										</div>
 										<div class="checkbox">
-  										<label><input type="checkbox" value="">Friday</label>
+  											<label><input type="checkbox" value="FR">Friday</label>
 										</div>
 										<div class="checkbox">
-  										<label><input type="checkbox" value="">Saturday</label>
+  											<label><input type="checkbox" value="SA">Saturday</label>
 										</div>
 								</div>
 							</div>
@@ -164,13 +173,12 @@
 							<div>
 								<button type="button" class="btn btn-success">Save</button>
 							</div>
-
 						</div>
 				</div>
 			</div>
 
-			<div class="col-sm-4">
-				<label for="laboratorybtn">Laboratory Room</label>
+			<div class="col-sm-6">
+				<label for="laboratorybtn"><h3>Laboratory Room</h3></label>
 				<div class="form-group">
 					<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#laboratorybtn">Add</button>
 
@@ -202,24 +210,24 @@
 
 							<div class="form-group">
 								<div class="container">
-									<h4>Day:</h>
+									<h4>Day:</h4>
 										<div class="checkbox">
-											<label><input type="checkbox" value="">Monday</label>
+											<label><input type="checkbox" value="MO">Monday</label>
 										</div>
 										<div class="checkbox">
-  											<label><input type="checkbox" value="">Tuesday</label>
+  											<label><input type="checkbox" value="TU">Tuesday</label>
 										</div>
 										<div class="checkbox">
-  											<label><input type="checkbox" value="">Wednesday</label>
+  											<label><input type="checkbox" value="WE">Wednesday</label>
 										</div>
 										<div class="checkbox">
-  											<label><input type="checkbox" value="">Thursday</label>
+  											<label><input type="checkbox" value="TH">Thursday</label>
 										</div>
 										<div class="checkbox">
-  										<label><input type="checkbox" value="">Friday</label>
+  											<label><input type="checkbox" value="FR">Friday</label>
 										</div>
 										<div class="checkbox">
-  										<label><input type="checkbox" value="">Saturday</label>
+  											<label><input type="checkbox" value="SA">Saturday</label>
 										</div>
 								</div>
 							</div>
@@ -230,10 +238,7 @@
 
 						</div>
 				</div>
-				
 			</div>
-
-
 		</div>
 
 		<div>
@@ -241,10 +246,11 @@
  			<button type="button" class="btn btn-success">Add Schedule</button>
   			<button type="button" class="btn btn-default">Clear All</button>
 		</div>
+
 	</body>
 
 	<script type="text/javascript">
-		
+
 	</script>
 
 </html>
