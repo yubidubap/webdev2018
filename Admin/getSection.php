@@ -8,8 +8,13 @@
 
 	$result = $conn->query($sql);
 
-	while($row = $result->fetch_assoc())
+	echo "<option>Select Section</option>";
+
+	if ($result->num_rows > 0) 
 	{
-    	echo "<option value='".$row["sectionCode"]."'>".$row["sectionCode"]."</option>";
+		while($row = $result->fetch_assoc())
+		{
+	    	echo "<option value='".$row["sectionCode"]."'>".$row["sectionCode"]."</option>";
+		}
 	}
 ?>
