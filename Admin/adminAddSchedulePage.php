@@ -37,13 +37,16 @@
   							<select class="form-control" id="course" onchange="showCurriculumAndSection(this.value)">
   								<option>Select Course</option>
     							<?php
-									$sql = "SELECT courseCode FROM Course";
+									$sql = "SELECT courseCode, courseTitle FROM Course";
 									$result = $conn->query($sql);
-
-							   		while($row = $result->fetch_assoc())
-							   		{
-							        	echo "<option value='".$row["courseCode"]."'>".$row["courseCode"]."</option>";
-							    	}
+									
+									if ($result->num_rows > 0) 
+									{
+								   		while($row = $result->fetch_assoc())
+								   		{
+								        	echo "<option value='".$row["courseCode"]."'>".$row["courseTitle"]."</option>";
+								    	}
+								    }
 								?>
  							</select>
 					</div>
@@ -53,8 +56,8 @@
 			<div class="col-sm-4">
 				<h3>Curriculum:</h3>
 					<div class="form-group">
-  							<select class="form-control" id="curriculum">
-
+  							<select class="form-control" id="curriculum" onchange="showOptions(this.value, showSubject, 'getSubject.php')">
+  							  	<option>Select Curriculum</option>
  							</select>
 					</div>
 					<h2></h2>
@@ -64,6 +67,7 @@
 				<h3>Semester:</h3>
 					<div class="form-group">
   							<select class="form-control" id="semester">
+  								<option>Select Semester</option>
     							<option>1</option>
     							<option>2</option>
  							</select>
@@ -75,8 +79,14 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<h3>Subject:</h3>
-					<select class="selectpicker" data-live-search="true" id="subjects" >
-					</select>
+					<!--<select class="selectpicker" data-live-search="true" id="subjects" >
+					</select>-->
+
+					<div class="form-group">
+  						<select class="form-control" id="subjects">
+  							<option>Select Subject</option>
+ 						</select>
+					</div>
 					<h2></h2>
 			</div>
 
@@ -84,6 +94,7 @@
 				<h3>Section:</h3>
 				<div class="form-group">
   					<select class="form-control" id="section">
+  						<option>Select Section</option>
  					</select>
 				</div>	
 			</div>
@@ -258,7 +269,6 @@
 
 		function showSubject(xmlhttp)
 		{
-			console.log("Subject");
 			document.getElementById("subjects").innerHTML = xmlhttp.responseText;
 		}
 
@@ -272,6 +282,7 @@
 		{
 			showOptions(val, showCurriculum, 'getCurriculum.php');
 			showOptions(val, showSection, 'getSection.php');
+			showOptions(val, showSubject, 'getSubject.php');
 		}
 	</script>
 
