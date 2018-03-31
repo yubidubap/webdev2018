@@ -1,15 +1,5 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "1234";
-	$dbname = "universidaddelaguna";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
+	include "connection.php";
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +17,6 @@
 	</head>
 
 	<body>
-
 		<div class="header">
 			<ul>
 				<li><a href="">Profile</a></li>
@@ -45,13 +34,15 @@
 			<div class="col-sm-4">
 				<h3>Course:</h3>
 					<div class="form-group">
-  							<select class="form-control" id="course">
+  							<select class="form-control" id="course" onchange="showCurriculumAndSection(this.value)">
+  								<option>Select Course</option>
     							<?php
 									$sql = "SELECT courseCode FROM Course";
 									$result = $conn->query($sql);
 
-							   		while($row = $result->fetch_assoc()) {
-							        	echo "<option>".$row["courseCode"]."</option>";
+							   		while($row = $result->fetch_assoc())
+							   		{
+							        	echo "<option value='".$row["courseCode"]."'>".$row["courseCode"]."</option>";
 							    	}
 								?>
  							</select>
@@ -63,14 +54,7 @@
 				<h3>Curriculum:</h3>
 					<div class="form-group">
   							<select class="form-control" id="curriculum">
-    							<?php
-									$sql = "SELECT curriculumCode FROM curriculum";
-									$result = $conn->query($sql);
 
-							   		while($row = $result->fetch_assoc()) {
-							        	echo "<option>".$row["curriculumCode"]."</option>";
-							    	}
-								?>
  							</select>
 					</div>
 					<h2></h2>
@@ -91,7 +75,7 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<h3>Subject:</h3>
-					<select class="selectpicker" data-live-search="true" id="subject">
+					<select class="selectpicker" data-live-search="true" id="subjects" >
 					</select>
 					<h2></h2>
 			</div>
@@ -100,15 +84,6 @@
 				<h3>Section:</h3>
 				<div class="form-group">
   					<select class="form-control" id="section">
-			    		<?php
-							$sql = "SELECT sectionCode FROM section";
-							$result = $conn->query($sql);
-
-					   		while($row = $result->fetch_assoc()) {
-					        	echo "<option>".$row["sectionCode"]."</option>";
-					    	}
-
-						?>
  					</select>
 				</div>	
 			</div>
@@ -250,7 +225,54 @@
 	</body>
 
 	<script type="text/javascript">
+		function showOptions(str, currentFunction, url)
+		{
+	        if (window.XMLHttpRequest) 
+	        {
+	            // code for IE7+, Firefox, Chrome, Opera, Safari
+	            xmlhttp = new XMLHttpRequest();
+	        } 
 
+	        else 
+	        {
+	            // code for IE6, IE5
+	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	        }
+
+	        xmlhttp.onreadystatechange = function()
+	        {
+	            if (this.readyState == 4 && this.status == 200) 
+	            {
+	            	currentFunction(this);
+	          	}
+	        };
+
+	        xmlhttp.open("GET", url+ "?q=" +str, true);
+	        xmlhttp.send();   
+		}
+
+		function showCurriculum(xmlhttp)
+		{
+			document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
+		}
+
+		function showSubject(xmlhttp)
+		{
+			console.log("Subject");
+			document.getElementById("subjects").innerHTML = xmlhttp.responseText;
+		}
+
+		function showSection(xmlhttp)
+		{
+			console.log("Section");
+			document.getElementById("section").innerHTML = xmlhttp.responseText;
+		}
+
+		function showCurriculumAndSection(val)
+		{
+			showOptions(val, showCurriculum, 'getCurriculum.php');
+			showOptions(val, showSection, 'getSection.php');
+		}
 	</script>
 
 </html>
