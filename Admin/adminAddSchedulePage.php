@@ -341,7 +341,7 @@
 	        };
 
 	        xmlhttp.open("GET", url+ "?q=" +str, true);
-	        xmlhttp.send();   
+	        xmlhttp.send();
 		}
 
 		function showCurriculum(xmlhttp)
