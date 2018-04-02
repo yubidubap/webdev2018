@@ -9,6 +9,9 @@
 		<link rel="stylesheet" type="text/css" href="adminAddAccount.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- add -->
+		<script src="adminAddAccount.js"></script>
+		<!-- end -->
 	</head>
 
 	<body>
@@ -30,11 +33,14 @@
 		<div class="header2">
 			<h1>Add Account</h1>
 		</div>
-		<div class="row">
-			<div class="col-sm-4">
+	<!-- add -->
+	<form class="container-fluid" action="#" method="post" id="validateForm">
+	<!-- end -->
+		<div class="container-fluid">
+			<div class="col-xs-3 form-horizontal">
 				<div class="form-group">
 					<label for="accounttype">Account Type:</label>
-  					<select class="form-control" id="accounttype" onchange="enableCurriculumCourse()">
+  					<select name="accountType" class="form-control" id="accounttype" onchange="enableCurriculumCourse()">
     					<option>Student</option>
     					<option>Administrator</option>
     					<option>Registrar</option>
@@ -43,10 +49,11 @@
 				</div>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-xs-offset-1 col-xs-3 form-horizontal">
 				<div class="form-group">
 					<label for="course">Course:</label>
-  					<select class="form-control" id="course">
+  					<select name="course" class="form-control" id="course">
+  						<option value=" " >Select Student's Course</option>
     					<option>BS Information Technology</option>
     					<option>BS Accountancy</option>
     					<option>BS Electronics and Communications Engineer</option>
@@ -55,10 +62,11 @@
 				</div>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-xs-offset-1 col-xs-3 form-horizontal">
 				<div class="form-group">
 					<label for="curriculum">Curriculum:</label>
-  					<select class="form-control" id="curriculum">
+  					<select name="curriculum" class="form-control" id="curriculum">
+  						<option value=" " >Select curriculum</option>
     					<option>Curriculum 2009</option>
     					<option>Curriculum 2012</option>
     					<option>Curriculum 2015</option>
@@ -68,73 +76,74 @@
 			</div>
 		</div>
 
-		<div class="row">
+
 			<div class="col-sm-4">
 
 				<div class="form-group">
 					<label for="fname">First Name:</label>
-					<input type="text" class="form-control" id="fname"></input>
+					<input type="text" class="form-control" id="fname" name="firstname" placeholder="First Name" onkeyup="lettersOnly(this)">
+					</input>
 				</div>
 				
 				<div class="form-group">
 					<label for="Mname">Middle Name:</label>
-					<input type="text" class="form-control" id="Mname"></input>
+					<input type="text" class="form-control" id="Mname" name="middlename" placeholder="Middle Name" onkeyup="lettersOnly(this)">
+					</input>
 				</div>
 
 				<div class="form-group">
 					<label for="lname">Last Name:</label>
-					<input type="text" class="form-control" id="lname"></input>
+					<input type="text" class="form-control" id="lname" name="lastname" placeholder="Last Name" onkeyup="lettersOnly(this)">
+					</input>
 				</div>
 			</div>
+
 			<div class="col-sm-4">
 
 				<div class="form-group">
 					<label for="mobilenumber">Mobile Number:</label>
-					<input type="text" class="form-control" id="mobNum"></input>
+					<input type="text" id="mobNum" name="mobilenumber" placeholder="Enter 10 digit no. (9123456789)" 
+					class="form-control bfh-phone" type="text" onkeyup="numbersOnly(this)"></input>
 				</div>
 
 				<div class="form-group">
 					<label for="email">E-Mail Address:</label>
-					<input type="text" class="form-control" id="email"></input>
+					<input type="text" class="form-control" id="email" name="email" placeholder="E-Mail"></input>
 				</div>
 			</div>
 
 			<div class="col-sm-4">
-				<div class="form-group">
-					<label for="pass1">Password:</label>
-					<input type="password" class="form-control" id="pass1"></input>
-				</div>
-				<div class="form-group">
-					<label for="pass2">Confirm Password:</label>
-					<input type="password" class="form-control" id="pass2"></input>
-				</div>
+			    <div class="form-group has-feedback">
+			         <label for="pass1">Password</label>
+			         <input class="form-control" id="pass1" type="password" placeholder="Password" name="password" data-minLength="5"
+			             data-error="some error" required/>
+			    </div>
+
+					<div class="form-group has-feedback">
+					            <label for="pass2">Confirm Password</label>
+					            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" 
+					                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+					                       data-match-error="some error 2"
+					                       required/>
+					</div>
 			</div>
 
-		</div>
-
 		<div class="pull-right">
- 			<button type="button" class="btn btn-success">Add Account</button>
-  			<button type="button" class="btn btn-reset">Clear All</button>
+			<div class="btn-group">
+				<div class="form-group">
+					<button class="btn btn-success" button type="submit" class="btn btn-warning">Add Account</button>
+	  				<button type="button" class="btn btn-default">Clear All</button>
+				 </div>
+			</div>
 		</div>
 
-		<script type="text/javascript">
 
-			function enableCurriculumCourse() {
-				var x = document.getElementById("accounttype").value;
+	</form>
 
-				if (x == "Student")
-				{
-					document.getElementById("course").disabled = false;
-					document.getElementById("curriculum").disabled = false;
-				}
 
-				else
-				{
-					document.getElementById("course").setAttribute('disabled', true);
-					document.getElementById("curriculum").setAttribute('disabled', true);
-				}
-			}
-		</script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 
 
 	</body>
