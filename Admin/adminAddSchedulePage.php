@@ -108,6 +108,18 @@
 					<div class="form-group">
 	  					<select class="form-control" name="SchoolYear" id="schoolYear">
 	  					<option>Select School Year</option>
+	  						<?php
+								$sql = "SELECT DISTINCT schoolYear FROM enrollment";
+								$result = $conn->query($sql);
+								
+								if ($result->num_rows > 0) 
+								{
+							   		while($row = $result->fetch_assoc())
+							   		{
+							        	echo "<option value='".$row["schoolYear"]."'>".$row["schoolYear"]."</option>";
+							    	}
+							    }
+	  						?>
 	 					</select>
 					</div>	
 				</div>
