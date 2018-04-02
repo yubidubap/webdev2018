@@ -1,6 +1,9 @@
+<?php
+	include "connection.php";
+?>
+
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<title>Profile </title>
 		<meta charset="utf-8">
@@ -28,31 +31,33 @@
 
 		</div>
 
-		<div class="infobodyheader">
+		<?php
+			$sql = "SELECT firstName, middleName, lastName, email, mobileNum FROM account WHERE accountType = 'Admin'";
+			$result = $conn->query($sql);
 
-			<h1>Welcome!, "admin name here" </h1>
-			
-		</div>
+			if ($result->num_rows > 0) 
+			{
+		   		while($row = $result->fetch_assoc())
+		   		{
+		   			echo "<div class='infobodyheader'>
+					<h1>Welcome, <b>".$row["firstName"]."</b>!</h1>
+					</div>
 
-		<div class="infobodyheader2">
+					<div class='infobodyheader2'>
 
-			<h1>Personal Information</h1>
+						<h1>Personal Information</h1>
 
-		</div>
+					</div>
 
-		<div class="infobody">
-		
-			<ul>
-				<li>Name</li>
-				<li>Date of Birth</li>
-				<li>Gender</li>
-				<li>Address</li>
-				<li>E-mail Address</li>
-			</ul>
-			
-
-		</div>
-
+					<div class='infobody'>
+						<ul>
+							<li>Name: <b>".$row["lastName"].", ".$row["firstName"]." ".$row["middleName"]."</b></li>
+							<li>E-mail Address: <b>".$row["email"]."</b></li>
+							<li>Mobile Number: <b>".$row["mobileNum"]."</b></li>
+						</ul>
+					</div>";
+		    	}
+		    }
+		?>
 	</body>
-
 </html>
