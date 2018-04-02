@@ -10,8 +10,11 @@
 
 	echo "<option>Select Subject</option>";
 	
-	while($row = $result->fetch_assoc())
+	if ($result->num_rows > 0) 
 	{
-    	echo "<option value='".$row["cs_subjectFK"]."'>".$row["subjectTitle"]."</option>";
+		while($row = $result->fetch_assoc())
+		{
+    		echo "<option value='".$row["cs_subjectFK"]."'>".$row["subjectTitle"]."</option>";
+		}
 	}
 ?>
