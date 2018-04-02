@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>View Schedule</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="adminViewSchedule.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="header">
+
+			<ul>
+				<li><a href="adminProfilePage.php">Profile</a></li>
+				<li><a href="adminAddAccountPage.php">Accounts</a></li>
+				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
+				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>
+
+				<li>SIGN OUT</li>
+			</ul>
+
+			<img src="Quadrant1\logo.png">
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4">
+				<h4>Course:</h4>
+					<div class="form-group">
+  							<select class="form-control" id="course">
+    							<option>BSIT</option>
+    							<option>BSECE</option>
+    					
+ 							</select>
+					</div>
+			</div>
+
+			<div class="col-sm-4">
+				<h4>Section:</h4>
+					<div class="form-group">
+  							<select class="form-control" id="section">
+    							<option>1</option>
+    							<option>2</option>
+    					
+ 							</select>
+					</div>
+			</div>
+
+			<div class="col-sm-4">
+				<h4>Year Level:</h4>
+					<div class="form-group">
+  							<select class="form-control" id="studentyearlevel">
+    							<option>First Year</option>
+    							<option>Second Year</option>
+    							<option>Third Year</option>
+    							<option>Fourth Year</option>
+    							<option>Fifth Year</option>
+    					
+ 							</select>
+					</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div>
+				<table class="table">
+					<tr>
+						<th>Subject Code</th>
+						<th>Description</th>
+						<th>Units</th>
+						<th>Day</th>
+						<th>Time Start</th>
+						<th>Time End</th>
+						<th>Room</th>
+					</tr>
+					<tr>
+						<td>COMP 2033</td>
+						<td>System Analysis and Design</td>
+						<td>3</td>
+						<td>Monday</td>
+						<td>7:30am</td>
+						<td>1:30pm</td>
+						<td>IT 1-2</td>
+					</tr>
+				</table>
+
+
+				
+			</div>
+		</div>
+
+	</body>
+
+</html>

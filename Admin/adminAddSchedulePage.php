@@ -19,16 +19,18 @@
 	<body>
 		<div class="header">
 			<ul>
-				<li><a href="">Profile</a></li>
-				<li><a href="">Accounts</a></li>
-				<li><a href="">Add Schedule</a></li>
-				<li><a href="">View Schedule</a></li>
+				<li><a href="adminProfilePage.php">Profile</a></li>
+				<li><a href="adminAddAccountPage.php">Accounts</a></li>
+				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
+				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>
 
 				<li>SIGN OUT</li>
 			</ul>
 
 			<img src="Quadrant1\logo.png">
 		</div>
+
+		<h2>Add Schedule</h2>
 
 		<form action="#" method="post">
 			<div class="row">
@@ -111,6 +113,7 @@
 								<div class="form-group">
 									<label for="timestartlec">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLec" id="timestartlec">
+	  									<option>Select Start Time</option>
 	    								<option>7:30 AM</option>
 	    								<option>8:30 AM</option>
 	    								<option>9:30 AM</option>
@@ -129,6 +132,7 @@
 								<div class="form-group">
 									<label for="timeendlec">Time End:</label>
 	  								<select class="form-control" name="TimeEndLec" id="timeendlec">
+	  									<option>Select End Time</option>
 	    								<option>8:30 AM</option>
 	    								<option>9:30 AM</option>
 	    								<option>10:30 AM</option>
@@ -148,18 +152,19 @@
 								<div class="form-group">
 	  								<label for="room">Room:</label>
 	  								<select class="form-control" name="RoomLec" id="roomLec">
-	  								<?php
-										$sql = "SELECT roomCode FROM room WHERE roomType = 'Lecture'";
-										$result = $conn->query($sql);
-										
-										if ($result->num_rows > 0) 
-										{
-									   		while($row = $result->fetch_assoc())
-									   		{
-									        	echo "<option value='".$row["roomCode"]."'>".$row["roomCode"]."</option>";
-									    	}
-									    }
-									?>	
+	  									<option>Select Room</option>
+		  								<?php
+											$sql = "SELECT roomCode FROM room WHERE roomType = 'Lecture'";
+											$result = $conn->query($sql);
+											
+											if ($result->num_rows > 0) 
+											{
+										   		while($row = $result->fetch_assoc())
+										   		{
+										        	echo "<option value='".$row["roomCode"]."'>".$row["roomCode"]."</option>";
+										    	}
+										    }
+										?>	
 	 								</select>
 								</div>
 
@@ -167,22 +172,22 @@
 									<div class="container">
 										<h4>Day:</h4>
 											<div class="checkbox">
-												<label><input type="checkbox" value="MO">Monday</label>
+												<label><input type="checkbox" name="checklist[]" value="MO">Monday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="TU">Tuesday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="TU">Tuesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="WE">Wednesday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="WE">Wednesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="TH">Thursday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="TH">Thursday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="FR">Friday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="FR">Friday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="SA">Saturday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="SA">Saturday</label>
 											</div>
 									</div>
 								</div>
@@ -203,6 +208,7 @@
 								<div class="form-group">
 									<label for="timestartlab">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLab" id="timestartlab">
+	  									<option>Select Start Time</option>
 	    								<option>7:30 AM</option>
 	    								<option>8:30 AM</option>
 	    								<option>9:30 AM</option>
@@ -221,6 +227,7 @@
 								<div class="form-group">
 									<label for="timeendlab">Time End:</label>
 	  								<select class="form-control" name="TimeEndLab" id="timeendlab">
+	  									<option>Select End Time</option>
 	    								<option>8:30 AM</option>
 	    								<option>9:30 AM</option>
 	    								<option>10:30 AM</option>
@@ -239,19 +246,20 @@
 
 								<div class="form-group">
 	  								<label for="room">Room:</label>
-	  								<select class="form-control" name="roomLab" id="roomLab">
-	  								<?php
-										$sql = "SELECT roomCode FROM room WHERE roomType = 'Laboratory'";
-										$result = $conn->query($sql);
-										
-										if ($result->num_rows > 0) 
-										{
-									   		while($row = $result->fetch_assoc())
-									   		{
-									        	echo "<option value='".$row["roomCode"]."'>".$row["roomCode"]."</option>";
-									    	}
-									    }
-									?>	
+	  								<select class="form-control" name="RoomLab" id="roomLab">
+	  									<option>Select Room</option>
+		  								<?php
+											$sql = "SELECT roomCode FROM room WHERE roomType = 'Laboratory'";
+											$result = $conn->query($sql);
+											
+											if ($result->num_rows > 0) 
+											{
+										   		while($row = $result->fetch_assoc())
+										   		{
+										        	echo "<option value='".$row["roomCode"]."'>".$row["roomCode"]."</option>";
+										    	}
+										    }
+										?>	
 	 								</select>
 								</div>
 
@@ -259,22 +267,22 @@
 									<div class="container">
 										<h4>Day:</h4>
 											<div class="checkbox">
-												<label><input type="checkbox" value="MO">Monday</label>
+												<label><input type="checkbox" name="checklist1[]" value="MO">Monday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="TU">Tuesday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="TU">Tuesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="WE">Wednesday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="WE">Wednesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="TH">Thursday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="TH">Thursday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="FR">Friday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="FR">Friday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" value="SA">Saturday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="SA">Saturday</label>
 											</div>
 									</div>
 								</div>
@@ -296,14 +304,20 @@
 		</form>
 
 		<?php
-			if(isset($_POST['submit'])){
+			if(isset($_POST['submit']))
+			{
 				$course = $_POST['Course'];
 				$curriculum = $_POST['Curriculum'];
 				$sem = $_POST['Semester'];
 				$sub = $_POST['Subject'];
 				$sec = $_POST['Section'];
 				$roomLec = $_POST['RoomLec'];
-				$roomLab = $_POST['roomLab'];
+				$timeSLec = $_POST['TimeStartLec'];
+				$timeELec = $_POST['TimeEndLec'];
+				$roomLab = $_POST['RoomLab'];
+				$timeSLab = $_POST['TimeStartLab'];
+				$timeELab = $_POST['TimeEndLab'];
+
 
 				echo "</br>Course: ".$course;
 				echo "</br>Curriculum: ".$curriculum;
@@ -311,7 +325,28 @@
 				echo "</br>Subject: ".$sub;
 				echo "</br>Section: ".$sec;
 				echo "</br>Lecture Room: ".$roomLec;
+				echo "</br>Start Time Lecture: ".$timeSLec;
+				echo "</br>End Time Lecture: ".$timeELec;
+
+				if(!empty($_POST['checklist'])) 
+				{
+					foreach($_POST['checklist'] as $selectedLec) 
+					{
+						echo "</br>".$selectedLec;
+					}
+				}
+
 				echo "</br>Laboratory Room: ".$roomLab;
+				echo "</br>Start Time Laboratory: ".$timeSLab;
+				echo "</br>End Time Laboratory: ".$timeELab;
+
+				if(!empty($_POST['checklist1'])) 
+				{
+					foreach($_POST['checklist1'] as $selectedLab) 
+					{
+						echo "</br>".$selectedLab;
+					}
+				}
 			}
 		?>
 
@@ -367,5 +402,4 @@
 			showOptions(val, showSubject, 'getSubject.php');
 		}
 	</script>
-
 </html>
