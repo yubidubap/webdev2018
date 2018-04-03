@@ -116,22 +116,18 @@
 				         <input class="form-control" id="pass1" type="password" placeholder="Password" name="password" data-minLength="5"
 				             data-error="some error" required/>
 				    </div>
+
+				    <div class"form-group">
+				            <label for="pass2">Confirm Password</label>
+				            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" name="confirmPassword" data-match="#confirmPassword" data-minLength="5" data-match-error="some error 2" required/>
+				    </div>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="pull-right">
-						<div class"form-group">
-				            <label for="pass2">Confirm Password</label>
-				            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" name="confirmPassword" data-match="#confirmPassword" data-minLength="5" data-match-error="some error 2" required/>
-				        </div>
-			        </div>
-				</div>
-			</div>
 
 			<div class="row">
 			<div class = "col-sm-12">
+			<h1></h1>
 				<div class="pull-right">
 					<button class="btn btn-success" button type="submit" class="btn btn-warning">Add Account</button>
 	  				<button type="button" class="btn btn-default">Clear All</button>
