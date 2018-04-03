@@ -95,10 +95,10 @@ function showCurriculum(xmlhttp)
 
 		firstname: {
 			validators: {
-				/*stringLength: {
-
-					message: 'Please Enter your Full name with minimum of 5 letters max: 20'
-				},*/
+				stringLength: {
+                        min: 2,
+                        message: 'Please Enter your First name'
+                },
 				notEmpty: {
 					message: 'Please Enter your Full name'
 				}
@@ -107,6 +107,10 @@ function showCurriculum(xmlhttp)
 
 		middlename: {
 			validators: {
+				stringLength: {
+                        min: 2,
+                        message: 'Please Enter your Middle name'
+                },
 				notEmpty: {
 					message: 'Please Enter your Full name'
 				}
@@ -115,6 +119,10 @@ function showCurriculum(xmlhttp)
 
 		lastname: {
 			validators: {
+				stringLength: {
+                        min: 2,
+                        message: 'Please Enter your Last name'
+                },
 				notEmpty: {
 					message: 'Please Enter your Full name'
 				}
