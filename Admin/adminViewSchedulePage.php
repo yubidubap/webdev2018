@@ -40,7 +40,7 @@
 				<h3>Course:</h3>
 					<div class="form-group">
   							<select class="form-control" name="Course" id="course" onchange="showOptions(this.value, showSection, 'getSection.php')">
-  								<option>Select Course</option>
+  								<option disabled selected>Select Course</option>
 								<?php
 									$sql = "SELECT courseCode, courseTitle FROM Course";
 									$result = $conn->query($sql);
@@ -61,7 +61,7 @@
 				<h3>Section:</h3>
 					<div class="form-group">
   							<select class="form-control" name="Section" id="section">
-  								<option>Select Section</option>
+  								<option disabled selected>Select Section</option>
  							</select>
 					</div>
 			</div>
@@ -72,7 +72,7 @@
 				<h3>School Year:</h3>
 					<div class="form-group">
   							<select class="form-control" name="Course" id="course">
-  								<option>Select School Year</option>
+  								<option disabled selected>Select School Year</option>
 								<?php
 									$sql = "SELECT DISTINCT schoolYear FROM enrollment";
 									$result = $conn->query($sql);
@@ -93,7 +93,7 @@
 				<h3>Semester:</h3>
 					<div class="form-group">
   							<select class="form-control" name="Section" id="section">
-  								<option>Select Semester</option>
+  								<option disabled selected>Select Semester</option>
   								<option>1</option>
   								<option>2</option>
  							</select>
@@ -103,7 +103,7 @@
 
 		<div class="row">
 			<div>
-				<table class="table" name="scheduleTable">
+				<table class="table" id="scheduleTable">
 					<tr>
 						<th>Subject Code</th>
 						<th>Description</th>
@@ -113,16 +113,6 @@
 						<th>Time Start</th>
 						<th>Time End</th>
 						<th>Room</th>
-					</tr>
-					<tr>
-						<td>COMP 2033</td>
-						<td>System Analysis and Design</td>
-						<td>3</td>
-						<td>Lecture</td>
-						<td>Monday</td>
-						<td>7:30am</td>
-						<td>1:30pm</td>
-						<td>UDL 1-1</td>
 					</tr>
 				</table>				
 			</div>
@@ -157,11 +147,41 @@
 	        xmlhttp.send();
 		}
 
-		function showSchedule(str, currentFunction, url)
 
 		function showSection(xmlhttp)
 		{
 			document.getElementById("section").innerHTML = xmlhttp.responseText;
+		}
+
+		function showSchedule(sem, sec, sy, cFunction, url)
+		{
+			if (window.XMLHttpRequest) 
+	        {
+	            // code for IE7+, Firefox, Chrome, Opera, Safari
+	            xmlhttp = new XMLHttpRequest();
+	        } 
+
+	        else 
+	        {
+	            // code for IE6, IE5
+	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	        }
+
+	        xmlhttp.onreadystatechange = function()
+	        {
+	            if (this.readyState == 4 && this.status == 200) 
+	            {
+	            	currentFunction(this);
+	          	}
+	        };
+
+	        xmlhttp.open("GET", url + "?sem=" + sem + "&sec=" + sec + "&sy=" + sy , true);
+	        xmlhttp.send();
+		}
+
+		function showSchedule(str, currentFunction, url)
+		{
+			document.getElementById("scheduleTable").innerHTML = xmlhttp.responseText;
 		}
 	</script>
 
