@@ -61,7 +61,41 @@
 				<h3>Section:</h3>
 					<div class="form-group">
   							<select class="form-control" name="Section" id="section">
-  								<option>Select Section  	</option>
+  								<option>Select Section</option>
+ 							</select>
+					</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>School Year:</h3>
+					<div class="form-group">
+  							<select class="form-control" name="Course" id="course">
+  								<option>Select School Year</option>
+								<?php
+									$sql = "SELECT DISTINCT schoolYear FROM enrollment";
+									$result = $conn->query($sql);
+									
+									if ($result->num_rows > 0) 
+									{
+								   		while($row = $result->fetch_assoc())
+								   		{
+								        	echo "<option value='".$row["schoolYear"]."'>".$row["schoolYear"]."</option>";
+								    	}
+								    }
+								?>
+ 							</select>
+					</div>
+			</div>
+
+			<div class="col-sm-6">
+				<h3>Semester:</h3>
+					<div class="form-group">
+  							<select class="form-control" name="Section" id="section">
+  								<option>Select Semester</option>
+  								<option>1</option>
+  								<option>2</option>
  							</select>
 					</div>
 			</div>
@@ -69,12 +103,13 @@
 
 		<div class="row">
 			<div>
-				<table class="table">
+				<table class="table" name="scheduleTable">
 					<tr>
 						<th>Subject Code</th>
 						<th>Description</th>
 						<th>Units</th>
-						<th>Day</th>
+						<th>Room Type</th>
+						<th>Day/s</th>
 						<th>Time Start</th>
 						<th>Time End</th>
 						<th>Room</th>
@@ -83,15 +118,13 @@
 						<td>COMP 2033</td>
 						<td>System Analysis and Design</td>
 						<td>3</td>
+						<td>Lecture</td>
 						<td>Monday</td>
 						<td>7:30am</td>
 						<td>1:30pm</td>
-						<td>IT 1-2</td>
+						<td>UDL 1-1</td>
 					</tr>
-				</table>
-
-
-				
+				</table>				
 			</div>
 		</div>
 
@@ -124,6 +157,7 @@
 	        xmlhttp.send();
 		}
 
+		function showSchedule(str, currentFunction, url)
 
 		function showSection(xmlhttp)
 		{

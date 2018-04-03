@@ -39,7 +39,7 @@
 					<h3>Course:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Course" id="course" onchange="showCurriculumAndSection(this.value)">
-	  							<option>Select Course</option>
+	  							<option disabled selected>Select Course</option>
 	    							<?php
 										$sql = "SELECT courseCode, courseTitle FROM Course";
 										$result = $conn->query($sql);
@@ -61,7 +61,7 @@
 					<h3>Curriculum:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Curriculum" id="curriculum" onchange="showOptions(this.value, showSubject, 'getSubject.php')">
-	  							  	<option>Select Curriculum</option>
+	  							  	<option disabled selected>Select Curriculum</option>
 	 						</select>
 						</div>
 						<h2></h2>
@@ -71,7 +71,7 @@
 					<h3>Semester:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Semester" id="semester">
-	  								<option>Select Semester</option>
+	  								<option disabled selected>Select Semester</option>
 	    							<option>1</option>
 	    							<option>2</option>
 	 						</select>
@@ -88,7 +88,7 @@
 
 						<div class="form-group">
 	  						<select class="form-control" name="Subject" id="subjects">
-	  							<option>Select Subject</option>
+	  							<option disabled selected>Select Subject</option>
 	 						</select>
 						</div>
 						<h2></h2>
@@ -98,7 +98,7 @@
 					<h3>Section:</h3>
 					<div class="form-group">
 	  					<select class="form-control" name="Section" id="section">
-	  						<option>Select Section</option>
+	  						<option disabled selected>Select Section</option>
 	 					</select>
 					</div>
 				</div>
@@ -107,7 +107,7 @@
 					<h3>School Year:</h3>
 					<div class="form-group">
 	  					<select class="form-control" name="SchoolYear" id="schoolYear">
-	  					<option>Select School Year</option>
+	  					<option disabled selected>Select School Year</option>
 	  						<?php
 								$sql = "SELECT DISTINCT schoolYear FROM enrollment";
 								$result = $conn->query($sql);
@@ -144,7 +144,7 @@
 									<h2></h2>
 									<label for="timestartlec">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLec" id="timestartlec">
-	  									<option>Select Start Time</option>
+	  									<option disabled selected>Select Start Time</option>
 	    								<option>7:30 AM</option>
 	    								<option>8:30 AM</option>
 	    								<option>9:30 AM</option>
@@ -163,7 +163,7 @@
 								<div class="form-group">
 									<label for="timeendlec">Time End:</label>
 	  								<select class="form-control" name="TimeEndLec" id="timeendlec">
-	  									<option>Select End Time</option>
+	  									<option disabled selected>Select End Time</option>
 	    								<option>8:30 AM</option>
 	    								<option>9:30 AM</option>
 	    								<option>10:30 AM</option>
@@ -183,7 +183,7 @@
 								<div class="form-group">
 	  								<label for="room">Room:</label>
 	  								<select class="form-control" name="RoomLec" id="roomLec">
-	  									<option>Select Room</option>
+	  									<option disabled selected>Select Room</option>
 		  								<?php
 											$sql = "SELECT roomCode FROM room WHERE roomType = 'Lecture'";
 											$result = $conn->query($sql);
@@ -240,7 +240,7 @@
 									<h2></h2>
 									<label for="timestartlab">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLab" id="timestartlab">
-	  									<option>Select Start Time</option>
+	  									<option disabled selected>Select Start Time</option>
 	    								<option>7:30 AM</option>
 	    								<option>8:30 AM</option>
 	    								<option>9:30 AM</option>
@@ -259,7 +259,7 @@
 								<div class="form-group">
 									<label for="timeendlab">Time End:</label>
 	  								<select class="form-control" name="TimeEndLab" id="timeendlab">
-	  									<option>Select End Time</option>
+	  									<option disabled selected>Select End Time</option>
 	    								<option>8:30 AM</option>
 	    								<option>9:30 AM</option>
 	    								<option>10:30 AM</option>
@@ -279,7 +279,7 @@
 								<div class="form-group">
 	  								<label for="room">Room:</label>
 	  								<select class="form-control" name="RoomLab" id="roomLab">
-	  									<option>Select Room</option>
+	  									<option disabled selected>Select Room</option>
 		  								<?php
 											$sql = "SELECT roomCode FROM room WHERE roomType = 'Laboratory'";
 											$result = $conn->query($sql);

@@ -8,7 +8,7 @@
 
 	$result = $conn->query($sql);
 
-	echo "<option>Select Section</option>";
+	echo "<option disabled selected>Select Section</option>";
 
 	if ($result->num_rows > 0) 
 	{
