@@ -11,12 +11,17 @@ function lettersOnly(txt, e) {
                 return false;
         }
 
-function numbersOnly(input) 
-{
-    var regex = /[^0-9]/gi ;
-    input.value = input.value.replace(regex, "");
-}
-
+function numbersOnly(txt, e) {
+    var arr = "1234567890";
+    var code;
+    	if (window.event)
+            code = e.keyCode;
+        else
+            code = e.which;
+            var char = keychar = String.fromCharCode(code);
+            if (arr.indexOf(char) == -1)
+                return false;
+        }
 
 function enableCurriculumCourse() 
 {
