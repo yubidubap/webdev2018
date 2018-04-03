@@ -30,9 +30,10 @@
 			<img src="Quadrant1\logo.png">
 		</div>
 
-		<h2>Add Schedule</h2>
-
-		<form action="#" method="post">
+		<div class="header2">
+			<h1>Add Schedule</h1>
+		</div>
+		<form class="container-fluid" action="#" method="post">
 			<div class="row">
 				<div class="col-sm-4">
 					<h3>Course:</h3>
@@ -99,18 +100,48 @@
 	  					<select class="form-control" name="Section" id="section">
 	  						<option>Select Section</option>
 	 					</select>
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<h3>School Year:</h3>
+					<div class="form-group">
+	  					<select class="form-control" name="SchoolYear" id="schoolYear">
+	  					<option>Select School Year</option>
+	  						<?php
+								$sql = "SELECT DISTINCT schoolYear FROM enrollment";
+								$result = $conn->query($sql);
+								
+								if ($result->num_rows > 0) 
+								{
+							   		while($row = $result->fetch_assoc())
+							   		{
+							        	echo "<option value='".$row["schoolYear"]."'>".$row["schoolYear"]."</option>";
+							    	}
+							    }
+	  						?>
+	 					</select>
 					</div>	
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-sm-6">
-					<label for="lecturebtn"><h3>Lecture Room</h3></label>
+
+				<div class="col-sm-4">
+					<h3>Slots:</h3>
+						<div class="form-group">
+	  						<input type="text" class="form-control" name="Slot" id="slot">
+						</div>
+				</div>
+
+				<div class="col-sm-4">
 					<div class="form-group">
-						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#lecturebtn">Add</button>
+					<h3>Add:</h3>
+						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#lecturebtn">Lecture Room</button>
 
 							<div id="lecturebtn" class="collapse">
 								<div class="form-group">
+									<h2></h2>
 									<label for="timestartlec">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLec" id="timestartlec">
 	  									<option>Select Start Time</option>
@@ -199,13 +230,14 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6">
-					<label for="laboratorybtn"><h3>Laboratory Room</h3></label>
+				<div class="col-sm-4">
 					<div class="form-group">
-						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#laboratorybtn">Add</button>
+					<h3>Add:</h3>
+						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#laboratorybtn">Laboratory Room</button>
 
 							<div id="laboratorybtn" class="collapse">
 								<div class="form-group">
+									<h2></h2>
 									<label for="timestartlab">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLab" id="timestartlab">
 	  									<option>Select Start Time</option>
@@ -296,10 +328,12 @@
 				</div>
 			</div>
 
-			<div class="col-sm-3 pull-right">
-				<h1></h1>
-	 			<input type="submit" name="submit" class="btn btn-success"/>
-	   			<button type="button" class="btn btn-default">Clear All</button>
+			<div class="col-sm-12">
+				<div class="pull-right">
+					<h1></h1>
+		 			<input type="submit" name="submit" class="btn btn-success"/>
+		   			<button type="button" class="btn btn-default">Clear All</button>
+				</div>
 			</div>
 		</form>
 
@@ -317,12 +351,15 @@
 				$roomLab = $_POST['RoomLab'];
 				$timeSLab = $_POST['TimeStartLab'];
 				$timeELab = $_POST['TimeEndLab'];
-
+				$schYear = $_POST['SchoolYear'];
+				$slot = $_POST['Slot'];
 
 				echo "</br>Course: ".$course;
 				echo "</br>Curriculum: ".$curriculum;
+				echo "</br>School Year:".$schYear;
 				echo "</br>Semester:".$sem;
 				echo "</br>Subject: ".$sub;
+				echo "</br>Slots: ".$slot;
 				echo "</br>Section: ".$sec;
 				echo "</br>Lecture Room: ".$roomLec;
 				echo "</br>Start Time Lecture: ".$timeSLec;
@@ -391,7 +428,6 @@
 
 		function showSection(xmlhttp)
 		{
-			console.log("Section");
 			document.getElementById("section").innerHTML = xmlhttp.responseText;
 		}
 

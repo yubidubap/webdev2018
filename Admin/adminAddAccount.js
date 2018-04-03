@@ -1,28 +1,64 @@
-		function lettersOnly(input) {
-		    	var regex = /[^a-z " "]/gi ;
-		    	input.value = input.value.replace(regex, "");}
+function lettersOnly(input) 
+{
+    var regex = /[^a-z " "]/gi ;
+    input.value = input.value.replace(regex, "");
+}
 
-		function numbersOnly(input) {
-		    	var regex = /[^0-9]/gi ;
-		    	input.value = input.value.replace(regex, "");}
+function numbersOnly(input) 
+{
+    var regex = /[^0-9]/gi ;
+    input.value = input.value.replace(regex, "");
+}
 
 
-		function enableCurriculumCourse() {
-				var x = document.getElementById("accounttype").value;
+function enableCurriculumCourse() 
+{
+	var x = document.getElementById("accounttype").value;
 
-				if (x == "Student")
-				{
-					document.getElementById("course").disabled = false;
-					document.getElementById("curriculum").disabled = false;
-				}
+	if (x == "Student")
+	{
+		document.getElementById("course").disabled = false;
+		document.getElementById("curriculum").disabled = false;
+	}
 
-				else
-				{
-					document.getElementById("course").setAttribute('disabled', true);
-					document.getElementById("curriculum").setAttribute('disabled', true);
-				}
-			}
+	else
+	{
+		document.getElementById("course").setAttribute('disabled', true);
+		document.getElementById("curriculum").setAttribute('disabled', true);
+	}
+}
  
+function showOptions(str, currentFunction, url)
+{
+    if (window.XMLHttpRequest) 
+    {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } 
+
+    else 
+    {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function()
+    {
+        if (this.readyState == 4 && this.status == 200) 
+        {
+        	currentFunction(this);
+      	}
+    };
+
+    xmlhttp.open("GET", url+ "?q=" +str, true);
+    xmlhttp.send();
+}
+
+
+function showCurriculum(xmlhttp)
+{
+	document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
+}
 
  $(document).ready(function() {
 	$('#validateForm').bootstrapValidator({
@@ -62,7 +98,9 @@
 				stringLength: {
                         min: 2,
                         message: 'Please Enter your First name'
-				},
+
+                },
+        
 				notEmpty: {
 					message: 'Please Enter your First name'
 				}
@@ -74,7 +112,7 @@
 				stringLength: {
                         min: 2,
                         message: 'Please Enter your Middle name'
-				},
+                },
 				notEmpty: {
 					message: 'Please Enter your Middle name'
 				}
@@ -86,7 +124,8 @@
 				stringLength: {
                         min: 2,
                         message: 'Please Enter your Last name'
-				},
+
+                },
 				notEmpty: {
 					message: 'Please Enter your Last name'
 				}

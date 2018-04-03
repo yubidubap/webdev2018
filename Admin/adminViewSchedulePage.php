@@ -1,3 +1,7 @@
+<?php
+	include "connection.php";
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,39 +31,37 @@
 			<img src="Quadrant1\logo.png">
 		</div>
 
+		<div class="header2">
+			<h1>View Schedule</h1>
+		</div>
+
 		<div class="row">
-			<div class="col-sm-4">
-				<h4>Course:</h4>
+			<div class="col-sm-6">
+				<h3>Course:</h3>
 					<div class="form-group">
-  							<select class="form-control" id="course">
-    							<option>BSIT</option>
-    							<option>BSECE</option>
-    					
+  							<select class="form-control" name="Course" id="course" onchange="showOptions(this.value, showSection, 'getSection.php')">
+  								<option>Select Course</option>
+								<?php
+									$sql = "SELECT courseCode, courseTitle FROM Course";
+									$result = $conn->query($sql);
+									
+									if ($result->num_rows > 0) 
+									{
+								   		while($row = $result->fetch_assoc())
+								   		{
+								        	echo "<option value='".$row["courseCode"]."'>".$row["courseTitle"]."</option>";
+								    	}
+								    }
+								?>
  							</select>
 					</div>
 			</div>
 
-			<div class="col-sm-4">
-				<h4>Section:</h4>
+			<div class="col-sm-6">
+				<h3>Section:</h3>
 					<div class="form-group">
-  							<select class="form-control" id="section">
-    							<option>1</option>
-    							<option>2</option>
-    					
- 							</select>
-					</div>
-			</div>
-
-			<div class="col-sm-4">
-				<h4>Year Level:</h4>
-					<div class="form-group">
-  							<select class="form-control" id="studentyearlevel">
-    							<option>First Year</option>
-    							<option>Second Year</option>
-    							<option>Third Year</option>
-    							<option>Fourth Year</option>
-    							<option>Fifth Year</option>
-    					
+  							<select class="form-control" name="Section" id="section">
+  								<option>Select Section  	</option>
  							</select>
 					</div>
 			</div>
@@ -94,5 +96,39 @@
 		</div>
 
 	</body>
+
+	<script type="text/javascript">
+		function showOptions(str, currentFunction, url)
+		{
+	        if (window.XMLHttpRequest) 
+	        {
+	            // code for IE7+, Firefox, Chrome, Opera, Safari
+	            xmlhttp = new XMLHttpRequest();
+	        } 
+
+	        else 
+	        {
+	            // code for IE6, IE5
+	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	        }
+
+	        xmlhttp.onreadystatechange = function()
+	        {
+	            if (this.readyState == 4 && this.status == 200) 
+	            {
+	            	currentFunction(this);
+	          	}
+	        };
+
+	        xmlhttp.open("GET", url+ "?q=" +str, true);
+	        xmlhttp.send();
+		}
+
+
+		function showSection(xmlhttp)
+		{
+			document.getElementById("section").innerHTML = xmlhttp.responseText;
+		}
+	</script>
 
 </html>
