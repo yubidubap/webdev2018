@@ -1,3 +1,7 @@
+<?php
+	include "connection.php";
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -52,8 +56,21 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="course">Course:</label>
-	  					<select name="course" class="form-control" id="course">
-	  						<option value=" ">Select Student's Course</option>
+	  					<select name="course" class="form-control" id="course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
+	  						<option value=" ">Select Student's Course
+	  							<?php
+										$sql = "SELECT courseCode, courseTitle FROM Course";
+										$result = $conn->query($sql);
+										
+										if ($result->num_rows > 0) 
+										{
+									   		while($row = $result->fetch_assoc())
+									   		{
+									        	echo "<option value='".$row["courseCode"]."'>".$row["courseTitle"]."</option>";
+									    	}
+									    }
+									?>
+	  						</option>
 	 					</select>
 					</div>
 				</div>
@@ -62,7 +79,7 @@
 					<div class="form-group">
 						<label for="curriculum">Curriculum:</label>
 	  					<select name="curriculum" class="form-control" id="curriculum">
-	  						<option value=" " >Select Curriculum</option>
+	  						<option value=" ">Select Curriculum</option>
 	 					</select>
 					</div>
 				</div>
@@ -145,4 +162,38 @@
 		<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 
 	</body>
+
+	<script type="text/javascript">
+		function showOptions(str, currentFunction, url)
+		{
+		    if (window.XMLHttpRequest) 
+		    {
+		        // code for IE7+, Firefox, Chrome, Opera, Safari
+		        xmlhttp = new XMLHttpRequest();
+		    } 
+
+		    else 
+		    {
+		        // code for IE6, IE5
+		        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		    }
+
+		    xmlhttp.onreadystatechange = function()
+		    {
+		        if (this.readyState == 4 && this.status == 200) 
+		        {
+		        	currentFunction(this);
+		      	}
+		    };
+
+		    xmlhttp.open("GET", url+ "?q=" +str, true);
+		    xmlhttp.send();
+		}
+
+
+		function showCurriculum(xmlhttp)
+		{
+			document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
+		}
+	</script>
 </html>
