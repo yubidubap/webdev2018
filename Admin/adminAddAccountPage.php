@@ -116,7 +116,7 @@
 					<div class="form-group">
 						<label for="mobilenumber">Mobile Number:</label>
 						<input type="text" id="mobNum" name="mobilenumber" placeholder="Enter 10 digit no. (9123456789)" 
-						class="form-control bfh-phone" type="text" onkeyup="numbersOnly(this)"></input>
+						class="form-control bfh-phone" type="text" onkeypress="return numbersOnly(this, event)" maxlength="10"></input>
 					</div>
 				</div>
 
