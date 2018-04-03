@@ -98,9 +98,11 @@ function showCurriculum(xmlhttp)
 				stringLength: {
                         min: 2,
                         message: 'Please Enter your First name'
+
                 },
+        
 				notEmpty: {
-					message: 'Please Enter your Full name'
+					message: 'Please Enter your First name'
 				}
 			}
 		},
@@ -112,7 +114,7 @@ function showCurriculum(xmlhttp)
                         message: 'Please Enter your Middle name'
                 },
 				notEmpty: {
-					message: 'Please Enter your Full name'
+					message: 'Please Enter your Middle name'
 				}
 			}
 		},
@@ -122,9 +124,10 @@ function showCurriculum(xmlhttp)
 				stringLength: {
                         min: 2,
                         message: 'Please Enter your Last name'
+
                 },
 				notEmpty: {
-					message: 'Please Enter your Full name'
+					message: 'Please Enter your Last name'
 				}
 			}
 		},		
