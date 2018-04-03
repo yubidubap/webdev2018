@@ -89,7 +89,7 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="fname">First Name:</label>
-						<input type="text" class="form-control" id="fname" name="firstname" placeholder="First Name" onkeyup="lettersOnly(this)">
+						<input type="text" class="form-control" id="fname" name="firstname" placeholder="First Name" onkeypress="return lettersOnly(this, event)" maxlength="30">
 						</input>
 					</div>
 				</div>
@@ -97,7 +97,7 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="Mname">Middle Name:</label>
-						<input type="text" class="form-control" id="Mname" name="middlename" placeholder="Middle Name" onkeyup="lettersOnly(this)">
+						<input type="text" class="form-control" id="Mname" name="middlename" placeholder="Middle Name" onkeypress="return lettersOnly(this, event)" maxlength="30">
 						</input>
 					</div>
 				</div>
@@ -105,7 +105,7 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="lname">Last Name:</label>
-						<input type="text" class="form-control" id="lname" name="lastname" placeholder="Last Name" onkeyup="lettersOnly(this)">
+						<input type="text" class="form-control" id="lname" name="lastname" placeholder="Last Name" onkeypress="return lettersOnly(this, event)" maxlength="30">
 						</input>
 					</div>
 				</div>
