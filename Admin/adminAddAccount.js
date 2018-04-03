@@ -1,8 +1,15 @@
-function lettersOnly(input) 
-{
-    var regex = /[^a-z " "]/gi ;
-    input.value = input.value.replace(regex, "");
-}
+
+function lettersOnly(txt, e) {
+    var arr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+    var code;
+    	if (window.event)
+            code = e.keyCode;
+        else
+            code = e.which;
+            var char = keychar = String.fromCharCode(code);
+            if (arr.indexOf(char) == -1)
+                return false;
+        }
 
 function numbersOnly(input) 
 {
