@@ -33,7 +33,7 @@
 		<div class="header2">
 			<h1>Add Schedule</h1>
 		</div>
-		<form action="#" method="post">
+		<form class="container-fluid" action="#" method="post">
 			<div class="row">
 				<div class="col-sm-4">
 					<h3>Course:</h3>
@@ -136,11 +136,12 @@
 
 				<div class="col-sm-4">
 					<div class="form-group">
-						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#lecturebtn">Lecture Room</button>
+					<h3>Add:</h3>
+						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#lecturebtn">Lecture Room</button>
 
 							<div id="lecturebtn" class="collapse">
 								<div class="form-group">
-								<h2></h2>
+									<h2></h2>
 									<label for="timestartlec">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLec" id="timestartlec">
 	  									<option>Select Start Time</option>
@@ -231,11 +232,12 @@
 
 				<div class="col-sm-4">
 					<div class="form-group">
-						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#laboratorybtn">Laboratory Room</button>
+					<h3>Add:</h3>
+						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#laboratorybtn">Laboratory Room</button>
 
 							<div id="laboratorybtn" class="collapse">
 								<div class="form-group">
-								<h2></h2>
+									<h2></h2>
 									<label for="timestartlab">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLab" id="timestartlab">
 	  									<option>Select Start Time</option>
@@ -326,10 +328,12 @@
 				</div>
 			</div>
 
-			<div class="col-sm-3 pull-right">
-				<h1></h1>
-	 			<input type="submit" name="submit" class="btn btn-success"/>
-	   			<button type="button" class="btn btn-default">Clear All</button>
+			<div class="col-sm-12">
+				<div class="pull-right">
+					<h1></h1>
+		 			<input type="submit" name="submit" class="btn btn-success"/>
+		   			<button type="button" class="btn btn-default">Clear All</button>
+				</div>
 			</div>
 		</form>
 
