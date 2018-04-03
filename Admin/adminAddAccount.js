@@ -1,27 +1,32 @@
-		function lettersOnly(input) {
-		    	var regex = /[^a-z " "]/gi ;
-		    	input.value = input.value.replace(regex, "");}
+function lettersOnly(input) 
+{
+    var regex = /[^a-z " "]/gi ;
+    input.value = input.value.replace(regex, "");
+}
 
-		function numbersOnly(input) {
-		    	var regex = /[^0-9]/gi ;
-		    	input.value = input.value.replace(regex, "");}
+function numbersOnly(input) 
+{
+    var regex = /[^0-9]/gi ;
+    input.value = input.value.replace(regex, "");
+}
 
 
-		function enableCurriculumCourse() {
-				var x = document.getElementById("accounttype").value;
+function enableCurriculumCourse() 
+{
+	var x = document.getElementById("accounttype").value;
 
-				if (x == "Student")
-				{
-					document.getElementById("course").disabled = false;
-					document.getElementById("curriculum").disabled = false;
-				}
+	if (x == "Student")
+	{
+		document.getElementById("course").disabled = false;
+		document.getElementById("curriculum").disabled = false;
+	}
 
-				else
-				{
-					document.getElementById("course").setAttribute('disabled', true);
-					document.getElementById("curriculum").setAttribute('disabled', true);
-				}
-			}
+	else
+	{
+		document.getElementById("course").setAttribute('disabled', true);
+		document.getElementById("curriculum").setAttribute('disabled', true);
+	}
+}
  
 
  $(document).ready(function() {
