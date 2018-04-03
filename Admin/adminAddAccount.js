@@ -1,3 +1,4 @@
+
 function lettersOnly(txt, e) {
     var arr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
     var code;
