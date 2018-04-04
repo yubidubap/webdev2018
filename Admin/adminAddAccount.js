@@ -190,47 +190,6 @@ function showCurriculum(xmlhttp)
 			}
 		},
 
-		section: {
-			validators: {
-				notEmpty: {
-					message: 'Choose section'
-				}
-			}
-		},
-
-		timeend: {
-			validators: {
-				notEmpty: {
-					message: 'Choose section'
-				}
-			}
-		},	
-
-		timestart: {
-			validators: {
-				notEmpty: {
-					message: 'Choose section'
-				}
-			}
-		},			
-
-		room: {
-			validators: {
-				notEmpty: {
-					message: 'Choose section'
-				}
-			}
-		},
-
-		timestart: {
-			validators: {
-				notEmpty: {
-					message: 'The gender option is required'
-				}
-			}
-		},		
-
-
 		}
 		});
 
