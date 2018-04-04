@@ -37,16 +37,16 @@
 	{
 		while($row = $result->fetch_assoc())
 		{
-	    	echo "<tr style='background-color: white;'>";
-			echo "<td>".$row["subjectCode"]."</td>";
-			echo "<td>".$row["subjectTitle"]."</td>";
-			echo "<td>".$row["units"]."</td>";
-			echo "<td>".$row["roomType"]."</td>";
-			echo "<td>".$row["Day/s"]."</td>";
-			echo "<td>".$row["startTime"]."</td>";
-			echo "<td>".$row["endTime"]."</td>";
-			echo "<td>".$row["roomCode"]."</td>";
-			echo "</tr>";
+	    	echo "<tr style='background-color: white;'>
+						<td>".$row['subjectCode']."</td>
+				 		<td>".$row['subjectTitle']."</td>
+				 		<td>".$row['units']."</td>
+				 		<td>".$row['roomType']."</td>
+				 		<td>".$row['Day/s']."</td>
+				 		<td>".$row['startTime']."</td>
+						<td>".$row['endTime']."</td>
+				 		<td>".$row['roomCode']."</td>
+			 	  	</tr>";
 		}
 	}
 ?>
