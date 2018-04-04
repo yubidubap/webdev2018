@@ -16,6 +16,9 @@
 		<!-- add -->
 		<script src="adminAddAccount.js"></script>
 		<!-- end -->
+		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+		<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+		<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 	</head>
 
 	<body>
@@ -152,44 +155,5 @@
 			</div>
 			</div>
 		</form>
-
-		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-		<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
-		<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-
 	</body>
-
-	<script type="text/javascript">
-		function showOptions(str, currentFunction, url)
-		{
-		    if (window.XMLHttpRequest) 
-		    {
-		        // code for IE7+, Firefox, Chrome, Opera, Safari
-		        xmlhttp = new XMLHttpRequest();
-		    } 
-
-		    else 
-		    {
-		        // code for IE6, IE5
-		        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		    }
-
-		    xmlhttp.onreadystatechange = function()
-		    {
-		        if (this.readyState == 4 && this.status == 200) 
-		        {
-		        	currentFunction(this);
-		      	}
-		    };
-
-		    xmlhttp.open("GET", url+ "?q=" +str, true);
-		    xmlhttp.send();
-		}
-
-
-		function showCurriculum(xmlhttp)
-		{
-			document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
-		}
-	</script>
 </html>

@@ -72,8 +72,9 @@
 						<div class="form-group">
 	  						<select class="form-control" name="Semester" id="semester">
 	  								<option disabled selected>Select Semester</option>
-	    							<option>1</option>
-	    							<option>2</option>
+	    							<option value = "1">1st</option>
+  									<option value = "2">2nd</option>
+  									<option value = "3">Summer</option>
 	 						</select>
 						</div>
 						<h2></h2>
@@ -145,18 +146,18 @@
 									<label for="timestartlec">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLec" id="timestartlec">
 	  									<option disabled selected>Select Start Time</option>
-	    								<option>7:30 AM</option>
-	    								<option>8:30 AM</option>
-	    								<option>9:30 AM</option>
-	    								<option>10:30 AM</option>
-	    								<option>11:30 AM</option>
-	    								<option>12:30 PM</option>
-	    								<option>1:30 PM</option>
-	    								<option>2:30 PM</option>
-	    								<option>3:30 PM</option>
-	    								<option>4:30 PM</option>
-	    								<option>5:30 PM</option>
-	    								<option>6:30 PM</option>
+	    								<option value="7:30">7:30 AM</option>
+	    								<option value="8:30">8:30 AM</option>
+	    								<option value="9:30">9:30 AM</option>
+	    								<option value="10:30">10:30 AM</option>
+	    								<option value="11:30">11:30 AM</option>
+	    								<option value="12:30">12:30 PM</option>
+	    								<option value="13:30">1:30 PM</option>
+	    								<option value="14:30">2:30 PM</option>
+	    								<option value="15:30">3:30 PM</option>
+	    								<option value="16:30">4:30 PM</option>
+	    								<option value="17:30">5:30 PM</option>
+	    								<option value="18:30">6:30 PM</option>
 	 								</select>
 								</div>
 
@@ -164,18 +165,18 @@
 									<label for="timeendlec">Time End:</label>
 	  								<select class="form-control" name="TimeEndLec" id="timeendlec">
 	  									<option disabled selected>Select End Time</option>
-	    								<option>8:30 AM</option>
-	    								<option>9:30 AM</option>
-	    								<option>10:30 AM</option>
-	    								<option>11:30 AM</option>
-	    								<option>12:30 PM</option>
-	    								<option>1:30 PM</option>
-	    								<option>2:30 PM</option>
-	    								<option>3:30 PM</option>
-	    								<option>4:30 PM</option>
-	    								<option>5:30 PM</option>
-	    								<option>6:30 PM</option>
-	    								<option>7:30 PM</option>
+	    								<option value="8:30">8:30 AM</option>
+	    								<option value="9:30">9:30 AM</option>
+	    								<option value="10:30">10:30 AM</option>
+	    								<option value="11:30">11:30 AM</option>
+	    								<option value="12:30">12:30 PM</option>
+	    								<option value="13:30">1:30 PM</option>
+	    								<option value="14:30">2:30 PM</option>
+	    								<option value="15:30">3:30 PM</option>
+	    								<option value="16:30">4:30 PM</option>
+	    								<option value="17:30">5:30 PM</option>
+	    								<option value="18:30">6:30 PM</option>
+	    								<option value ="19:30">7:30 PM</option>
 	 								</select>
 
 								</div>
@@ -241,18 +242,18 @@
 									<label for="timestartlab">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLab" id="timestartlab">
 	  									<option disabled selected>Select Start Time</option>
-	    								<option>7:30 AM</option>
-	    								<option>8:30 AM</option>
-	    								<option>9:30 AM</option>
-	    								<option>10:30 AM</option>
-	    								<option>11:30 AM</option>
-	    								<option>12:30 PM</option>
-	    								<option>1:30 PM</option>
-	    								<option>2:30 PM</option>
-	    								<option>3:30 PM</option>
-	    								<option>4:30 PM</option>
-	    								<option>5:30 PM</option>
-	    								<option>6:30 PM</option>
+	    								<option value="7:30">7:30 AM</option>
+	    								<option value="8:30">8:30 AM</option>
+	    								<option value="9:30">9:30 AM</option>
+	    								<option value="10:30">10:30 AM</option>
+	    								<option value="11:30">11:30 AM</option>
+	    								<option value="12:30">12:30 PM</option>
+	    								<option value="13:30">1:30 PM</option>
+	    								<option value="14:30">2:30 PM</option>
+	    								<option value="15:30">3:30 PM</option>
+	    								<option value="16:30">4:30 PM</option>
+	    								<option value="17:30">5:30 PM</option>
+	    								<option value="18:30">6:30 PM</option>
 	 								</select>
 								</div>
 
@@ -260,18 +261,18 @@
 									<label for="timeendlab">Time End:</label>
 	  								<select class="form-control" name="TimeEndLab" id="timeendlab">
 	  									<option disabled selected>Select End Time</option>
-	    								<option>8:30 AM</option>
-	    								<option>9:30 AM</option>
-	    								<option>10:30 AM</option>
-	    								<option>11:30 AM</option>
-	    								<option>12:30 PM</option>
-	    								<option>1:30 PM</option>
-	    								<option>2:30 PM</option>
-	    								<option>3:30 PM</option>
-	    								<option>4:30 PM</option>
-	    								<option>5:30 PM</option>
-	    								<option>6:30 PM</option>
-	    								<option>7:30 PM</option>
+	    								<option value="8:30">8:30 AM</option>
+	    								<option value="9:30">9:30 AM</option>
+	    								<option value="10:30">10:30 AM</option>
+	    								<option value="11:30">11:30 AM</option>
+	    								<option value="12:30">12:30 PM</option>
+	    								<option value="13:30">1:30 PM</option>
+	    								<option value="14:30">2:30 PM</option>
+	    								<option value="15:30">3:30 PM</option>
+	    								<option value="16:30">4:30 PM</option>
+	    								<option value="17:30">5:30 PM</option>
+	    								<option value="18:30">6:30 PM</option>
+	    								<option value ="19:30">7:30 PM</option>
 	 								</select>
 
 								</div>
