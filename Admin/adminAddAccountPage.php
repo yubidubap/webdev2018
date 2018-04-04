@@ -22,9 +22,7 @@
 	</head>
 
 	<body>
-
 		<div class="header">
-
 			<ul>
 				<li><a href="adminProfilePage.php">Profile</a></li>
 				<li><a href="adminAddAccountPage.php">Accounts</a></li>
@@ -40,49 +38,47 @@
 		<div class="header2">
 			<h1>Add Account</h1>
 		</div>
-	<!-- add -->
+	
 		<form class="container-fluid" action="#" method="post" id="validateForm">
-		<!-- end -->
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="accounttype">Account Type:</label>
-	  					<select name="accountType" class="form-control" id="accounttype" onchange="enableCurriculumCourse()">
+	  					<select name="accountType" class="form-control" id="accounttype">
+	  						<option disabled selected>Select Account Type</option>>
 	    					<option value="Student">Student</option>
 	    					<option value="Admin">Administrator</option>
 	    					<option value="Registrar">Registrar</option>
-	    					
 	 					</select>
 					</div>
 				</div>
 
 				<div class="col-sm-4">
 					<div class="form-group">
-						<label for="course">Course:</label>
+						<label id="label1" for="course">Course:</label>
 	  					<select name="course" class="form-control" id="course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
-	  						<option value=" ">Select Student's Course
-	  							<?php
-										$sql = "SELECT courseCode, courseTitle FROM Course";
-										$result = $conn->query($sql);
-										
-										if ($result->num_rows > 0) 
-										{
-									   		while($row = $result->fetch_assoc())
-									   		{
-									        	echo "<option value='".$row["courseCode"]."'>".$row["courseTitle"]."</option>";
-									    	}
-									    }
-									?>
-	  						</option>
+	  						<option disabled selected>Select Student's Course</option>
+  							<?php
+								$sql = "SELECT courseCode, courseTitle FROM Course";
+								$result = $conn->query($sql);
+								
+								if ($result->num_rows > 0) 
+								{
+							   		while($row = $result->fetch_assoc())
+							   		{
+							        	echo "<option value='".$row["courseCode"]."'>".$row["courseTitle"]."</option>";
+							    	}
+							    }
+							?>
 	 					</select>
 					</div>
 				</div>
 
 				<div class="col-sm-4">
 					<div class="form-group">
-						<label for="curriculum">Curriculum:</label>
+						<label id="label2" for="curriculum">Curriculum:</label>
 	  					<select name="curriculum" class="form-control" id="curriculum">
-	  						<option value=" ">Select Curriculum</option>
+	  						<option disabled selected>Select Curriculum</option>
 	 					</select>
 					</div>
 				</div>
@@ -144,16 +140,40 @@
 				</div>
 			</div>
 
-
 			<div class="row">
-			<div class = "col-sm-12">
-			<h1></h1>
-				<div class="pull-right">
-					<button class="btn btn-success" button type="submit" class="btn btn-warning">Add Account</button>
-	  				<button type="button" class="btn btn-default">Clear All</button>
+				<div class = "col-sm-12">
+				<h1></h1>
+					<div class="pull-right">
+						<button class="btn btn-success" button type="submit" class="btn btn-warning">Add Account</button>
+		  				<button type="reset" class="btn btn-default">Clear All</button>
+					</div>
 				</div>
 			</div>
-			</div>
 		</form>
+
+		<?php
+			if(isset($_POST['submit']))
+			{
+				$acctType = $_POST['accounttype'];
+				$course = $_POST['course'];
+				$curr = $_POST['curriculum'];
+				$fName = $_POST['firstname'];
+				$mName = $_POST['middlename'];
+				$lName = $_POST['lastname'];
+				$number = $_POST['mobilenumber'];
+				$email = $_POST['email'];
+				$confPass = $_POST['confirmPassword'];
+
+				echo "<p>Account Type: ".$acctType."</p>";
+				echo "<p>Course: ".$course."</p>";
+				echo "<p>Curriculum:".$curr."</p>";
+				echo "<p>First Name:".$fName."</p>";
+				echo "<p>Middle Name: ".$mName."</p>";
+				echo "<p>Last Name: ".$lName."</p>";
+				echo "<p>Mobile Number: ".$number."</p>";
+				echo "<p>E-mail: ".$email."</p>";
+				echo "<p>Password: ".$confPass."</p>";
+			}
+		?>
 	</body>
 </html>
