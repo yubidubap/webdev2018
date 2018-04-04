@@ -106,16 +106,16 @@
 
 		<div class="row">
 			<div>
-				<table class="table" id="scheduleTable">
-					<tr>
-						<th>Subject Code</th>
-						<th>Description</th>
-						<th>Units</th>
-						<th>Room Type</th>
-						<th>Day/s</th>
-						<th>Time Start</th>
-						<th>Time End</th>
-						<th>Room</th>
+				<table class="table" id="scheduleTable" >
+					<tr style='background-color: #2D486A;'>
+						<th style="color: #fbf7de;">Subject Code</th>
+						<th style="color: #fbf7de;">Description</th>
+						<th style="color: #fbf7de;">Units</th>
+						<th style="color: #fbf7de;">Room Type</th>
+						<th style="color: #fbf7de;">Day/s</th>
+						<th style="color: #fbf7de;">Time Start</th>
+						<th style="color: #fbf7de;">Time End</th>
+						<th style="color: #fbf7de;">Room</th>
 					</tr>
 				</table>				
 			</div>

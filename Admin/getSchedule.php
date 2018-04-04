@@ -22,31 +22,31 @@
 
 	$result = $conn->query($sql);
 
-	echo "<tr>
-			<th>Subject Code</th>
-			<th>Description</th>
-			<th>Units</th>
-			<th>Room Type</th>
-			<th>Day/s</th>
-			<th>Time Start</th>
-			<th>Time End</th>
-			<th>Room</th>
-		 </tr>";
+	echo "<tr style='background-color: #2D486A;'>";
+	echo "<th style='color: #fbf7de;'>Subject Code</th>";
+	echo "<th style='color: #fbf7de;'>Description</th>";
+	echo "<th style='color: #fbf7de;'>Units</th>";
+	echo "<th style='color: #fbf7de;'>Room Type</th>";
+	echo "<th style='color: #fbf7de;'>Day/s</th>";
+	echo "<th style='color: #fbf7de;'>Time Start</th>";
+	echo "<th style='color: #fbf7de;'>Time End</th>";
+	echo "<th style='color: #fbf7de;'>Room</th>";
+	echo "</tr>";
 
 	if ($result->num_rows > 0) 
 	{
 		while($row = $result->fetch_assoc())
 		{
-	    	echo "<tr>
-					<td>".$row["subjectCode"]."</td>
-					<td>".$row["subjectTitle"]."</td>
-					<td>".$row["units"]."</td>
-					<td>".$row["roomType"]."</td>
-					<td>".$row["Day/s"]."</td>
-					<td>".$row["startTime"]."</td>
-					<td>".$row["endTime"]."</td>
-					<td>".$row["roomCode"]."</td>
-				</tr>";
+	    	echo "<tr style='background-color: white;'>";
+			echo "<td>".$row["subjectCode"]."</td>";
+			echo "<td>".$row["subjectTitle"]."</td>";
+			echo "<td>".$row["units"]."</td>";
+			echo "<td>".$row["roomType"]."</td>";
+			echo "<td>".$row["Day/s"]."</td>";
+			echo "<td>".$row["startTime"]."</td>";
+			echo "<td>".$row["endTime"]."</td>";
+			echo "<td>".$row["roomCode"]."</td>";
+			echo "</tr>";
 		}
 	}
 ?>
