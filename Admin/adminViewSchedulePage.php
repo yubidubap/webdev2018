@@ -163,11 +163,6 @@
 			    var sy = $("#schoolYear").val();
 			    var sem = $("#semester").val();
 
-			    /*$.get("getSchedule.php", {sec: sec,} , function(data){
-	            	// Display the returned data in browser
-	            	$("#scheduleTable").html(data);
-        		});*/
-
         		$.ajax(
         		{
     				type: "GET",

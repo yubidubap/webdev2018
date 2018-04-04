@@ -332,8 +332,8 @@
 			<div class="col-sm-12">
 				<div class="pull-right">
 					<h1></h1>
-		 			<input type="submit" name="submit" class="btn btn-success"/>
-		   			<button type="button" class="btn btn-default">Clear All</button>
+		 			<button type="submit" name="submit" class="btn btn-success">Submit Schedule</button>
+		   			<button type="reset" class="btn btn-default">Clear All</button>
 				</div>
 			</div>
 		</form>

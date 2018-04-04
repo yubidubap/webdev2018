@@ -22,23 +22,6 @@ function numbersOnly(txt, e) {
             if (arr.indexOf(char) == -1)
                 return false;
         }
-
-function enableCurriculumCourse() 
-{
-	var x = document.getElementById("accounttype").value;
-
-	if (x == "Student")
-	{
-		document.getElementById("course").disabled = false;
-		document.getElementById("curriculum").disabled = false;
-	}
-
-	else
-	{
-		document.getElementById("course").setAttribute('disabled', true);
-		document.getElementById("curriculum").setAttribute('disabled', true);
-	}
-}
  
 function showOptions(str, currentFunction, url)
 {
@@ -73,127 +56,157 @@ function showCurriculum(xmlhttp)
 }
 
  $(document).ready(function() {
+
+ 	$("#accounttype").change(function() {
+		var type = $("#accounttype").val();
+
+		if(type != "Student")
+		{
+			$("#course").slideUp("fast");
+			$("#curriculum").slideUp("fast");
+
+			$("#course").prop("disabled", true);
+			$("#curriculum").prop("disabled", true);
+
+			$("#label1").fadeOut("fast");
+			$("#label2").fadeOut("fast");
+		}
+
+		else
+		{
+			$("#course").slideDown("fast");
+			$("#curriculum").slideDown("fast");
+
+			$("#course").prop("disabled", false);
+			$("#curriculum").prop("disabled", false);
+
+			$("#label1").fadeIn("fast");
+			$("#label2").fadeIn("fast");
+		}
+	});
+
 	$('#validateForm').bootstrapValidator({
-	feedbackIcons: {
-		valid: 'glyphicon glyphicon-ok',
-		invalid: 'glyphicon glyphicon-remove',
-		validating: 'glyphicon glyphicon-refresh'
-	},
-	fields: {
-
-		role: {
-			validators: {
-				notEmpty: {
-					message: 'Choose your user role'
-				}
-			}
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
 		},
 
-		course: {
-			validators: {
-				notEmpty: {
-					message: 'Choose student course'
-				}
-			}
-		},
+		fields: {
 
-		curriculum: {
-			validators: {
-				notEmpty: {
-					message: 'Choose curriculum'
+			role: {
+				validators: {
+					notEmpty: {
+						message: 'Choose your user role'
+					}
 				}
-			}
-		},
+			},
 
-		firstname: {
-			validators: {
-				stringLength: {
-                        min: 2,
-                        message: 'Please Enter your First name'
+			course: {
+				validators: {
+					notEmpty: {
+						message: 'Choose student course'
+					}
+				}
+			},
 
-                },
-        
-				notEmpty: {
-					message: 'Please Enter your First name'
+			curriculum: {
+				validators: {
+					notEmpty: {
+						message: 'Choose curriculum'
+					}
 				}
-			}
-		},
+			},
 
-		middlename: {
-			validators: {
-				stringLength: {
-                        min: 2,
-                        message: 'Please Enter your Middle name'
-                },
-				notEmpty: {
-					message: 'Please Enter your Middle name'
-				}
-			}
-		},
+			firstname: {
+				validators: {
+					stringLength: {
+	                        min: 2,
+	                        message: 'Please Enter your First name'
 
-		lastname: {
-			validators: {
-				stringLength: {
-                        min: 2,
-                        message: 'Please Enter your Last name'
+	                },
+	        
+					notEmpty: {
+						message: 'Please Enter your First name'
+					}
+				}
+			},
 
-                },
-				notEmpty: {
-					message: 'Please Enter your Last name'
+			middlename: {
+				validators: {
+					stringLength: {
+	                        min: 2,
+	                        message: 'Please Enter your Middle name'
+	                },
+					notEmpty: {
+						message: 'Please Enter your Middle name'
+					}
 				}
-			}
-		},		
+			},
 
-		mobilenumber: {
-			validators: {
-				phone: {
-					min: 11,
-					message: 'The phone no must be a number'
-				},
-				notEmpty: {
-					message: 'Please Enter your phone number'
+			lastname: {
+				validators: {
+					stringLength: {
+	                        min: 2,
+	                        message: 'Please Enter your Last name'
+
+	                },
+					notEmpty: {
+						message: 'Please Enter your Last name'
+					}
 				}
-			}
-		},
-		email: {
-			validators: {
-				notEmpty: {
-					message: 'Please Enter your email address'
-				},
-				emailAddress: {
-					message: 'Please Enter a valid email address'
+			},		
+
+			mobilenumber: {
+				validators: {
+					phone: {
+						min: 11,
+						message: 'The phone no must be a number'
+					},
+					notEmpty: {
+						message: 'Please Enter your phone number'
+					}
 				}
-			}
-		},
-		 	password: {
-            validators: {
-            	identical: {
-                    field: 'confirmPassword',
-                    message: 'Confirm your password below - type same password please'
-                }
-            }
-        },
-        confirmPassword: {
-            validators: {
-                identical: {
-                    field: 'password',
-                    message: 'The password and its confirm are not the same'
-                }
-            }
-         },
-		
-		semester: {
-			validators: {
-				notEmpty: {
-					message: 'Choose semester'
+			},
+			email: {
+				validators: {
+					notEmpty: {
+						message: 'Please Enter your email address'
+					},
+					emailAddress: {
+						message: 'Please Enter a valid email address'
+					}
 				}
-			}
-		},
+			},
+			 	password: {
+	            validators: {
+	            	identical: {
+	                    field: 'confirmPassword',
+	                    message: 'Confirm your password below - type same password please'
+	                }
+	            }
+	        },
+	        confirmPassword: {
+	            validators: {
+	                identical: {
+	                    field: 'password',
+	                    message: 'The password and its confirm are not the same'
+	                }
+	            }
+	         },
+			
+			semester: {
+				validators: {
+					notEmpty: {
+						message: 'Choose semester'
+					}
+				}
+			},
 
 		}
-		});
-
 	});
+
+});
 
 
 
