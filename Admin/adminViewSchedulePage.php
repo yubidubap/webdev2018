@@ -106,8 +106,8 @@
 
 		<div class="row">
 			<div>
-				<table class="table" id="scheduleTable" style="background-color: #2D486A;">
-					<tr>
+				<table class="table" id="scheduleTable" >
+					<tr style='background-color: #2D486A;'>
 						<th style="color: #fbf7de;">Subject Code</th>
 						<th style="color: #fbf7de;">Description</th>
 						<th style="color: #fbf7de;">Units</th>
