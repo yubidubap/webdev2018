@@ -41,7 +41,7 @@
 		<div class="header2">
 			<h1>Add Account</h1>
 		</div>
-	
+
 		<form class="container-fluid" action="#" method="post" id="validateForm">
 
 			<div class="row">
@@ -141,13 +141,13 @@
 			       </div>
 
 					<div class="form-group has-feedback">
-					            <label for="pass2">Confirm Password</label>
-					            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" 
-					                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
-					                       data-match-error="some error 2"
-					                       required/>
+			            <label for="pass2">Confirm Password</label>
+			            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" 
+			                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+			                       data-match-error="some error 2"
+			                       required/>
 					</div>
-			</div>
+				</div>
 				</div>
 			</div>
 
@@ -168,8 +168,7 @@
 		<?php
 			if(isset($_POST['subbutton']))
 			{
-				$acctType = $_POST['accountType'];
-				$course = $_POST['course'];
+
 				$curr = $_POST['curriculum'];
 				$fName = $_POST['firstname'];
 				$mName = $_POST['middlename'];
@@ -178,15 +177,14 @@
 				$email = $_POST['email'];
 				$confPass = $_POST['confirmPassword'];
 
-				echo "<p>Account Type: ".$acctType."</p>";
-				echo "<p>Course: ".$course."</p>";
-				echo "<p>Curriculum:".$curr."</p>";
-				echo "<p>First Name:".$fName."</p>";
-				echo "<p>Middle Name: ".$mName."</p>";
-				echo "<p>Last Name: ".$lName."</p>";
-				echo "<p>Mobile Number: ".$number."</p>";
-				echo "<p>E-mail: ".$email."</p>";
-				echo "<p>Password: ".$confPass."</p>";
+				echo "</br>Course: ".$accountType;
+				echo "</br>Curriculum: ".$curr;
+				echo "</br>School Year:".$fName;
+				echo "</br>Semester:".$mName;
+				echo "</br>Subject: ".$lName;
+				echo "</br>Slots: ".$number;
+				echo "</br>Section: ".$email;
+				echo "</br>Lecture Room: ".$confPass;
 			}
 		?>
 

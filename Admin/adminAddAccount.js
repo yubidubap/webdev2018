@@ -83,9 +83,8 @@ function showCurriculum(xmlhttp)
 
 			$("#label1").fadeIn("fast");
 			$("#label2").fadeIn("fast");
-		}
+		}	
 	});
-
 		
 
 	$('#validateForm').bootstrapValidator({
@@ -182,7 +181,7 @@ function showCurriculum(xmlhttp)
 					}
 				}
 			},
-		password: {
+      
             validators: {
             	identical: {
                     field: 'confirmPassword',
