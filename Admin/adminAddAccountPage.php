@@ -42,7 +42,7 @@
 			<h1>Add Account</h1>
 		</div>
 	
-		<form class="container-fluid" action="#" method="post" id="validateForm">
+		<form class="container-fluid" method="post" id="validateForm">
 
 			<div class="row">
 				<div class="col-sm-4">
@@ -60,7 +60,7 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label id="label1" for="Course">Course:</label>
-	  					<select name="course" class="form-control" id="Course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
+	  					<select name="course" class="form-control" id="course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
 	  						<option disabled selected>Select Student's Course</option>
   							<?php
 								$sql = "SELECT courseCode, courseTitle FROM Course";
@@ -155,40 +155,11 @@
 				<div class = "col-sm-12">
 				<h1></h1>
 					<div class="pull-right">
-						<button class="btn btn-success" button type="submit" class="btn btn-warning" id="sbutton" name="subbutton">Add Account</button>
+						<button class="btn btn-success" button type="submit" id="subButton" name="subButton">Add Account</button>
 		  				<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddAccountPage.php'">Clear All</button>
 					</div>
 				</div>
 			</div>
-
-
-
 		</form>
-
-		<?php
-			if(isset($_POST['subbutton']))
-			{
-				$acctType = $_POST['accountType'];
-				$course = $_POST['course'];
-				$curr = $_POST['curriculum'];
-				$fName = $_POST['firstname'];
-				$mName = $_POST['middlename'];
-				$lName = $_POST['lastname'];
-				$number = $_POST['mobilenumber'];
-				$email = $_POST['email'];
-				$confPass = $_POST['confirmPassword'];
-
-				echo "<p>Account Type: ".$acctType."</p>";
-				echo "<p>Course: ".$course."</p>";
-				echo "<p>Curriculum:".$curr."</p>";
-				echo "<p>First Name:".$fName."</p>";
-				echo "<p>Middle Name: ".$mName."</p>";
-				echo "<p>Last Name: ".$lName."</p>";
-				echo "<p>Mobile Number: ".$number."</p>";
-				echo "<p>E-mail: ".$email."</p>";
-				echo "<p>Password: ".$confPass."</p>";
-			}
-		?>
-
 	</body>
 </html>

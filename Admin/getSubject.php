@@ -4,7 +4,7 @@
 
 	$q = $_GET['q'];
 
-	$sql = "SELECT subjectTitle, cs_subjectFK FROM subject INNER JOIN curriculum_subject ON curriculum_subject.cs_subjectFK = subject.subjectCode WHERE cs_curriculumFK = '".$q."'";
+	$sql = "SELECT subjectTitle, cs_subjectFK FROM subject INNER JOIN curriculum_subject ON curriculum_subject.cs_subjectFK = subject.subjectCode WHERE cs_curriculumFK = '.$q.';";
 
 	$result = $conn->query($sql);
 

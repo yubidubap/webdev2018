@@ -4,7 +4,7 @@
 
 	$q = $_GET['q'];
 
-	$sql = "SELECT curriculumCode FROM curriculum WHERE c_courseFK = '".$q."'";
+	$sql = "SELECT curriculumCode FROM curriculum WHERE c_courseFK = '$q'";
 
 	$result = $conn->query($sql);
 

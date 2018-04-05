@@ -17,8 +17,8 @@
 			JOIN enrollment E ON SO.so_enrollmentFK = E.enrollmentCode
 			JOIN room R ON SC.s_roomFK = R.roomCode
 			JOIN section SE ON SO.so_sectionFK = SE.sectionCode
-			WHERE E.semester = '".$sem."' AND E.schoolYear = '".$sy."'
-			AND SE.sectionCode = '".$sec."' GROUP BY S.subjectCode, R.roomType DESC ORDER BY S.subjectTitle;";
+			WHERE E.semester = '$sem' AND E.schoolYear = '$sy'
+			AND SE.sectionCode = '$sec' GROUP BY S.subjectCode, R.roomType DESC ORDER BY S.subjectTitle;";
 
 	$result = $conn->query($sql);
 
