@@ -15,6 +15,10 @@
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="bootstrap-select/js/bootstrap-select.js"></script>
 		<script src="adminAddSchedule.js"></script>
+		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+		<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+		<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+
 	</head>
 
 	<body>
@@ -34,7 +38,7 @@
 		<div class="header2">
 			<h1>Add Schedule</h1>
 		</div>
-		<form class="container-fluid" action="#" method="post">
+		<form class="container-fluid" action="#" method="post" id="validateSchedule">
 			<div class="row">
 				<div class="col-sm-4">
 					<h3>Course:</h3>
@@ -91,6 +95,7 @@
 						<div class="form-group">
 	  						<select class="form-control" name="Subject" id="subjects">
 	  							<option disabled selected>Select Subject</option>
+
 	 						</select>
 						</div>
 						<h2></h2>
@@ -132,15 +137,14 @@
 				<div class="col-sm-4">
 					<h3>Slots:</h3>
 						<div class="form-group">
-	  						<input type="text" class="form-control" name="Slot" id="slot">
+	  						<input type="text" id="slot" name="Slot" placeholder="Specify the total number of slots" 
+								class="form-control" type="text" onkeypress="return numbersOnly(this, event)" maxlength="2"></input>
 						</div>
 				</div>
 
 				<div class="col-sm-4">
-					<div class="form-group">
 					<h3>Add:</h3>
 						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#lecturebtn">Lecture Room</button>
-
 							<div id="lecturebtn" class="collapse">
 								<div class="form-group">
 									<h2></h2>
@@ -205,23 +209,25 @@
 									<div class="container">
 										<h4>Day:</h4>
 											<div class="checkbox">
-												<label><input type="checkbox" name="checklist[]" value="MO">Monday</label>
+												<label><input type="checkbox" name="lecday" value="MO">Monday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="TU">Tuesday</label>
+	  											<label><input type="checkbox" name="lecday" value="TU">Tuesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="WE">Wednesday</label>
+	  											<label><input type="checkbox" name="lecday" value="WE">Wednesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="TH">Thursday</label>
+	  											<label><input type="checkbox" name="lecday" value="TH">Thursday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="FR">Friday</label>
+	  											<label><input type="checkbox" name="lecday" value="FR">Friday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="SA">Saturday</label>
+	  											<label><input type="checkbox" name="lecday" value="SA">Saturday</label>
 											</div>
+
+											<!-- old name "checklist[]" -->
 									</div>
 								</div>
 
@@ -229,11 +235,10 @@
 									<button type="button" class="btn btn-success">Save</button>
 								</div>
 							</div>
-					</div>
 				</div>
 
 				<div class="col-sm-4">
-					<div class="form-group">
+
 					<h3>Add:</h3>
 						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#laboratorybtn">Laboratory Room</button>
 
@@ -301,23 +306,25 @@
 									<div class="container">
 										<h4>Day:</h4>
 											<div class="checkbox">
-												<label><input type="checkbox" name="checklist1[]" value="MO">Monday</label>
+												<label><input type="checkbox" name="labday" value="MO">Monday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist1[]" value="TU">Tuesday</label>
+	  											<label><input type="checkbox" name="labday" value="TU">Tuesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist1[]" value="WE">Wednesday</label>
+	  											<label><input type="checkbox" name="labday" value="WE">Wednesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist1[]" value="TH">Thursday</label>
+	  											<label><input type="checkbox" name="labday" value="TH">Thursday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist1[]" value="FR">Friday</label>
+	  											<label><input type="checkbox" name="labday" value="FR">Friday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist1[]" value="SA">Saturday</label>
+	  											<label><input type="checkbox" name="labday" value="SA">Saturday</label>
 											</div>
+
+												<!-- old name "checklist1[]" -->
 									</div>
 								</div>
 
@@ -327,14 +334,14 @@
 
 							</div>
 					</div>
-				</div>
-			</div>
+
 
 			<div class="col-sm-12">
 				<div class="pull-right">
 					<h1></h1>
-		 			<button type="submit" name="submit" class="btn btn-success">Submit Schedule</button>
-		   			<button type="reset" class="btn btn-default">Clear All</button>
+		 			<button class="btn btn-success" button type="submit" class="btn btn-warning" data-toggle="collapse" data-target="#lecturebtn,#laboratorybtn">
+		 			Submit Schedule</button>
+		   			<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddSchedulePage.php'">Clear All</button>
 				</div>
 			</div>
 		</form>
@@ -390,4 +397,54 @@
 		?>
 
 	</body>
+
+	<script type="text/javascript">
+		function showOptions(str, currentFunction, url)
+		{
+	        if (window.XMLHttpRequest) 
+	        {
+	            // code for IE7+, Firefox, Chrome, Opera, Safari
+	            xmlhttp = new XMLHttpRequest();
+	        } 
+
+	        else 
+	        {
+	            // code for IE6, IE5
+	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	        }
+
+	        xmlhttp.onreadystatechange = function()
+	        {
+	            if (this.readyState == 4 && this.status == 200) 
+	            {
+	            	currentFunction(this);
+	          	}
+	        };
+
+	        xmlhttp.open("GET", url+ "?q=" +str, true);
+	        xmlhttp.send();
+		}
+
+		function showCurriculum(xmlhttp)
+		{
+			document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
+		}
+
+		function showSubject(xmlhttp)
+		{
+			document.getElementById("subjects").innerHTML = xmlhttp.responseText;
+		}
+
+		function showSection(xmlhttp)
+		{
+			document.getElementById("section").innerHTML = xmlhttp.responseText;
+		}
+
+		function showCurriculumAndSection(val)
+		{
+			showOptions(val, showCurriculum, 'getCurriculum.php');
+			showOptions(val, showSection, 'getSection.php');
+			showOptions(val, showSubject, 'getSubject.php');
+		}
+	</script>
 </html>
