@@ -38,8 +38,9 @@
 		<div class="header2">
 			<h1>Add Account</h1>
 		</div>
-	
-		<form class="container-fluid" method="post" action="#">
+
+		<form class="container-fluid" action="#" method="post" id="validateForm">
+
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="form-group">
@@ -84,8 +85,6 @@
 					</div>
 				</div>
 			</div>
-		
-
 
 			<div class="row">
 				<div class="col-sm-4">
@@ -130,16 +129,22 @@
 				</div>
 
 				<div class="col-sm-4">
-				    <div class="form-group has-feedback">
-				         <label for="pass1">Password</label>
-				         <input class="form-control" id="pass1" type="password" placeholder="Password" name="password" data-minLength="5"
-				             data-error="some error" required/>
-				    </div>
+			       	<div class="form-group has-feedback">
+			            <label for="pass1"  class="control-label">Password</label>
+			            	<input class="form-control" id="pass1" type="password" placeholder="Password" 
+			                       name="password" data-minLength="5"
+			                       data-error="some error"
+			                       required/>
+			       </div>
 
-				    <div class"form-group">
-				            <label for="pass2">Confirm Password</label>
-				            <input class="form-control" id="pass2" type="password" placeholder="Confirm password" name="confirmPassword" data-match="#confirmPassword" data-minLength="5" data-match-error="some error 2" required/>
-				    </div>
+					<div class="form-group has-feedback">
+					            <label for="pass2">Confirm Password</label>
+					            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" 
+					                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+					                       data-match-error="some error 2"
+					                       required/>
+					</div>
+			</div>
 				</div>
 			</div>
 
