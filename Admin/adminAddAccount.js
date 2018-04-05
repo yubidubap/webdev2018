@@ -83,10 +83,10 @@ function showCurriculum(xmlhttp)
 
 			$("#label1").fadeIn("fast");
 			$("#label2").fadeIn("fast");
-		}
+		}	
 	});
 
-		$('#dropDown').bootstrapValidator({
+	/*$('#dropDown').bootstrapValidator({
 
 		fields: {
 
@@ -218,6 +218,15 @@ function showCurriculum(xmlhttp)
 	                }
 	            }
 	        },
+
+			 confirmPassword: {
+	            validators: {
+	            	identical: {
+	                    field: 'assword',
+	                    message: 'Confirm your password below - type same password please'
+	                }
+	            }
+	        },
 			
 			semester: {
 				validators: {
@@ -228,7 +237,7 @@ function showCurriculum(xmlhttp)
 			},
 
 		}
-	});
+	});*/
 
 });
 

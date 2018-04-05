@@ -39,7 +39,7 @@
 			<h1>Add Account</h1>
 		</div>
 	
-		<form class="container-fluid" action="#" method="post" id="dropDown">
+		<form class="container-fluid" method="post" action="#">
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="form-group">
@@ -84,9 +84,8 @@
 					</div>
 				</div>
 			</div>
-		</form>
+		
 
-	<form class="container-fluid" action="#" method="post" id="validateForm">
 
 			<div class="row">
 				<div class="col-sm-4">
@@ -158,8 +157,7 @@
 		<?php
 			if(isset($_POST['submit']))
 			{
-				$acctType = $_POST['accounttype'];
-				$course = $_POST['course'];
+				$accountType = $_POST['accounttype'];
 				$curr = $_POST['curriculum'];
 				$fName = $_POST['firstname'];
 				$mName = $_POST['middlename'];
@@ -168,15 +166,14 @@
 				$email = $_POST['email'];
 				$confPass = $_POST['confirmPassword'];
 
-				echo "<p>Account Type: ".$acctType."</p>";
-				echo "<p>Course: ".$course."</p>";
-				echo "<p>Curriculum:".$curr."</p>";
-				echo "<p>First Name:".$fName."</p>";
-				echo "<p>Middle Name: ".$mName."</p>";
-				echo "<p>Last Name: ".$lName."</p>";
-				echo "<p>Mobile Number: ".$number."</p>";
-				echo "<p>E-mail: ".$email."</p>";
-				echo "<p>Password: ".$confPass."</p>";
+				echo "</br>Course: ".$accountType;
+				echo "</br>Curriculum: ".$curr;
+				echo "</br>School Year:".$fName;
+				echo "</br>Semester:".$mName;
+				echo "</br>Subject: ".$lName;
+				echo "</br>Slots: ".$number;
+				echo "</br>Section: ".$email;
+				echo "</br>Lecture Room: ".$confPass;
 			}
 		?>
 	</body>
