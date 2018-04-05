@@ -11,155 +11,50 @@ function numbersOnly(txt, e) {
         }
 
 
- $(document).ready(function() {
-	$('#validateSchedule').bootstrapValidator({
-	feedbackIcons: {
-		validating: 'glyphicon glyphicon-refresh'
-	},
+function showOptions(str, currentFunction, url)
+{
+    if (window.XMLHttpRequest) 
+    {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } 
 
-	fields: {
+    else 
+    {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
 
-		Course: {
-			validators: {
-				notEmpty: {
-					message: 'Choose student course'
-				}
-			}
-		},
+    xmlhttp.onreadystatechange = function()
+    {
+        if (this.readyState == 4 && this.status == 200) 
+        {
+        	currentFunction(this);
+      	}
+    };
 
-		Curriculum: {
-			validators: {
-				notEmpty: {
-					message: 'Choose curriculum'
-				}
-			}
-		},
+    xmlhttp.open("GET", url+ "?q=" +str, true);
+    xmlhttp.send();
+}
 
-		Semester: {
-			validators: {
-				notEmpty: {
-					message: 'Please specify Semester'
-				}
-			}
-		},
+function showCurriculum(xmlhttp)
+{
+	document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
+}
 
-		Subject: {
-			validators: {
-				notEmpty: {
-					message: 'Please select a Subject'
-				}
-			}
-		},
+function showSubject(xmlhttp)
+{
+	document.getElementById("subjects").innerHTML = xmlhttp.responseText;
+}
 
-		Section: {
-			validators: {
-				notEmpty: {
-					message: 'Please select a Section'
-				}
-			}
-		},
+function showSection(xmlhttp)
+{
+	document.getElementById("section").innerHTML = xmlhttp.responseText;
+}
 
-		SchoolYear: {
-			validators: {
-				notEmpty: {
-					message: 'Please specify School Year'
-				}
-			}
-		},
-		Slot: {
-			validators: {
-				notEmpty: {
-					message: 'Please specify the total number of slots'
-				}
-			}
-		},
-		TimeStartLec: {
-			validators: {
-				notEmpty: {
-					message: 'Specify time to start'
-				}
-			}
-		},
-
-		TimeEndLec: {
-			validators: {
-				notEmpty: {
-					message: 'Specify end time'
-				}
-			}
-		},
-
-		RoomLec: {
-			validators: {
-				notEmpty: {
-					message: 'Select a room'
-				}
-			}
-		},
-		lecday: {
-			validators: {
-				notEmpty: {
-					message: 'Please select a day/s'
-				}
-			}
-		},
-
-		TimeStartLab: {
-			validators: {
-				notEmpty: {
-					message: 'Specify time to start'
-				}
-			}
-		},
-
-		TimeEndLab: {
-			validators: {
-				notEmpty: {
-					message: 'Specify end time'
-				}
-			}
-		},
-		RoomLab: {
-			validators: {
-				notEmpty: {
-					message: 'Select a room'
-				}
-			}
-		},
-		labday: {
-			validators: {
-				notEmpty: {
-					message: 'Please select a day/s'
-				}
-			}
-		},
-
-		}
-		});
-
-	});
-
- 	$(document).ready(function () {
-		$("input[name='lecday']").change(function () {
-			var maxAllowed = 3;
-			var cnt = $("input[name='lecday']:checked").length;
-				if (cnt > maxAllowed) {
-					$(this).prop("checked", "");
-						            
-				}
-		});
-	});
-
- 	$(document).ready(function () {
-		$("input[name='labday']").change(function () {
-			var maxAllowed = 3;
-			var cnt = $("input[name='labday']:checked").length;
-			if (cnt > maxAllowed) {
-				$(this).prop("checked", "");
-				// alert('You can select maximum ' + maxAllowed + ' of days!!');
-			}
-		});
-	});
-
-
-
+function showCurriculumAndSection(val)
+{
+	showOptions(val, showCurriculum, 'getCurriculum.php');
+	showOptions(val, showSection, 'getSection.php');
+	showOptions(val, showSubject, 'getSubject.php');
+}

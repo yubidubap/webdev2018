@@ -38,7 +38,7 @@
 		<div class="header2">
 			<h1>Add Schedule</h1>
 		</div>
-		<form class="container-fluid" action="#" method="post" id="validateSchedule">
+		<form class="container-fluid" action="#" method="post">
 			<div class="row">
 				<div class="col-sm-4">
 					<h3>Course:</h3>
@@ -397,54 +397,4 @@
 		?>
 
 	</body>
-
-	<script type="text/javascript">
-		function showOptions(str, currentFunction, url)
-		{
-	        if (window.XMLHttpRequest) 
-	        {
-	            // code for IE7+, Firefox, Chrome, Opera, Safari
-	            xmlhttp = new XMLHttpRequest();
-	        } 
-
-	        else 
-	        {
-	            // code for IE6, IE5
-	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	        }
-
-	        xmlhttp.onreadystatechange = function()
-	        {
-	            if (this.readyState == 4 && this.status == 200) 
-	            {
-	            	currentFunction(this);
-	          	}
-	        };
-
-	        xmlhttp.open("GET", url+ "?q=" +str, true);
-	        xmlhttp.send();
-		}
-
-		function showCurriculum(xmlhttp)
-		{
-			document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
-		}
-
-		function showSubject(xmlhttp)
-		{
-			document.getElementById("subjects").innerHTML = xmlhttp.responseText;
-		}
-
-		function showSection(xmlhttp)
-		{
-			document.getElementById("section").innerHTML = xmlhttp.responseText;
-		}
-
-		function showCurriculumAndSection(val)
-		{
-			showOptions(val, showCurriculum, 'getCurriculum.php');
-			showOptions(val, showSection, 'getSection.php');
-			showOptions(val, showSubject, 'getSubject.php');
-		}
-	</script>
 </html>
