@@ -138,13 +138,13 @@
 			       </div>
 
 					<div class="form-group has-feedback">
-					            <label for="pass2">Confirm Password</label>
-					            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" 
-					                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
-					                       data-match-error="some error 2"
-					                       required/>
+			            <label for="pass2">Confirm Password</label>
+			            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" 
+			                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+			                       data-match-error="some error 2"
+			                       required/>
 					</div>
-			</div>
+				</div>
 				</div>
 			</div>
 

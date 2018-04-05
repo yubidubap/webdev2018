@@ -206,7 +206,7 @@ function showCurriculum(xmlhttp)
 			},
 
 		}
-	});*/
+	});
 
 });
 
