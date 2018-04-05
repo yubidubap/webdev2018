@@ -85,48 +85,17 @@ function showCurriculum(xmlhttp)
 			$("#label2").fadeIn("fast");
 		}	
 	});
-
-	/*$('#dropDown').bootstrapValidator({
-
-		fields: {
-
-			accountType: {
-				validators: {
-					notEmpty: {
-						message: 'Choose your user role'
-					}
-				}
-			},
-
-			course: {
-				validators: {
-					notEmpty: {
-						message: 'Choose student course'
-					}
-				}
-			},
-
-			curriculum: {
-				validators: {
-					notEmpty: {
-						message: 'Choose curriculum'
-					}
-				}
-			},
-		}
-	});
 		
 
 	$('#validateForm').bootstrapValidator({
 		feedbackIcons: {
-			valid: 'glyphicon glyphicon-ok',
-			invalid: 'glyphicon glyphicon-remove',
+
 			validating: 'glyphicon glyphicon-refresh'
 		},
 
 		fields: {
 
-			accountType: {
+						accountType: {
 				validators: {
 					notEmpty: {
 						message: 'Choose your user role'
@@ -210,23 +179,23 @@ function showCurriculum(xmlhttp)
 					}
 				}
 			},
-			 password: {
-	            validators: {
-	            	identical: {
-	                    field: 'confirmPassword',
-	                    message: 'Confirm your password below - type same password please'
-	                }
-	            }
-	        },
 
-			 confirmPassword: {
-	            validators: {
-	            	identical: {
-	                    field: 'assword',
-	                    message: 'Confirm your password below - type same password please'
-	                }
-	            }
-	        },
+		 	password: {
+            validators: {
+            	identical: {
+                    field: 'confirmPassword',
+                    message: 'Confirm your password below - type same password please'
+                }
+            }
+        },
+        confirmPassword: {
+            validators: {
+                identical: {
+                    field: 'password',
+                    message: 'The password and its confirm are not the same'
+                }
+            }
+         },
 			
 			semester: {
 				validators: {
