@@ -39,7 +39,7 @@
 			<h1>Add Account</h1>
 		</div>
 	
-		<form class="container-fluid" action="#" method="post" id="validateForm">
+		<form class="container-fluid" action="#" method="post" id="dropDown">
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="form-group">
@@ -74,6 +74,7 @@
 					</div>
 				</div>
 
+
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label id="label2" for="curriculum">Curriculum:</label>
@@ -83,6 +84,9 @@
 					</div>
 				</div>
 			</div>
+		</form>
+
+	<form class="container-fluid" action="#" method="post" id="validateForm">
 
 			<div class="row">
 				<div class="col-sm-4">
@@ -135,7 +139,7 @@
 
 				    <div class"form-group">
 				            <label for="pass2">Confirm Password</label>
-				            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" name="confirmPassword" data-match="#confirmPassword" data-minLength="5" data-match-error="some error 2" required/>
+				            <input class="form-control" id="pass2" type="password" placeholder="Confirm password" name="confirmPassword" data-match="#confirmPassword" data-minLength="5" data-match-error="some error 2" required/>
 				    </div>
 				</div>
 			</div>
@@ -145,7 +149,7 @@
 				<h1></h1>
 					<div class="pull-right">
 						<button class="btn btn-success" button type="submit" class="btn btn-warning">Add Account</button>
-		  				<button type="reset" class="btn btn-default">Clear All</button>
+		  				<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddAccountPage.php'">Clear All</button>
 					</div>
 				</div>
 			</div>

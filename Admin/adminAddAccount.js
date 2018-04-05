@@ -55,6 +55,7 @@ function showCurriculum(xmlhttp)
 	document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
 }
 
+
  $(document).ready(function() {
 
  	$("#accounttype").change(function() {
@@ -85,6 +86,37 @@ function showCurriculum(xmlhttp)
 		}
 	});
 
+		$('#dropDown').bootstrapValidator({
+
+		fields: {
+
+			accountType: {
+				validators: {
+					notEmpty: {
+						message: 'Choose your user role'
+					}
+				}
+			},
+
+			course: {
+				validators: {
+					notEmpty: {
+						message: 'Choose student course'
+					}
+				}
+			},
+
+			curriculum: {
+				validators: {
+					notEmpty: {
+						message: 'Choose curriculum'
+					}
+				}
+			},
+		}
+	});
+		
+
 	$('#validateForm').bootstrapValidator({
 		feedbackIcons: {
 			valid: 'glyphicon glyphicon-ok',
@@ -94,7 +126,7 @@ function showCurriculum(xmlhttp)
 
 		fields: {
 
-			role: {
+			accountType: {
 				validators: {
 					notEmpty: {
 						message: 'Choose your user role'
@@ -178,7 +210,7 @@ function showCurriculum(xmlhttp)
 					}
 				}
 			},
-			 	password: {
+			 password: {
 	            validators: {
 	            	identical: {
 	                    field: 'confirmPassword',
@@ -186,14 +218,6 @@ function showCurriculum(xmlhttp)
 	                }
 	            }
 	        },
-	        confirmPassword: {
-	            validators: {
-	                identical: {
-	                    field: 'password',
-	                    message: 'The password and its confirm are not the same'
-	                }
-	            }
-	         },
 			
 			semester: {
 				validators: {
