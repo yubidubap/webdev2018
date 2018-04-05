@@ -19,6 +19,9 @@
 		<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 		<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 		<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+				<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 	</head>
 
 	<body>
@@ -56,8 +59,8 @@
 
 				<div class="col-sm-4">
 					<div class="form-group">
-						<label id="label1" for="course">Course:</label>
-	  					<select name="course" class="form-control" id="course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
+						<label id="label1" for="Course">Course:</label>
+	  					<select name="course" class="form-control" id="Course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
 	  						<option disabled selected>Select Student's Course</option>
   							<?php
 								$sql = "SELECT courseCode, courseTitle FROM Course";
@@ -152,17 +155,20 @@
 				<div class = "col-sm-12">
 				<h1></h1>
 					<div class="pull-right">
-						<button class="btn btn-success" button type="submit" class="btn btn-warning">Add Account</button>
+						<button class="btn btn-success" button type="submit" class="btn btn-warning" id="sbutton" name="subbutton">Add Account</button>
 		  				<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddAccountPage.php'">Clear All</button>
 					</div>
 				</div>
 			</div>
+
+
+
 		</form>
 
 		<?php
-			if(isset($_POST['submit']))
+			if(isset($_POST['subbutton']))
 			{
-				$acctType = $_POST['accounttype'];
+				$acctType = $_POST['accountType'];
 				$course = $_POST['course'];
 				$curr = $_POST['curriculum'];
 				$fName = $_POST['firstname'];
@@ -183,5 +189,6 @@
 				echo "<p>Password: ".$confPass."</p>";
 			}
 		?>
+
 	</body>
 </html>

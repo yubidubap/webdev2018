@@ -89,6 +89,8 @@ function showCurriculum(xmlhttp)
 		
 
 	$('#validateForm').bootstrapValidator({
+
+		
 		feedbackIcons: {
 
 			validating: 'glyphicon glyphicon-refresh'
@@ -180,7 +182,7 @@ function showCurriculum(xmlhttp)
 					}
 				}
 			},
-		 	password: {
+		password: {
             validators: {
             	identical: {
                     field: 'confirmPassword',
@@ -209,6 +211,9 @@ function showCurriculum(xmlhttp)
 	});
 
 });
+
+
+
 
 
 
