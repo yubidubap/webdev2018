@@ -4,7 +4,7 @@
 	
 	$q = $_GET['q'];
 
-	$sql = "SELECT sectionCode FROM section WHERE s_courseFK = '$q.';";
+	$sql = "SELECT sectionCode FROM section WHERE s_courseFK = '$q';";
 
 	$result = $conn->query($sql);
 

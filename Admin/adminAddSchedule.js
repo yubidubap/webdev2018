@@ -119,20 +119,6 @@ function numbersOnly(txt, e) {
 				}
 			}
 		},
-		RoomLab: {
-			validators: {
-				notEmpty: {
-					message: 'Select a room'
-				}
-			}
-		},
-		labday: {
-			validators: {
-				notEmpty: {
-					message: 'Please select a day/s'
-				}
-			}
-		},
 
 		}
 		});

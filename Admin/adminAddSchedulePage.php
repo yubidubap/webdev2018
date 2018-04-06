@@ -209,25 +209,23 @@
 									<div class="container">
 										<h4>Day:</h4>
 											<div class="checkbox">
-												<label><input type="checkbox" name="lecday" value="MO">Monday</label>
+												<label><input type="checkbox" name="checklist[]" value="MO">Monday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="lecday" value="TU">Tuesday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="TU">Tuesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="lecday" value="WE">Wednesday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="WE">Wednesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="lecday" value="TH">Thursday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="TH">Thursday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="lecday" value="FR">Friday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="FR">Friday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="lecday" value="SA">Saturday</label>
+	  											<label><input type="checkbox" name="checklist[]" value="SA">Saturday</label>
 											</div>
-
-											<!-- old name "checklist[]" -->
 									</div>
 								</div>
 
@@ -306,25 +304,23 @@
 									<div class="container">
 										<h4>Day:</h4>
 											<div class="checkbox">
-												<label><input type="checkbox" name="labday" value="MO">Monday</label>
+												<label><input type="checkbox" name="checklist1[]" value="MO">Monday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="labday" value="TU">Tuesday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="TU">Tuesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="labday" value="WE">Wednesday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="WE">Wednesday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="labday" value="TH">Thursday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="TH">Thursday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="labday" value="FR">Friday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="FR">Friday</label>
 											</div>
 											<div class="checkbox">
-	  											<label><input type="checkbox" name="labday" value="SA">Saturday</label>
+	  											<label><input type="checkbox" name="checklist1[]" value="SA">Saturday</label>
 											</div>
-
-												<!-- old name "checklist1[]" -->
 									</div>
 								</div>
 
@@ -339,7 +335,7 @@
 			<div class="col-sm-12">
 				<div class="pull-right">
 					<h1></h1>
-		 			<button class="btn btn-success" button type="submit" class="btn btn-warning" data-toggle="collapse" data-target="#lecturebtn,#laboratorybtn">
+		 			<button class="btn btn-success" name="subButton" type="submit" data-toggle="collapse" data-target="#lecturebtn,#laboratorybtn">
 		 			Submit Schedule</button>
 		   			<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddSchedulePage.php'">Clear All</button>
 				</div>
@@ -347,7 +343,7 @@
 		</form>
 
 		<?php
-			if(isset($_POST['submit']))
+			if(isset($_POST['subButton']))
 			{
 				$course = $_POST['Course'];
 				$curriculum = $_POST['Curriculum'];
