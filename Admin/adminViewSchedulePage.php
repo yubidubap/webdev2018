@@ -22,8 +22,8 @@
 			<ul>
 				<li><a href="adminProfilePage.php">Profile</a></li>
 				<li><a href="adminAddAccountPage.php">Accounts</a></li>
-				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
-				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>
+				<li><a href="adminAddSchedulePage.php">Section Offering</a></li>
+				<li>View Schedule</li>
 
 				<li>SIGN OUT</li>
 			</ul>

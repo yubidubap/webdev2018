@@ -4,11 +4,11 @@
 
 	$q = $_GET['q'];
 
-	$sql = "SELECT curriculumCode FROM curriculum WHERE c_courseFK = '".$q."'";
+	$sql = "SELECT curriculumCode FROM curriculum WHERE c_courseFK = '$q'";
 
 	$result = $conn->query($sql);
 
-	echo "<option disabled selected>Select Curriculum</option>";
+	echo "<option disabled selected hidden>Select Curriculum</option>";
 
 	if ($result->num_rows > 0) 
 	{

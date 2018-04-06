@@ -28,7 +28,7 @@
 		<div class="header">
 			<ul>
 				<li><a href="adminProfilePage.php">Profile</a></li>
-				<li><a href="adminAddAccountPage.php">Accounts</a></li>
+				<li>Accounts</li>
 				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
 				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>
 
@@ -41,15 +41,15 @@
 		<div class="header2">
 			<h1>Add Account</h1>
 		</div>
-
-		<form class="container-fluid" action="#" method="post" id="validateForm">
+	
+		<form class="container-fluid" method="post" id="validateForm">
 
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="accounttype">Account Type:</label>
 	  					<select name="accountType" class="form-control" id="accounttype">
-	  						<option disabled selected>Select Account Type</option>>
+	  						<option disabled>Select Account Type</option>>
 	    					<option value="Student">Student</option>
 	    					<option value="Admin">Administrator</option>
 	    					<option value="Registrar">Registrar</option>
@@ -60,8 +60,8 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label id="label1" for="Course">Course:</label>
-	  					<select name="course" class="form-control" id="Course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
-	  						<option disabled selected>Select Student's Course</option>
+	  					<select name="course" class="form-control" id="course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
+	  						<option disabled selected hidden>Select Student's Course</option>
   							<?php
 								$sql = "SELECT courseCode, courseTitle FROM Course";
 								$result = $conn->query($sql);
@@ -83,7 +83,7 @@
 					<div class="form-group">
 						<label id="label2" for="curriculum">Curriculum:</label>
 	  					<select name="curriculum" class="form-control" id="curriculum">
-	  						<option disabled selected>Select Curriculum</option>
+	  						<option disabled selected hidden>Select Curriculum</option>
 	 					</select>
 					</div>
 				</div>
@@ -141,13 +141,13 @@
 			       </div>
 
 					<div class="form-group has-feedback">
-			            <label for="pass2">Confirm Password</label>
-			            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" 
-			                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
-			                       data-match-error="some error 2"
-			                       required/>
+					            <label for="pass2">Confirm Password</label>
+					            <input class="form-control {$borderColor}" id="pass2" type="password" placeholder="Confirm password" 
+					                       name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+					                       data-match-error="some error 2"
+					                       required/>
 					</div>
-				</div>
+			</div>
 				</div>
 			</div>
 
@@ -155,38 +155,11 @@
 				<div class = "col-sm-12">
 				<h1></h1>
 					<div class="pull-right">
-						<button class="btn btn-success" button type="submit" class="btn btn-warning" id="sbutton" name="subbutton">Add Account</button>
+						<button class="btn btn-success" button type="submit" id="subButton" name="subButton">Add Account</button>
 		  				<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddAccountPage.php'">Clear All</button>
 					</div>
 				</div>
 			</div>
-
-
-
 		</form>
-
-		<?php
-			if(isset($_POST['subbutton']))
-			{
-
-				$curr = $_POST['curriculum'];
-				$fName = $_POST['firstname'];
-				$mName = $_POST['middlename'];
-				$lName = $_POST['lastname'];
-				$number = $_POST['mobilenumber'];
-				$email = $_POST['email'];
-				$confPass = $_POST['confirmPassword'];
-
-				echo "</br>Course: ".$accountType;
-				echo "</br>Curriculum: ".$curr;
-				echo "</br>School Year:".$fName;
-				echo "</br>Semester:".$mName;
-				echo "</br>Subject: ".$lName;
-				echo "</br>Slots: ".$number;
-				echo "</br>Section: ".$email;
-				echo "</br>Lecture Room: ".$confPass;
-			}
-		?>
-
 	</body>
 </html>

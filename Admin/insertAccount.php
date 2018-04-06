@@ -13,16 +13,17 @@
 
 	if($acctType != "Student")
 	{
-		$sql = "INSERT INTO account(accountType, password, firstName, middleName,lastName, email, mobileNum) VALUES('.$acctType.', '.$confPass.', '.$fName.', '.$mName.', '.$lName.', '.$number.', '.$email.', '.number.');";
+		$sql = "INSERT INTO account(accountType, password, firstName, middleName,lastName, email, mobileNum) VALUES('$acctType', '$confPass', '$fName', '$mName', '$lName', '$email', '$number');";
 
 		$result = $conn->query($sql);
 	}
 
 	else
 	{
-		$sql = "INSERT INTO account(accountType, password, firstName, middleName, lastName, email, mobileNum) VALUES('.$acctType.', '.$confPass.', '.$fName.', '.$mName.', '.$lName.', '.$number.', '.$email.', '.number.')";
-			"INSERT INTO student(studentCode, s_curriculumFK) VALUES((SELECT MAX(accountCode) from account), '.$curr.');";
+		$sql = "INSERT INTO account(accountType, password, firstName, middleName,lastName, email, mobileNum) VALUES('$acctType', '$confPass', '$fName', '$mName', '$lName', '$email', '$number');";
+		$sql2 = "INSERT INTO student(studentCode, s_curriculumFK) VALUES((SELECT MAX(accountCode) from account), '$curr');";
 
-		$result = conn->query($sql);
+		$result = $conn->query($sql); 
+		$result = $conn->query($sql2);
 	}
 ?>
