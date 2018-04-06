@@ -26,7 +26,7 @@
 			<ul>
 				<li><a href="adminProfilePage.php">Profile</a></li>
 				<li><a href="adminAddAccountPage.php">Accounts</a></li>
-				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
+				<li>Section Offering</li>
 				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>
 
 				<li>SIGN OUT</li>
@@ -36,7 +36,7 @@
 		</div>
 
 		<div class="header2">
-			<h1>Add Schedule</h1>
+			<h1>Section Offering</h1>
 		</div>
 		<form class="container-fluid" action="#" method="post" id="validateSchedule">
 			<div class="row">
@@ -44,7 +44,7 @@
 					<h3>Course:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Course" id="course" onchange="showCurriculumAndSection(this.value)">
-	  							<option disabled selected>Select Course</option>
+	  							<option disabled selected hidden>Select Course</option>
 	    							<?php
 										$sql = "SELECT courseCode, courseTitle FROM Course";
 										$result = $conn->query($sql);
@@ -66,7 +66,7 @@
 					<h3>Curriculum:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Curriculum" id="curriculum" onchange="showOptions(this.value, showSubject, 'getSubject.php')">
-	  							  	<option disabled selected>Select Curriculum</option>
+	  							  	<option disabled selected hidden>Select Curriculum</option>
 	 						</select>
 						</div>
 						<h2></h2>
@@ -76,7 +76,7 @@
 					<h3>Semester:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Semester" id="semester">
-	  								<option disabled selected>Select Semester</option>
+	  								<option disabled selected hidden>Select Semester</option>
 	    							<option value = "1">1st</option>
   									<option value = "2">2nd</option>
   									<option value = "3">Summer</option>
@@ -94,7 +94,7 @@
 
 						<div class="form-group">
 	  						<select class="form-control" name="Subject" id="subjects">
-	  							<option disabled selected>Select Subject</option>
+	  							<option disabled selected hidden>Select Subject</option>
 
 	 						</select>
 						</div>
@@ -105,7 +105,7 @@
 					<h3>Section:</h3>
 					<div class="form-group">
 	  					<select class="form-control" name="Section" id="section">
-	  						<option disabled selected>Select Section</option>
+	  						<option disabled selected hidden>Select Section</option>
 	 					</select>
 					</div>
 				</div>
@@ -114,7 +114,7 @@
 					<h3>School Year:</h3>
 					<div class="form-group">
 	  					<select class="form-control" name="SchoolYear" id="schoolYear">
-	  					<option disabled selected>Select School Year</option>
+	  					<option disabled selected hidden>Select School Year</option>
 	  						<?php
 								$sql = "SELECT DISTINCT schoolYear FROM enrollment";
 								$result = $conn->query($sql);
@@ -144,13 +144,13 @@
 
 				<div class="col-sm-4">
 					<h3>Add:</h3>
-						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#lecturebtn">Lecture Room</button>
-							<div id="lecturebtn" class="collapse">
+						<button type="button" class="btn btn-info btn-block" id="lecButton" data-target="#lecturebtn">Lecture Room</button>
+							<div id="lecturebtn" style="display: none;">
 								<div class="form-group">
 									<h2></h2>
 									<label for="timestartlec">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLec" id="timestartlec">
-	  									<option disabled selected>Select Start Time</option>
+	  									<option disabled selected hidden default>Select Start Time</option>
 	    								<option value="7:30">7:30 AM</option>
 	    								<option value="8:30">8:30 AM</option>
 	    								<option value="9:30">9:30 AM</option>
@@ -169,7 +169,7 @@
 								<div class="form-group">
 									<label for="timeendlec">Time End:</label>
 	  								<select class="form-control" name="TimeEndLec" id="timeendlec">
-	  									<option disabled selected>Select End Time</option>
+	  									<option disabled selected hidden default>Select End Time</option>
 	    								<option value="8:30">8:30 AM</option>
 	    								<option value="9:30">9:30 AM</option>
 	    								<option value="10:30">10:30 AM</option>
@@ -189,7 +189,7 @@
 								<div class="form-group">
 	  								<label for="room">Room:</label>
 	  								<select class="form-control" name="RoomLec" id="roomLec">
-	  									<option disabled selected>Select Room</option>
+	  									<option disabled selected hidden default>Select Lecture Room</option>
 		  								<?php
 											$sql = "SELECT roomCode FROM room WHERE roomType = 'Lecture'";
 											$result = $conn->query($sql);
@@ -208,7 +208,7 @@
 								<div class="form-group">
 									<div class="container">
 										<h4>Day:</h4>
-											<div class="checkbox">
+											<div class="checkbox" id="dayLec">
 												<label><input type="checkbox" name="checklist[]" value="MO">Monday</label>
 											</div>
 											<div class="checkbox">
@@ -230,7 +230,7 @@
 								</div>
 
 								<div>
-									<button type="button" class="btn btn-success">Save</button>
+									<button type="button" id="save" class="btn btn-success">Save</button>
 								</div>
 							</div>
 				</div>
@@ -238,14 +238,14 @@
 				<div class="col-sm-4">
 
 					<h3>Add:</h3>
-						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#laboratorybtn">Laboratory Room</button>
+						<button type="button" class="btn btn-info btn-block" id="labButton" data-target="#laboratorybtn">Laboratory Room</button>
 
-							<div id="laboratorybtn" class="collapse">
+							<div id="laboratorybtn" style="display: none;">
 								<div class="form-group">
 									<h2></h2>
 									<label for="timestartlab">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLab" id="timestartlab">
-	  									<option disabled selected>Select Start Time</option>
+	  									<option disabled selected hidden default>Select Start Time</option>
 	    								<option value="7:30">7:30 AM</option>
 	    								<option value="8:30">8:30 AM</option>
 	    								<option value="9:30">9:30 AM</option>
@@ -264,7 +264,7 @@
 								<div class="form-group">
 									<label for="timeendlab">Time End:</label>
 	  								<select class="form-control" name="TimeEndLab" id="timeendlab">
-	  									<option disabled selected>Select End Time</option>
+	  									<option disabled selected hidden default>Select End Time</option>
 	    								<option value="8:30">8:30 AM</option>
 	    								<option value="9:30">9:30 AM</option>
 	    								<option value="10:30">10:30 AM</option>
@@ -284,7 +284,7 @@
 								<div class="form-group">
 	  								<label for="room">Room:</label>
 	  								<select class="form-control" name="RoomLab" id="roomLab">
-	  									<option disabled selected>Select Room</option>
+	  									<option disabled selected hidden default>Select Laboratory Room</option>
 		  								<?php
 											$sql = "SELECT roomCode FROM room WHERE roomType = 'Laboratory'";
 											$result = $conn->query($sql);
@@ -325,9 +325,8 @@
 								</div>
 
 								<div>
-									<button type="button" class="btn btn-success">Save</button>
+									<button type="button" id="save2" class="btn btn-success">Save</button>
 								</div>
-
 							</div>
 					</div>
 
@@ -335,7 +334,7 @@
 			<div class="col-sm-12">
 				<div class="pull-right">
 					<h1></h1>
-		 			<button class="btn btn-success" name="subButton" type="submit" data-toggle="collapse" data-target="#lecturebtn,#laboratorybtn">
+		 			<button class="btn btn-success" name="subButton" id="subButton"type="submit" data-target="#lecturebtn,#laboratorybtn">
 		 			Submit Schedule</button>
 		   			<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddSchedulePage.php'">Clear All</button>
 				</div>
@@ -397,50 +396,112 @@
 	<script type="text/javascript">
 		function showOptions(str, currentFunction, url)
 		{
-	        if (window.XMLHttpRequest) 
-	        {
-	            // code for IE7+, Firefox, Chrome, Opera, Safari
-	            xmlhttp = new XMLHttpRequest();
-	        } 
+		    if (window.XMLHttpRequest) 
+		    {
+		        // code for IE7+, Firefox, Chrome, Opera, Safari
+		        xmlhttp = new XMLHttpRequest();
+		    } 
 
-	        else 
-	        {
-	            // code for IE6, IE5
-	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	        }
+		    else 
+		    {
+		        // code for IE6, IE5
+		        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		    }
 
-	        xmlhttp.onreadystatechange = function()
-	        {
-	            if (this.readyState == 4 && this.status == 200) 
-	            {
-	            	currentFunction(this);
-	          	}
-	        };
+		    xmlhttp.onreadystatechange = function()
+		    {
+		        if (this.readyState == 4 && this.status == 200) 
+		        {
+		            currentFunction(this);
+		        }
+		    };
 
-	        xmlhttp.open("GET", url+ "?q=" +str, true);
-	        xmlhttp.send();
+		    xmlhttp.open("GET", url+ "?q=" +str, true);
+		    xmlhttp.send();
 		}
 
 		function showCurriculum(xmlhttp)
 		{
-			document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
+		    document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
 		}
 
 		function showSubject(xmlhttp)
 		{
-			document.getElementById("subjects").innerHTML = xmlhttp.responseText;
+		    document.getElementById("subjects").innerHTML = xmlhttp.responseText;
 		}
 
 		function showSection(xmlhttp)
 		{
-			document.getElementById("section").innerHTML = xmlhttp.responseText;
+		    document.getElementById("section").innerHTML = xmlhttp.responseText;
 		}
 
 		function showCurriculumAndSection(val)
 		{
-			showOptions(val, showCurriculum, 'getCurriculum.php');
-			showOptions(val, showSection, 'getSection.php');
-			showOptions(val, showSubject, 'getSubject.php');
+		    showOptions(val, showCurriculum, 'getCurriculum.php');
+		    showOptions(val, showSection, 'getSection.php');
+		    showOptions(val, showSubject, 'getSubject.php');
 		}
+
+		$(document).ready(function(){
+
+			$("#lecButton").click(function() {
+				$("#timestartlec").val('Select Start Time');
+				$("#timeendlec").val('Select End Time');
+				$("#roomLec").val('Select Lecture Room');
+				$('input:checkbox').removeAttr('checked');
+				$("#lecturebtn").toggle("fast");
+			});
+
+			$("#labButton").click(function() {
+				$("#timestartlab").val('Select Start Time');
+				$("#timeendlab").val('Select End Time');
+				$("#roomLab").val('Select Laboratory Room');
+				$('input:checkbox').removeAttr('checked');
+				$("#laboratorybtn").toggle("fast");
+			});
+
+			$("#save").click(function() {
+				$("#lecButton").prop('disabled', true);
+				$("#timestartlec").prop('disabled', true);
+				$("#timeendlec").prop('disabled', true);
+				$("#roomLec").prop('disabled', true);
+				$('input:checkbox').prop('disabled', true);
+			});
+
+
+			$("#subButton").click(function() {
+				var course = $("#course").val();
+				var curriculum = $("#curriculum").val();
+				var sem = $('#semester').val();
+				var sub = $('#subjects').val();
+				var sec = $('#section').val();
+				var roomLec = $('#roomLec').val();
+				var timeSLec = $('#timestartlec').val();
+				var timeELec = $('#timeendlec').val();
+				var roomLab = $('#roomLab').val();
+				var timeSLab = $('#timestartlab').val();
+				var timeELab = $('#timeendlab').val();
+				var schYear = $('#schoolYear').val();
+				var slot = $('#slot').val();
+
+				console.log(course);
+				console.log(curriculum);
+				console.log(sem);
+				console.log(sub);
+				console.log(sec);
+				console.log(roomLec);
+				console.log(timeSLec);
+				console.log(timeELec);
+				console.log(roomLab);
+				console.log(timeSLab);
+				console.log(timeELab);
+				console.log(schYear);
+				console.log(slot);
+
+				alert("Success Bitch");
+
+			});
+
+		});
 	</script>
 </html>

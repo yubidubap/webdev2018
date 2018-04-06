@@ -1,6 +1,6 @@
 <?php
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'].'/universidad/Homepage/dbconnect.php');
+include( $_SERVER['DOCUMENT_ROOT'].'/webdev2018/Homepage/dbconnect.php');
 $course = $_GET['course'];
 
 echo'<style>

@@ -28,7 +28,7 @@
 		<div class="header">
 			<ul>
 				<li><a href="adminProfilePage.php">Profile</a></li>
-				<li><a href="adminAddAccountPage.php">Accounts</a></li>
+				<li>Accounts</li>
 				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
 				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>
 
@@ -49,7 +49,7 @@
 					<div class="form-group">
 						<label for="accounttype">Account Type:</label>
 	  					<select name="accountType" class="form-control" id="accounttype">
-	  						<option disabled selected>Select Account Type</option>>
+	  						<option disabled>Select Account Type</option>>
 	    					<option value="Student">Student</option>
 	    					<option value="Admin">Administrator</option>
 	    					<option value="Registrar">Registrar</option>
@@ -61,7 +61,7 @@
 					<div class="form-group">
 						<label id="label1" for="Course">Course:</label>
 	  					<select name="course" class="form-control" id="course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
-	  						<option disabled selected>Select Student's Course</option>
+	  						<option disabled selected hidden>Select Student's Course</option>
   							<?php
 								$sql = "SELECT courseCode, courseTitle FROM Course";
 								$result = $conn->query($sql);
@@ -83,7 +83,7 @@
 					<div class="form-group">
 						<label id="label2" for="curriculum">Curriculum:</label>
 	  					<select name="curriculum" class="form-control" id="curriculum">
-	  						<option disabled selected>Select Curriculum</option>
+	  						<option disabled selected hidden>Select Curriculum</option>
 	 					</select>
 					</div>
 				</div>

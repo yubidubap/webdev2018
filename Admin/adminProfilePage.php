@@ -20,8 +20,8 @@
 
 			<ul>
 
-				<li>Profile</a></li>
-				<li><a href="adminAddAccount.php">Accounts</a></li>
+				<li>Profile</li>
+				<li><a href="adminAddAccountPage.php">Accounts</a></li>
 				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
 				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>	
 				<li>SIGN OUT</li>

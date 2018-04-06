@@ -4,11 +4,14 @@ function numbersOnly(txt, e) {
     	if (window.event)
             code = e.keyCode;
         else
+        {
             code = e.which;
             var char = keychar = String.fromCharCode(code);
             if (arr.indexOf(char) == -1)
                 return false;
         }
+}
+
 
 
  $(document).ready(function() {

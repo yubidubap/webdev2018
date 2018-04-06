@@ -8,7 +8,7 @@
 
 	$result = $conn->query($sql);
 
-	echo "<option disabled selected>Select Curriculum</option>";
+	echo "<option disabled selected hidden>Select Curriculum</option>";
 
 	if ($result->num_rows > 0) 
 	{

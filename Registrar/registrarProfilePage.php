@@ -18,7 +18,7 @@
 
 		<div class="header">
 
-			<ul>
+			<ul style="padding-right: 0px;">
 
 				<li>Profile</li>
 				<li><a href="registrarCurriculumPage.php">Curriculum</a></li>

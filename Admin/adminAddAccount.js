@@ -5,11 +5,13 @@ function lettersOnly(txt, e) {
     	if (window.event)
             code = e.keyCode;
         else
+        {
             code = e.which;
             var char = keychar = String.fromCharCode(code);
             if (arr.indexOf(char) == -1)
                 return false;
         }
+}
 
 function numbersOnly(txt, e) {
     var arr = "1234567890";
@@ -17,11 +19,13 @@ function numbersOnly(txt, e) {
     	if (window.event)
             code = e.keyCode;
         else
+        {
             code = e.which;
             var char = keychar = String.fromCharCode(code);
             if (arr.indexOf(char) == -1)
                 return false;
         }
+ }
  
 function showOptions(str, currentFunction, url)
 {
@@ -72,14 +76,6 @@ function showCurriculum(xmlhttp)
 		var number = "+63".concat(num);
 
 		console.log(acctType);
-		console.log(course);
-		console.log(curr);
-		console.log(fName);
-		console.log(mName);
-		console.log(lName);
-		console.log(number);
-		console.log(email);
-		console.log(confPass);
 
      	$.ajax(
 		{
