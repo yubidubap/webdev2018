@@ -9,7 +9,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="adminProfile.css">
+		<link rel="stylesheet" type="text/css" href="registrarProfile.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	</head>
@@ -20,10 +20,10 @@
 
 			<ul>
 
-				<li>Profile</a></li>
-				<li><a href="adminAddAccount.php">Accounts</a></li>
-				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
-				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>	
+				<li>Profile</li>
+				<li><a href="registrarCurriculumPage.php">Curriculum</a></li>
+				<li><a href="registrarStudentPage.php">Student</a></li>
+				<li><a href="registrarSubjectPage.php">Subject</a></li>
 				<li>SIGN OUT</li>
 
 			</ul>
@@ -34,7 +34,7 @@
 
 		<div class="infobodyheader">
 
-			<h1>Welcome!, <?php echo $_SESSION['name'];?></h1>
+			<h1>Welcome!, <?php echo $_SESSION['name'];?> </h1>
 			
 		</div>
 
