@@ -34,9 +34,11 @@ if(!empty($_SESSION['user']))
 							
 							if($accounttype == "Student")
 							{
-								if($sql = $conn ->query("SELECT studentCode,s_curriculumFK,scholasticStatus 
+								if($sql = $conn ->query("SELECT studentCode,s_curriculumFK,scholasticStatus,c_courseFK 
 														from student as S join account as A
 														ON S.studentCode = A.accountCode
+														JOIN curriculum as C
+														ON C.curriculumCode = S.s_curriculumFK
 														where A.accountCode = '$account';"))
 
 									{
@@ -47,11 +49,12 @@ if(!empty($_SESSION['user']))
 							
 								
 							
-							$_SESSION['studentCode'] = $row['studentCode'];
-							$_SESSION['curriculumType'] = $row['s_curriculumFK'];
-							$_SESSION['status']= $row['scholasticStatus'];
-							$conn->close();
-								
+													$_SESSION['studentCode'] = $row['studentCode'];
+													$_SESSION['curriculumType'] = $row['s_curriculumFK'];
+													$_SESSION['status']= $row['scholasticStatus'];
+													$_SESSION['course']= $row['c_courseFK'];
+													$conn->close();
+														
 							
 								//echo $accounttype;
 							
@@ -62,7 +65,7 @@ if(!empty($_SESSION['user']))
 
 							else if($accounttype == "Admin")
 							{
-								header("Location:Admin\adminLoginPage.html");
+								header("Location:Admin\adminProfilePage.php");
 							}
 
 							else
