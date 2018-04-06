@@ -12,7 +12,103 @@ function numbersOnly(txt, e) {
         }
 }
 
+        function showOptions(str, currentFunction, url)
+        {
+            if (window.XMLHttpRequest) 
+            {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } 
 
+            else 
+            {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange = function()
+            {
+                if (this.readyState == 4 && this.status == 200) 
+                {
+                    currentFunction(this);
+                }
+            };
+
+            xmlhttp.open("GET", url+ "?q=" +str, true);
+            xmlhttp.send();
+        }
+
+        function showCurriculum(xmlhttp)
+        {
+            document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
+        }
+
+        function showSubject(xmlhttp)
+        {
+            document.getElementById("subjects").innerHTML = xmlhttp.responseText;
+        }
+
+        function showSection(xmlhttp)
+        {
+            document.getElementById("section").innerHTML = xmlhttp.responseText;
+        }
+
+        function showCurriculumAndSection(val)
+        {
+            showOptions(val, showCurriculum, 'getCurriculum.php');
+            showOptions(val, showSection, 'getSection.php');
+            showOptions(val, showSubject, 'getSubject.php');
+        }
+
+        $(document).ready(function(){
+
+            $("#labButton").click(function() {
+                $("#timestartlab").val('Select Start Time');
+                $("#timeendlab").val('Select End Time');
+                $("#roomLab").val('Select Laboratory Room');
+                $('input:checkbox').removeAttr('checked');
+                $("#laboratorybtn").toggle("fast");
+            });
+
+
+            /*$("#subButton").click(function() {
+                var course = $("#course").val();
+                var curriculum = $("#curriculum").val();
+                var sem = $('#semester').val();
+                var sub = $('#subjects').val();
+                var sec = $('#section').val();
+                var roomLec = $('#roomLec').val();
+                var timeSLec = $('#timestartlec').val();
+                var timeELec = $('#timeendlec').val();
+                var roomLab = $('#roomLab').val();
+                var timeSLab = $('#timestartlab').val();
+                var timeELab = $('#timeendlab').val();
+                var schYear = $('#schoolYear').val();
+                var slot = $('#slot').val();
+
+                console.log(course);
+                console.log(curriculum);
+                console.log(sem);
+                console.log(sub);
+                console.log(sec);
+                console.log(roomLec);
+                console.log(timeSLec);
+                console.log(timeELec);
+
+                $('input[name="checklist"]:checked').each(function() {
+                    console.log(this.value);
+                });
+
+                console.log(roomLab);
+                console.log(timeSLab);
+                console.log(timeELab);
+                console.log(schYear);
+                console.log(slot);
+
+                alert("Success Bithes!");
+            });*/
+
+        });
 
  $(document).ready(function() {
 	$('#validateSchedule').bootstrapValidator({
