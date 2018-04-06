@@ -38,7 +38,7 @@
 		<div class="header2">
 			<h1>Section Offering</h1>
 		</div>
-		<form class="container-fluid" action="#" method="post" id="validateSchedule">
+		<form class="container-fluid" method="post" id="validateSchedule">
 			<div class="row">
 				<div class="col-sm-4">
 					<h3>Course:</h3>
@@ -228,10 +228,6 @@
 											</div>
 									</div>
 								</div>
-
-								<div>
-									<button type="button" id="save" class="btn btn-success">Save</button>
-								</div>
 							</div>
 				</div>
 
@@ -323,10 +319,6 @@
 											</div>
 									</div>
 								</div>
-
-								<div>
-									<button type="button" id="save2" class="btn btn-success">Save</button>
-								</div>
 							</div>
 					</div>
 
@@ -334,7 +326,7 @@
 			<div class="col-sm-12">
 				<div class="pull-right">
 					<h1></h1>
-		 			<button class="btn btn-success" name="subButton" id="subButton"type="submit" data-target="#lecturebtn,#laboratorybtn">
+		 			<button class="btn btn-success"name="subButton" id="subButton"type="submit" data-target="#lecturebtn,#laboratorybtn">
 		 			Submit Schedule</button>
 		   			<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddSchedulePage.php'">Clear All</button>
 				</div>
@@ -358,34 +350,43 @@
 				$schYear = $_POST['SchoolYear'];
 				$slot = $_POST['Slot'];
 
-				echo "</br>Course: ".$course;
-				echo "</br>Curriculum: ".$curriculum;
-				echo "</br>School Year:".$schYear;
-				echo "</br>Semester:".$sem;
-				echo "</br>Subject: ".$sub;
-				echo "</br>Slots: ".$slot;
-				echo "</br>Section: ".$sec;
-				echo "</br>Lecture Room: ".$roomLec;
-				echo "</br>Start Time Lecture: ".$timeSLec;
-				echo "</br>End Time Lecture: ".$timeELec;
+				$sql = "INSERT INTO subject_offering(slots, so_enrollmentFK, so_sectionFK,so_curriculumSubjectFK)
+				VALUES (40, (SELECT enrollmentCode FROM enrollment
+				WHERE semester = '$sem' AND schoolYear = '$schYear'), '$sec', (SELECT curriculumSubjectCode from curriculum_subject WHERE cs_subjectFK= '$sub'));";
+
+				$result = $conn->query($sql);
 
 				if(!empty($_POST['checklist'])) 
 				{
+
+					$sql1 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
+					VALUES ('$timeSLec','$timeELec', '$roomLec',
+					(SELECT MAX(subjectOfferingCode) from subject_offering));";
+
+					$result = $conn->query($sql1);
+
 					foreach($_POST['checklist'] as $selectedLec) 
 					{
-						echo "</br>".$selectedLec;
+
+						$sql2 = "INSERT INTO day(day, d_scheduleFK) VALUES ('$selectedLec', (SELECT MAX(scheduleCode) FROM schedule));";
+
+						$result = $conn->query($sql2);
 					}
 				}
 
-				echo "</br>Laboratory Room: ".$roomLab;
-				echo "</br>Start Time Laboratory: ".$timeSLab;
-				echo "</br>End Time Laboratory: ".$timeELab;
-
 				if(!empty($_POST['checklist1'])) 
 				{
+					$sql3 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
+					VALUES ('$timeSLab','$timeELab', '$roomLab',
+					(SELECT MAX(subjectOfferingCode) from subject_offering));";
+
+					$result = $conn->query($sql3);
+
 					foreach($_POST['checklist1'] as $selectedLab) 
 					{
-						echo "</br>".$selectedLab;
+						$sql4 = "INSERT INTO day(day, d_scheduleFK) VALUES ('$selectedLab', (SELECT MAX(scheduleCode) FROM schedule));";
+
+						$result = $conn->query($sql4);
 					}
 				}
 			}
@@ -460,16 +461,8 @@
 				$("#laboratorybtn").toggle("fast");
 			});
 
-			$("#save").click(function() {
-				$("#lecButton").prop('disabled', true);
-				$("#timestartlec").prop('disabled', true);
-				$("#timeendlec").prop('disabled', true);
-				$("#roomLec").prop('disabled', true);
-				$('input:checkbox').prop('disabled', true);
-			});
 
-
-			$("#subButton").click(function() {
+			/*$("#subButton").click(function() {
 				var course = $("#course").val();
 				var curriculum = $("#curriculum").val();
 				var sem = $('#semester').val();
@@ -492,15 +485,19 @@
 				console.log(roomLec);
 				console.log(timeSLec);
 				console.log(timeELec);
+
+				$('input[name="checklist"]:checked').each(function() {
+					console.log(this.value);
+				});
+
 				console.log(roomLab);
 				console.log(timeSLab);
 				console.log(timeELab);
 				console.log(schYear);
 				console.log(slot);
 
-				alert("Success Bitch");
-
-			});
+				alert("Success Bithes!");
+			});*/
 
 		});
 	</script>
