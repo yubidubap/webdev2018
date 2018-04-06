@@ -38,7 +38,7 @@
 		<div class="header2">
 			<h1>Section Offering</h1>
 		</div>
-		<form class="container-fluid" action="#" method="post" id="validateSchedule">
+		<form class="container-fluid" method="post" id="validateSchedule">
 			<div class="row">
 				<div class="col-sm-4">
 					<h3>Course:</h3>
@@ -143,96 +143,91 @@
 				</div>
 
 				<div class="col-sm-4">
-					<h3>Add:</h3>
-						<button type="button" class="btn btn-info btn-block" id="lecButton" data-target="#lecturebtn">Lecture Room</button>
-							<div id="lecturebtn" style="display: none;">
-								<div class="form-group">
-									<h2></h2>
-									<label for="timestartlec">Time Start:</label>
-	  								<select class="form-control" name="TimeStartLec" id="timestartlec">
-	  									<option disabled selected hidden default>Select Start Time</option>
-	    								<option value="7:30">7:30 AM</option>
-	    								<option value="8:30">8:30 AM</option>
-	    								<option value="9:30">9:30 AM</option>
-	    								<option value="10:30">10:30 AM</option>
-	    								<option value="11:30">11:30 AM</option>
-	    								<option value="12:30">12:30 PM</option>
-	    								<option value="13:30">1:30 PM</option>
-	    								<option value="14:30">2:30 PM</option>
-	    								<option value="15:30">3:30 PM</option>
-	    								<option value="16:30">4:30 PM</option>
-	    								<option value="17:30">5:30 PM</option>
-	    								<option value="18:30">6:30 PM</option>
-	 								</select>
-								</div>
+					<h3>Add Lecture Room:</h3>
+						<div id="lecturebtn">
+							<div class="form-group">
+								<h2></h2>
+								<label for="timestartlec">Time Start:</label>
+  								<select class="form-control" name="TimeStartLec" id="timestartlec">
+  									<option disabled selected hidden default>Select Start Time</option>
+    								<option value="7:30">7:30 AM</option>
+    								<option value="8:30">8:30 AM</option>
+    								<option value="9:30">9:30 AM</option>
+    								<option value="10:30">10:30 AM</option>
+    								<option value="11:30">11:30 AM</option>
+    								<option value="12:30">12:30 PM</option>
+    								<option value="13:30">1:30 PM</option>
+    								<option value="14:30">2:30 PM</option>
+    								<option value="15:30">3:30 PM</option>
+    								<option value="16:30">4:30 PM</option>
+    								<option value="17:30">5:30 PM</option>
+    								<option value="18:30">6:30 PM</option>
+ 								</select>
+							</div>
 
-								<div class="form-group">
-									<label for="timeendlec">Time End:</label>
-	  								<select class="form-control" name="TimeEndLec" id="timeendlec">
-	  									<option disabled selected hidden default>Select End Time</option>
-	    								<option value="8:30">8:30 AM</option>
-	    								<option value="9:30">9:30 AM</option>
-	    								<option value="10:30">10:30 AM</option>
-	    								<option value="11:30">11:30 AM</option>
-	    								<option value="12:30">12:30 PM</option>
-	    								<option value="13:30">1:30 PM</option>
-	    								<option value="14:30">2:30 PM</option>
-	    								<option value="15:30">3:30 PM</option>
-	    								<option value="16:30">4:30 PM</option>
-	    								<option value="17:30">5:30 PM</option>
-	    								<option value="18:30">6:30 PM</option>
-	    								<option value ="19:30">7:30 PM</option>
-	 								</select>
+							<div class="form-group">
+								<label for="timeendlec">Time End:</label>
+  								<select class="form-control" name="TimeEndLec" id="timeendlec">
+  									<option disabled selected hidden default>Select End Time</option>
+    								<option value="8:30">8:30 AM</option>
+    								<option value="9:30">9:30 AM</option>
+    								<option value="10:30">10:30 AM</option>
+    								<option value="11:30">11:30 AM</option>
+    								<option value="12:30">12:30 PM</option>
+    								<option value="13:30">1:30 PM</option>
+    								<option value="14:30">2:30 PM</option>
+    								<option value="15:30">3:30 PM</option>
+    								<option value="16:30">4:30 PM</option>
+    								<option value="17:30">5:30 PM</option>
+    								<option value="18:30">6:30 PM</option>
+    								<option value ="19:30">7:30 PM</option>
+ 								</select>
 
-								</div>
+							</div>
 
-								<div class="form-group">
-	  								<label for="room">Room:</label>
-	  								<select class="form-control" name="RoomLec" id="roomLec">
-	  									<option disabled selected hidden default>Select Lecture Room</option>
-		  								<?php
-											$sql = "SELECT roomCode FROM room WHERE roomType = 'Lecture'";
-											$result = $conn->query($sql);
-											
-											if ($result->num_rows > 0) 
-											{
-										   		while($row = $result->fetch_assoc())
-										   		{
-										        	echo "<option value='".$row["roomCode"]."'>".$row["roomCode"]."</option>";
-										    	}
-										    }
-										?>	
-	 								</select>
-								</div>
+							<div class="form-group">
+  								<label for="room">Room:</label>
+  								<select class="form-control" name="RoomLec" id="roomLec">
+  									<option disabled selected hidden default>Select Lecture Room</option>
+	  								<?php
+										$sql = "SELECT roomCode FROM room WHERE roomType = 'Lecture'";
+										$result = $conn->query($sql);
+										
+										if ($result->num_rows > 0) 
+										{
+									   		while($row = $result->fetch_assoc())
+									   		{
+									        	echo "<option value='".$row["roomCode"]."'>".$row["roomCode"]."</option>";
+									    	}
+									    }
+									?>	
+ 								</select>
+							</div>
 
-								<div class="form-group">
-									<div class="container">
-										<h4>Day:</h4>
-											<div class="checkbox" id="dayLec">
-												<label><input type="checkbox" name="checklist[]" value="MO">Monday</label>
-											</div>
-											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="TU">Tuesday</label>
-											</div>
-											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="WE">Wednesday</label>
-											</div>
-											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="TH">Thursday</label>
-											</div>
-											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="FR">Friday</label>
-											</div>
-											<div class="checkbox">
-	  											<label><input type="checkbox" name="checklist[]" value="SA">Saturday</label>
-											</div>
-									</div>
-								</div>
-
-								<div>
-									<button type="button" id="save" class="btn btn-success">Save</button>
+							<div class="form-group">
+								<div class="container">
+									<h4>Day:</h4>
+										<div class="checkbox" id="dayLec">
+											<label><input type="checkbox" name="checklist[]" value="MO">Monday</label>
+										</div>
+										<div class="checkbox">
+  											<label><input type="checkbox" name="checklist[]" value="TU">Tuesday</label>
+										</div>
+										<div class="checkbox">
+  											<label><input type="checkbox" name="checklist[]" value="WE">Wednesday</label>
+										</div>
+										<div class="checkbox">
+  											<label><input type="checkbox" name="checklist[]" value="TH">Thursday</label>
+										</div>
+										<div class="checkbox">
+  											<label><input type="checkbox" name="checklist[]" value="FR">Friday</label>
+										</div>
+										<div class="checkbox">
+  											<label><input type="checkbox" name="checklist[]" value="SA">Saturday</label>
+										</div>
 								</div>
 							</div>
+						</div>
 				</div>
 
 				<div class="col-sm-4">
@@ -323,10 +318,6 @@
 											</div>
 									</div>
 								</div>
-
-								<div>
-									<button type="button" id="save2" class="btn btn-success">Save</button>
-								</div>
 							</div>
 					</div>
 
@@ -334,7 +325,7 @@
 			<div class="col-sm-12">
 				<div class="pull-right">
 					<h1></h1>
-		 			<button class="btn btn-success" name="subButton" id="subButton"type="submit" data-target="#lecturebtn,#laboratorybtn">
+		 			<button class="btn btn-success"name="subButton" id="subButton"type="submit" data-target="#lecturebtn,#laboratorybtn">
 		 			Submit Schedule</button>
 		   			<button type="reset" class="btn btn-default" onclick="window.location.href='adminAddSchedulePage.php'">Clear All</button>
 				</div>
@@ -358,150 +349,47 @@
 				$schYear = $_POST['SchoolYear'];
 				$slot = $_POST['Slot'];
 
-				echo "</br>Course: ".$course;
-				echo "</br>Curriculum: ".$curriculum;
-				echo "</br>School Year:".$schYear;
-				echo "</br>Semester:".$sem;
-				echo "</br>Subject: ".$sub;
-				echo "</br>Slots: ".$slot;
-				echo "</br>Section: ".$sec;
-				echo "</br>Lecture Room: ".$roomLec;
-				echo "</br>Start Time Lecture: ".$timeSLec;
-				echo "</br>End Time Lecture: ".$timeELec;
+				$sql = "INSERT INTO subject_offering(slots, so_enrollmentFK, so_sectionFK,so_curriculumSubjectFK)
+				VALUES (40, (SELECT enrollmentCode FROM enrollment
+				WHERE semester = '$sem' AND schoolYear = '$schYear'), '$sec', (SELECT curriculumSubjectCode from curriculum_subject WHERE cs_subjectFK= '$sub'));";
+
+				$result = $conn->query($sql);
 
 				if(!empty($_POST['checklist'])) 
 				{
+
+					$sql1 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
+					VALUES ('$timeSLec','$timeELec', '$roomLec',
+					(SELECT MAX(subjectOfferingCode) from subject_offering));";
+
+					$result = $conn->query($sql1);
+
 					foreach($_POST['checklist'] as $selectedLec) 
 					{
-						echo "</br>".$selectedLec;
+
+						$sql2 = "INSERT INTO day(day, d_scheduleFK) VALUES ('$selectedLec', (SELECT MAX(scheduleCode) FROM schedule));";
+
+						$result = $conn->query($sql2);
 					}
 				}
 
-				echo "</br>Laboratory Room: ".$roomLab;
-				echo "</br>Start Time Laboratory: ".$timeSLab;
-				echo "</br>End Time Laboratory: ".$timeELab;
-
 				if(!empty($_POST['checklist1'])) 
 				{
+					$sql3 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
+					VALUES ('$timeSLab','$timeELab', '$roomLab',
+					(SELECT MAX(subjectOfferingCode) from subject_offering));";
+
+					$result = $conn->query($sql3);
+
 					foreach($_POST['checklist1'] as $selectedLab) 
 					{
-						echo "</br>".$selectedLab;
+						$sql4 = "INSERT INTO day(day, d_scheduleFK) VALUES ('$selectedLab', (SELECT MAX(scheduleCode) FROM schedule));";
+
+						$result = $conn->query($sql4);
 					}
 				}
 			}
 		?>
 
 	</body>
-
-	<script type="text/javascript">
-		function showOptions(str, currentFunction, url)
-		{
-		    if (window.XMLHttpRequest) 
-		    {
-		        // code for IE7+, Firefox, Chrome, Opera, Safari
-		        xmlhttp = new XMLHttpRequest();
-		    } 
-
-		    else 
-		    {
-		        // code for IE6, IE5
-		        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		    }
-
-		    xmlhttp.onreadystatechange = function()
-		    {
-		        if (this.readyState == 4 && this.status == 200) 
-		        {
-		            currentFunction(this);
-		        }
-		    };
-
-		    xmlhttp.open("GET", url+ "?q=" +str, true);
-		    xmlhttp.send();
-		}
-
-		function showCurriculum(xmlhttp)
-		{
-		    document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
-		}
-
-		function showSubject(xmlhttp)
-		{
-		    document.getElementById("subjects").innerHTML = xmlhttp.responseText;
-		}
-
-		function showSection(xmlhttp)
-		{
-		    document.getElementById("section").innerHTML = xmlhttp.responseText;
-		}
-
-		function showCurriculumAndSection(val)
-		{
-		    showOptions(val, showCurriculum, 'getCurriculum.php');
-		    showOptions(val, showSection, 'getSection.php');
-		    showOptions(val, showSubject, 'getSubject.php');
-		}
-
-		$(document).ready(function(){
-
-			$("#lecButton").click(function() {
-				$("#timestartlec").val('Select Start Time');
-				$("#timeendlec").val('Select End Time');
-				$("#roomLec").val('Select Lecture Room');
-				$('input:checkbox').removeAttr('checked');
-				$("#lecturebtn").toggle("fast");
-			});
-
-			$("#labButton").click(function() {
-				$("#timestartlab").val('Select Start Time');
-				$("#timeendlab").val('Select End Time');
-				$("#roomLab").val('Select Laboratory Room');
-				$('input:checkbox').removeAttr('checked');
-				$("#laboratorybtn").toggle("fast");
-			});
-
-			$("#save").click(function() {
-				$("#lecButton").prop('disabled', true);
-				$("#timestartlec").prop('disabled', true);
-				$("#timeendlec").prop('disabled', true);
-				$("#roomLec").prop('disabled', true);
-				$('input:checkbox').prop('disabled', true);
-			});
-
-
-			$("#subButton").click(function() {
-				var course = $("#course").val();
-				var curriculum = $("#curriculum").val();
-				var sem = $('#semester').val();
-				var sub = $('#subjects').val();
-				var sec = $('#section').val();
-				var roomLec = $('#roomLec').val();
-				var timeSLec = $('#timestartlec').val();
-				var timeELec = $('#timeendlec').val();
-				var roomLab = $('#roomLab').val();
-				var timeSLab = $('#timestartlab').val();
-				var timeELab = $('#timeendlab').val();
-				var schYear = $('#schoolYear').val();
-				var slot = $('#slot').val();
-
-				console.log(course);
-				console.log(curriculum);
-				console.log(sem);
-				console.log(sub);
-				console.log(sec);
-				console.log(roomLec);
-				console.log(timeSLec);
-				console.log(timeELec);
-				console.log(roomLab);
-				console.log(timeSLab);
-				console.log(timeELab);
-				console.log(schYear);
-				console.log(slot);
-
-				alert("Success Bitch");
-
-			});
-
-		});
-	</script>
 </html>
