@@ -49,7 +49,7 @@
 					<div class="form-group">
 						<label for="accounttype">Account Type:</label>
 	  					<select name="accountType" class="form-control" id="accounttype">
-	  						<option disabled>Select Account Type</option>>
+	  						<option disabled hidden>Select Account Type</option>>
 	    					<option value="Student">Student</option>
 	    					<option value="Admin">Administrator</option>
 	    					<option value="Registrar">Registrar</option>
