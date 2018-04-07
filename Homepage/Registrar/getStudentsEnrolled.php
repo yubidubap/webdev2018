@@ -8,13 +8,13 @@ $sec = $_GET['sec'];
 
 echo'<h3>STUDENTS</h3>';
 echo'<table class="table">';
-echo'<tr>
-	<th>Student Code</th>
-	<th>First Name</th>
-	<th>Middle Name</th>
-	<th>Last Name</th>
-	<th>E-mail</th>
-	<th>scholastic Status</th>
+echo'<tr style="background-color: #2D486A;">
+	<th style="color: #fbf7de;">Student Code</th>
+	<th style="color: #fbf7de;">First Name</th>
+	<th style="color: #fbf7de;">Middle Name</th>
+	<th style="color: #fbf7de;">Last Name</th>
+	<th style="color: #fbf7de;">E-mail</th>
+	<th style="color: #fbf7de;">Scholastic Status</th>
 	 </tr>';
 			$Query = "SELECT studentCode,firstName,middleName,lastName,
 			email,mobileNum,scholasticStatus 
@@ -35,7 +35,7 @@ echo'<tr>
 				{
 					while($row = $sql ->fetch_assoc())
 					{
-						echo '<tr>
+						echo '<tr style="background-color: white;">
 							 <td>'.$row['studentCode'].'</td>
 							 <td>'.$row['firstName'].'</td>
 							 <td>'.$row['middleName'].'</td>

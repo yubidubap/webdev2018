@@ -20,9 +20,10 @@
 	{
 		color: black;
 	}
+
  #table-content:hover
 	{
-		background:lightblue;
+		color:lightblue;
 		cursor:pointer
 	}
 </style>
@@ -78,10 +79,10 @@
 	<div class="col-sm-12">
 	<h1></h1>
 			<table class="table">
-				<tr >
-					<th>#</th>
-					<th>Subject Code</th>
-					<th>Units</th>
+				<tr style="background-color: #2D486A;">
+					<th style="color: #fbf7de;">#</th>
+					<th  style="color: #fbf7de;">Subject Code</th>
+					<th  style="color: #fbf7de;">Units</th>
 				</tr>
 
 					<tbody id ="output">

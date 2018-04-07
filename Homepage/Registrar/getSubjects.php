@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include( $_SERVER['DOCUMENT_ROOT'].'/universidad/Homepage/dbconnect.php');
+	include( $_SERVER['DOCUMENT_ROOT'].'/webdev2018/Homepage/dbconnect.php');
 
 // echo $_GET['year'];
 // echo $_GET['sem'];
@@ -29,7 +29,7 @@ $sec = $_GET['sec'];
 				{
 					while($row = $sql ->fetch_assoc())
 					{
-						echo '<tr name="table-content" id="table-content">
+						echo '<tr style="background-color: white;" name="table-content" id="table-content">
 							 <td  >'.$row['subjectCode'].'</td>
 							 <td  >'.$row['subjectTitle'].'</td>
 							 <td   >'.$row['units'].'</td>
