@@ -14,7 +14,7 @@ function isNumberKey(evt) {
 
   function handleChange(input) {
     if (input.value < 20) input.value = 20;
-    if (input.value > 40) input.value = "not more than 50";
+    if (input.value > 40) input.value = 40;
   }
         function showOptions(str, currentFunction, url)
         {
