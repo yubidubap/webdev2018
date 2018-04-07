@@ -29,7 +29,7 @@
 			<ul>
 				<li><a href="adminProfilePage.php">Profile</a></li>
 				<li>Accounts</li>
-				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
+				<li><a href="adminAddSchedulePage.php">Section Offering</a></li>
 				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>
 
 				<li>SIGN OUT</li>
@@ -49,7 +49,7 @@
 					<div class="form-group">
 						<label for="accounttype">Account Type:</label>
 	  					<select name="accountType" class="form-control" id="accounttype">
-	  						<option disabled>Select Account Type</option>>
+	  						<option disabled hidden>Select Account Type</option>>
 	    					<option value="Student">Student</option>
 	    					<option value="Admin">Administrator</option>
 	    					<option value="Registrar">Registrar</option>
