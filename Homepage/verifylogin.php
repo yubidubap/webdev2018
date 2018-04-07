@@ -67,7 +67,7 @@ if(!empty($_SESSION['user']))
 
 							else
 							{
-								header("Location:RegistrarProfilePage.php");
+								header("Location:Registrar\RegistrarProfilePage.php");
 							}
 
 						}

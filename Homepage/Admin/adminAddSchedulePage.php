@@ -30,7 +30,7 @@
 				<li>Section Offering</li>
 				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>
 
-				<li>SIGN OUT</li>
+				<li><a href="logout.php">SIGN OUT</a></li>
 			</ul>
 
 			<img src="Quadrant1\logo.png">

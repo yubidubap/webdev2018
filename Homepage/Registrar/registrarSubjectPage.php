@@ -35,7 +35,7 @@
 				<li><a href="registrarCurriculumPage.php">Curriculum</a></li>
 				<li><a href="registrarStudentPage.php">Student</a></li>
 				<li>Subject</li>
-				<li>SIGN OUT</li>
+        <li><a href="logout.php">SIGN OUT</a></li>
 
 			</ul>
 
