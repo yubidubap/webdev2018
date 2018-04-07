@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 $(document).ready(function() {
   $('#slot').bind("cut copy paste drag drop", function(e) {
       e.preventDefault();
@@ -24,6 +25,20 @@ function numbersOnly(txt, e) {
         }
 
 >>>>>>> master
+=======
+
+$(document).ready(function() {
+  $('#slot').bind("cut copy paste drag drop", function(e) {
+      e.preventDefault();
+  });     
+});
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+>>>>>>> 478f0e8f21ac061d8ffc3edaf1aadbb58ca43177
 
 
   function handleChange(input) {
