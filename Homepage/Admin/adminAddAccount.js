@@ -1,53 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-$(document).ready(function(){
-    $("#fname,#Mname,#lname").keypress(function(event){
-        var inputValue = event.which;
-        // allow letters and whitespaces only.
-        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
-            event.preventDefault(); 
-        }
-    });
-});
-
-$(document).ready(function() {
-  $('#mobNum').bind("cut copy paste drag drop", function(e) {
-      e.preventDefault();
-  });     
-});
-function isNumberKey(evt) {
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
-}
-=======
-
-function lettersOnly(txt, e) {
-    var arr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
-    var code;
-    	if (window.event)
-            code = e.keyCode;
-        else
-            code = e.which;
-            var char = keychar = String.fromCharCode(code);
-            if (arr.indexOf(char) == -1)
-                return false;
-        }
-
-function numbersOnly(txt, e) {
-    var arr = "1234567890";
-    var code;
-    	if (window.event)
-            code = e.keyCode;
-        else
-            code = e.which;
-            var char = keychar = String.fromCharCode(code);
-            if (arr.indexOf(char) == -1)
-                return false;
-        }
->>>>>>> master
-=======
 
 $(document).ready(function(){
     $("#fname,#Mname,#lname").keypress(function(event){
@@ -57,20 +7,19 @@ $(document).ready(function(){
             event.preventDefault(); 
         }
     });
+
+    $('#mobNum').bind("cut copy paste drag drop", function(e) {
+      e.preventDefault();
+  	});     
 });
 
-$(document).ready(function() {
-  $('#mobNum').bind("cut copy paste drag drop", function(e) {
-      e.preventDefault();
-  });     
-});
 function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57))
         return false;
     return true;
 }
->>>>>>> 478f0e8f21ac061d8ffc3edaf1aadbb58ca43177
+
  
 function showOptions(str, currentFunction, url)
 {

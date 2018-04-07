@@ -1,50 +1,15 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-$(document).ready(function() {
-  $('#slot').bind("cut copy paste drag drop", function(e) {
-      e.preventDefault();
-  });     
-});
+
 function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57))
         return false;
     return true;
 }
-=======
-function numbersOnly(txt, e) {
-    var arr = "1234567890";
-    var code;
-    	if (window.event)
-            code = e.keyCode;
-        else
-            code = e.which;
-            var char = keychar = String.fromCharCode(code);
-            if (arr.indexOf(char) == -1)
-                return false;
-        }
-
->>>>>>> master
-=======
-
-$(document).ready(function() {
-  $('#slot').bind("cut copy paste drag drop", function(e) {
-      e.preventDefault();
-  });     
-});
-function isNumberKey(evt) {
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
-}
->>>>>>> 478f0e8f21ac061d8ffc3edaf1aadbb58ca43177
-
 
   function handleChange(input) {
     if (input.value < 20) input.value = 20;
     if (input.value > 40) input.value = "not more than 50";
-  }
+  	}
         function showOptions(str, currentFunction, url)
         {
             if (window.XMLHttpRequest) 
@@ -144,6 +109,15 @@ function isNumberKey(evt) {
         });
 
  $(document).ready(function() {
+ 	
+	$('#slot').bind("cut copy paste drag drop", function(e) {
+	  e.preventDefault();
+	});    
+
+	$('#slot').bind("cut copy paste drag drop", function(e) {
+	  e.preventDefault();
+	});
+
 	$('#validateSchedule').bootstrapValidator({
 	feedbackIcons: {
 		validating: 'glyphicon glyphicon-refresh'
@@ -273,28 +247,5 @@ function isNumberKey(evt) {
 		});
 
 	});
-
- 	$(document).ready(function () {
-		$("input[name='lecday']").change(function () {
-			var maxAllowed = 3;
-			var cnt = $("input[name='lecday']:checked").length;
-				if (cnt > maxAllowed) {
-					$(this).prop("checked", "");
-						            
-				}
-		});
-	});
-
- 	$(document).ready(function () {
-		$("input[name='labday']").change(function () {
-			var maxAllowed = 3;
-			var cnt = $("input[name='labday']:checked").length;
-			if (cnt > maxAllowed) {
-				$(this).prop("checked", "");
-				// alert('You can select maximum ' + maxAllowed + ' of days!!');
-			}
-		});
-	});
-
 
 
