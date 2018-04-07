@@ -19,7 +19,10 @@ function isNumberKey(evt) {
         return false;
     return true;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> addAccountValidation
  
 function showOptions(str, currentFunction, url)
 {
