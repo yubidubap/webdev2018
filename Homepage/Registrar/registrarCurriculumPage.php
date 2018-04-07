@@ -23,7 +23,7 @@
 				<li>Curriculum</li>
 				<li><a href="registrarStudentPage.php">Student</a></li>
 				<li><a href="registrarSubjectPage.php">Subject</a></li>
-				<li>SIGN OUT</li>
+				<li><a href="logout.php">SIGN OUT</a></li>
 
 			</ul>
 

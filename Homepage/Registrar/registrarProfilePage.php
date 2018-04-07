@@ -24,7 +24,7 @@
 				<li><a href="registrarCurriculumPage.php">Curriculum</a></li>
 				<li><a href="registrarStudentPage.php">Student</a></li>
 				<li><a href="registrarSubjectPage.php">Subject</a></li>
-				<li>SIGN OUT</li>
+				<li><a href="logout.php">SIGN OUT</a></li>
 
 			</ul>
 
@@ -34,7 +34,7 @@
 
 		<div class="infobodyheader">
 
-			<h1>Welcome!, <?php echo $_SESSION['name'];?> </h1>
+			<h1>Welcome!,<b> <?php echo $_SESSION['name'];?> </b></h1>
 			
 		</div>
 
@@ -48,18 +48,18 @@
 			<div class="col-sm-12">
 			<table class="table-condensed">
 				<tr>
-					<th>Name</th>
-					<td><?php echo $_SESSION['fullname'];?></td>
+					<th><h3>Name</h3></th>
+					<td><h3><b><?php echo $_SESSION['fullname'];?></b></h3></td>
 				</tr>
 
 				<tr>
-					<th>Phone Number</th>
-					<td><?php echo $_SESSION['phone'];?></td>
+					<th><h3>Phone Number<h3></th>
+					<td><h3><b><?php echo $_SESSION['phone'];?></b></h3></td>
 				</tr>
 
 				<tr>
-					<th>E-mail Address</th>
-					<td><?php echo $_SESSION['email'];?></td>
+					<th><h3>E-mail Address</h3></th>
+					<td><h3><b><?php echo $_SESSION['email'];?></b></h3></td>
 				</tr>
 			</table>
 			</div>
