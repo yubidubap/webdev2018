@@ -14,6 +14,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="bootstrap-select/js/bootstrap-select.js"></script>
+		<script src="adminAddSchedule.js"></script>
 	</head>
 
 	<body>
@@ -33,13 +34,13 @@
 		<div class="header2">
 			<h1>Add Schedule</h1>
 		</div>
-		<form action="#" method="post">
+		<form class="container-fluid" action="#" method="post">
 			<div class="row">
 				<div class="col-sm-4">
 					<h3>Course:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Course" id="course" onchange="showCurriculumAndSection(this.value)">
-	  							<option>Select Course</option>
+	  							<option disabled selected>Select Course</option>
 	    							<?php
 										$sql = "SELECT courseCode, courseTitle FROM Course";
 										$result = $conn->query($sql);
@@ -61,7 +62,7 @@
 					<h3>Curriculum:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Curriculum" id="curriculum" onchange="showOptions(this.value, showSubject, 'getSubject.php')">
-	  							  	<option>Select Curriculum</option>
+	  							  	<option disabled selected>Select Curriculum</option>
 	 						</select>
 						</div>
 						<h2></h2>
@@ -71,9 +72,10 @@
 					<h3>Semester:</h3>
 						<div class="form-group">
 	  						<select class="form-control" name="Semester" id="semester">
-	  								<option>Select Semester</option>
-	    							<option>1</option>
-	    							<option>2</option>
+	  								<option disabled selected>Select Semester</option>
+	    							<option value = "1">1st</option>
+  									<option value = "2">2nd</option>
+  									<option value = "3">Summer</option>
 	 						</select>
 						</div>
 						<h2></h2>
@@ -88,7 +90,7 @@
 
 						<div class="form-group">
 	  						<select class="form-control" name="Subject" id="subjects">
-	  							<option>Select Subject</option>
+	  							<option disabled selected>Select Subject</option>
 	 						</select>
 						</div>
 						<h2></h2>
@@ -98,7 +100,7 @@
 					<h3>Section:</h3>
 					<div class="form-group">
 	  					<select class="form-control" name="Section" id="section">
-	  						<option>Select Section</option>
+	  						<option disabled selected>Select Section</option>
 	 					</select>
 					</div>
 				</div>
@@ -107,7 +109,19 @@
 					<h3>School Year:</h3>
 					<div class="form-group">
 	  					<select class="form-control" name="SchoolYear" id="schoolYear">
-	  					<option>Select School Year</option>
+	  					<option disabled selected>Select School Year</option>
+	  						<?php
+								$sql = "SELECT DISTINCT schoolYear FROM enrollment";
+								$result = $conn->query($sql);
+								
+								if ($result->num_rows > 0) 
+								{
+							   		while($row = $result->fetch_assoc())
+							   		{
+							        	echo "<option value='".$row["schoolYear"]."'>".$row["schoolYear"]."</option>";
+							    	}
+							    }
+	  						?>
 	 					</select>
 					</div>	
 				</div>
@@ -124,45 +138,46 @@
 
 				<div class="col-sm-4">
 					<div class="form-group">
-						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#lecturebtn">Lecture Room</button>
+					<h3>Add:</h3>
+						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#lecturebtn">Lecture Room</button>
 
 							<div id="lecturebtn" class="collapse">
 								<div class="form-group">
-								<h2></h2>
+									<h2></h2>
 									<label for="timestartlec">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLec" id="timestartlec">
-	  									<option>Select Start Time</option>
-	    								<option>7:30 AM</option>
-	    								<option>8:30 AM</option>
-	    								<option>9:30 AM</option>
-	    								<option>10:30 AM</option>
-	    								<option>11:30 AM</option>
-	    								<option>12:30 PM</option>
-	    								<option>1:30 PM</option>
-	    								<option>2:30 PM</option>
-	    								<option>3:30 PM</option>
-	    								<option>4:30 PM</option>
-	    								<option>5:30 PM</option>
-	    								<option>6:30 PM</option>
+	  									<option disabled selected>Select Start Time</option>
+	    								<option value="7:30">7:30 AM</option>
+	    								<option value="8:30">8:30 AM</option>
+	    								<option value="9:30">9:30 AM</option>
+	    								<option value="10:30">10:30 AM</option>
+	    								<option value="11:30">11:30 AM</option>
+	    								<option value="12:30">12:30 PM</option>
+	    								<option value="13:30">1:30 PM</option>
+	    								<option value="14:30">2:30 PM</option>
+	    								<option value="15:30">3:30 PM</option>
+	    								<option value="16:30">4:30 PM</option>
+	    								<option value="17:30">5:30 PM</option>
+	    								<option value="18:30">6:30 PM</option>
 	 								</select>
 								</div>
 
 								<div class="form-group">
 									<label for="timeendlec">Time End:</label>
 	  								<select class="form-control" name="TimeEndLec" id="timeendlec">
-	  									<option>Select End Time</option>
-	    								<option>8:30 AM</option>
-	    								<option>9:30 AM</option>
-	    								<option>10:30 AM</option>
-	    								<option>11:30 AM</option>
-	    								<option>12:30 PM</option>
-	    								<option>1:30 PM</option>
-	    								<option>2:30 PM</option>
-	    								<option>3:30 PM</option>
-	    								<option>4:30 PM</option>
-	    								<option>5:30 PM</option>
-	    								<option>6:30 PM</option>
-	    								<option>7:30 PM</option>
+	  									<option disabled selected>Select End Time</option>
+	    								<option value="8:30">8:30 AM</option>
+	    								<option value="9:30">9:30 AM</option>
+	    								<option value="10:30">10:30 AM</option>
+	    								<option value="11:30">11:30 AM</option>
+	    								<option value="12:30">12:30 PM</option>
+	    								<option value="13:30">1:30 PM</option>
+	    								<option value="14:30">2:30 PM</option>
+	    								<option value="15:30">3:30 PM</option>
+	    								<option value="16:30">4:30 PM</option>
+	    								<option value="17:30">5:30 PM</option>
+	    								<option value="18:30">6:30 PM</option>
+	    								<option value ="19:30">7:30 PM</option>
 	 								</select>
 
 								</div>
@@ -170,7 +185,7 @@
 								<div class="form-group">
 	  								<label for="room">Room:</label>
 	  								<select class="form-control" name="RoomLec" id="roomLec">
-	  									<option>Select Room</option>
+	  									<option disabled selected>Select Room</option>
 		  								<?php
 											$sql = "SELECT roomCode FROM room WHERE roomType = 'Lecture'";
 											$result = $conn->query($sql);
@@ -219,45 +234,46 @@
 
 				<div class="col-sm-4">
 					<div class="form-group">
-						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#laboratorybtn">Laboratory Room</button>
+					<h3>Add:</h3>
+						<button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#laboratorybtn">Laboratory Room</button>
 
 							<div id="laboratorybtn" class="collapse">
 								<div class="form-group">
-								<h2></h2>
+									<h2></h2>
 									<label for="timestartlab">Time Start:</label>
 	  								<select class="form-control" name="TimeStartLab" id="timestartlab">
-	  									<option>Select Start Time</option>
-	    								<option>7:30 AM</option>
-	    								<option>8:30 AM</option>
-	    								<option>9:30 AM</option>
-	    								<option>10:30 AM</option>
-	    								<option>11:30 AM</option>
-	    								<option>12:30 PM</option>
-	    								<option>1:30 PM</option>
-	    								<option>2:30 PM</option>
-	    								<option>3:30 PM</option>
-	    								<option>4:30 PM</option>
-	    								<option>5:30 PM</option>
-	    								<option>6:30 PM</option>
+	  									<option disabled selected>Select Start Time</option>
+	    								<option value="7:30">7:30 AM</option>
+	    								<option value="8:30">8:30 AM</option>
+	    								<option value="9:30">9:30 AM</option>
+	    								<option value="10:30">10:30 AM</option>
+	    								<option value="11:30">11:30 AM</option>
+	    								<option value="12:30">12:30 PM</option>
+	    								<option value="13:30">1:30 PM</option>
+	    								<option value="14:30">2:30 PM</option>
+	    								<option value="15:30">3:30 PM</option>
+	    								<option value="16:30">4:30 PM</option>
+	    								<option value="17:30">5:30 PM</option>
+	    								<option value="18:30">6:30 PM</option>
 	 								</select>
 								</div>
 
 								<div class="form-group">
 									<label for="timeendlab">Time End:</label>
 	  								<select class="form-control" name="TimeEndLab" id="timeendlab">
-	  									<option>Select End Time</option>
-	    								<option>8:30 AM</option>
-	    								<option>9:30 AM</option>
-	    								<option>10:30 AM</option>
-	    								<option>11:30 AM</option>
-	    								<option>12:30 PM</option>
-	    								<option>1:30 PM</option>
-	    								<option>2:30 PM</option>
-	    								<option>3:30 PM</option>
-	    								<option>4:30 PM</option>
-	    								<option>5:30 PM</option>
-	    								<option>6:30 PM</option>
-	    								<option>7:30 PM</option>
+	  									<option disabled selected>Select End Time</option>
+	    								<option value="8:30">8:30 AM</option>
+	    								<option value="9:30">9:30 AM</option>
+	    								<option value="10:30">10:30 AM</option>
+	    								<option value="11:30">11:30 AM</option>
+	    								<option value="12:30">12:30 PM</option>
+	    								<option value="13:30">1:30 PM</option>
+	    								<option value="14:30">2:30 PM</option>
+	    								<option value="15:30">3:30 PM</option>
+	    								<option value="16:30">4:30 PM</option>
+	    								<option value="17:30">5:30 PM</option>
+	    								<option value="18:30">6:30 PM</option>
+	    								<option value ="19:30">7:30 PM</option>
 	 								</select>
 
 								</div>
@@ -265,7 +281,7 @@
 								<div class="form-group">
 	  								<label for="room">Room:</label>
 	  								<select class="form-control" name="RoomLab" id="roomLab">
-	  									<option>Select Room</option>
+	  									<option disabled selected>Select Room</option>
 		  								<?php
 											$sql = "SELECT roomCode FROM room WHERE roomType = 'Laboratory'";
 											$result = $conn->query($sql);
@@ -314,10 +330,12 @@
 				</div>
 			</div>
 
-			<div class="col-sm-3 pull-right">
-				<h1></h1>
-	 			<input type="submit" name="submit" class="btn btn-success"/>
-	   			<button type="button" class="btn btn-default">Clear All</button>
+			<div class="col-sm-12">
+				<div class="pull-right">
+					<h1></h1>
+		 			<button type="submit" name="submit" class="btn btn-success">Submit Schedule</button>
+		   			<button type="reset" class="btn btn-default">Clear All</button>
+				</div>
 			</div>
 		</form>
 
@@ -372,54 +390,4 @@
 		?>
 
 	</body>
-
-	<script type="text/javascript">
-		function showOptions(str, currentFunction, url)
-		{
-	        if (window.XMLHttpRequest) 
-	        {
-	            // code for IE7+, Firefox, Chrome, Opera, Safari
-	            xmlhttp = new XMLHttpRequest();
-	        } 
-
-	        else 
-	        {
-	            // code for IE6, IE5
-	            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	        }
-
-	        xmlhttp.onreadystatechange = function()
-	        {
-	            if (this.readyState == 4 && this.status == 200) 
-	            {
-	            	currentFunction(this);
-	          	}
-	        };
-
-	        xmlhttp.open("GET", url+ "?q=" +str, true);
-	        xmlhttp.send();
-		}
-
-		function showCurriculum(xmlhttp)
-		{
-			document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
-		}
-
-		function showSubject(xmlhttp)
-		{
-			document.getElementById("subjects").innerHTML = xmlhttp.responseText;
-		}
-
-		function showSection(xmlhttp)
-		{
-			document.getElementById("section").innerHTML = xmlhttp.responseText;
-		}
-
-		function showCurriculumAndSection(val)
-		{
-			showOptions(val, showCurriculum, 'getCurriculum.php');
-			showOptions(val, showSection, 'getSection.php');
-			showOptions(val, showSubject, 'getSubject.php');
-		}
-	</script>
 </html>

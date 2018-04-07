@@ -35,66 +35,93 @@
 			<h1>View Schedule</h1>
 		</div>
 
-		<div class="row">
-			<div class="col-sm-6">
-				<h3>Course:</h3>
-					<div class="form-group">
-  							<select class="form-control" name="Course" id="course" onchange="showOptions(this.value, showSection, 'getSection.php')">
-  								<option>Select Course</option>
-								<?php
-									$sql = "SELECT courseCode, courseTitle FROM Course";
-									$result = $conn->query($sql);
-									
-									if ($result->num_rows > 0) 
-									{
-								   		while($row = $result->fetch_assoc())
-								   		{
-								        	echo "<option value='".$row["courseCode"]."'>".$row["courseTitle"]."</option>";
-								    	}
-								    }
-								?>
- 							</select>
-					</div>
+		<form id="viewSchedForm">
+			<div class="row">
+				<div class="col-sm-6">
+					<h3>Course:</h3>
+						<div class="form-group">
+	  							<select class="form-control" name="Course" id="course" onchange="showOptions(this.value, showSection, 'getSection.php')">
+	  								<option disabled selected>Select Course</option>
+									<?php
+										$sql = "SELECT courseCode, courseTitle FROM Course";
+										$result = $conn->query($sql);
+										
+										if ($result->num_rows > 0) 
+										{
+									   		while($row = $result->fetch_assoc())
+									   		{
+									        	echo "<option value='".$row["courseCode"]."'>".$row["courseTitle"]."</option>";
+									    	}
+									    }
+									?>
+	 							</select>
+						</div>
+				</div>
+
+				<div class="col-sm-6">
+					<h3>Section:</h3>
+						<div class="form-group">
+	  							<select class="form-control" name="Section" id="section">
+	  								<option disabled selected>Select Section</option>
+	 							</select>
+						</div>
+				</div>
 			</div>
 
-			<div class="col-sm-6">
-				<h3>Section:</h3>
-					<div class="form-group">
-  							<select class="form-control" name="Section" id="section">
-  								<option>Select Section  	</option>
- 							</select>
-					</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<h3>School Year:</h3>
+						<div class="form-group">
+	  							<select class="form-control" name="SchoolYear" id="schoolYear">
+	  								<option disabled selected>Select School Year</option>
+									<?php
+										$sql = "SELECT DISTINCT schoolYear FROM enrollment";
+										$result = $conn->query($sql);
+										
+										if ($result->num_rows > 0) 
+										{
+									   		while($row = $result->fetch_assoc())
+									   		{
+									        	echo "<option value='".$row["schoolYear"]."'>".$row["schoolYear"]."</option>";
+									    	}
+									    }
+									?>
+	 							</select>
+						</div>
+				</div>
+
+				<div class="col-sm-6">
+					<h3>Semester:</h3>
+						<div class="form-group">
+	  							<select class="form-control" name="Semester" id="semester">
+	  								<option disabled selected>Select Semester</option>
+	  								<option value = "1">1st</option>
+	  								<option value = "2">2nd</option>
+	  								<option value = "3">Summer</option>
+	 							</select>
+						</div>
+				</div>
 			</div>
-		</div>
+		</form>
 
 		<div class="row">
 			<div>
-				<table class="table">
-					<tr>
-						<th>Subject Code</th>
-						<th>Description</th>
-						<th>Units</th>
-						<th>Day</th>
-						<th>Time Start</th>
-						<th>Time End</th>
-						<th>Room</th>
+				<table class="table" id="scheduleTable" >
+					<tr style='background-color: #2D486A;'>
+						<th style="color: #fbf7de;">Subject Code</th>
+						<th style="color: #fbf7de;">Description</th>
+						<th style="color: #fbf7de;">Units</th>
+						<th style="color: #fbf7de;">Room Type</th>
+						<th style="color: #fbf7de;">Day/s</th>
+						<th style="color: #fbf7de;">Time Start</th>
+						<th style="color: #fbf7de;">Time End</th>
+						<th style="color: #fbf7de;">Room</th>
 					</tr>
-					<tr>
-						<td>COMP 2033</td>
-						<td>System Analysis and Design</td>
-						<td>3</td>
-						<td>Monday</td>
-						<td>7:30am</td>
-						<td>1:30pm</td>
-						<td>IT 1-2</td>
-					</tr>
-				</table>
-
-
-				
+				</table>				
 			</div>
 		</div>
 
+		<ul id="list"></ul>
 	</body>
 
 	<script type="text/javascript">
@@ -129,6 +156,29 @@
 		{
 			document.getElementById("section").innerHTML = xmlhttp.responseText;
 		}
-	</script>
 
+		$(document).ready(function(){
+			$("#section, #schoolYear, #semester").change(function() {
+			    var sec = $("#section").val();
+			    var sy = $("#schoolYear").val();
+			    var sem = $("#semester").val();
+
+        		$.ajax(
+        		{
+    				type: "GET",
+    				url:  "getSchedule.php",
+    				data: { sec: sec,
+			        		sem: sem,
+							sy: sy},
+
+    				success: function(data)
+    				{
+        				$("#scheduleTable").html(data);
+    				}
+  				});
+				
+			});
+		});
+
+	</script>
 </html>
