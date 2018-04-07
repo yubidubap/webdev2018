@@ -1,5 +1,5 @@
 <?php
-include( $_SERVER['DOCUMENT_ROOT'].'/universidad/Homepage/dbconnect.php');
+include( $_SERVER['DOCUMENT_ROOT'].'/webdev2018/Homepage/dbconnect.php');
 
 $code = $_GET['code'];
 $year  =$_GET['year'];
@@ -8,13 +8,13 @@ $sec = $_GET['sec'];
 
 echo'<h3>STUDENTS</h3>';
 echo'<table class="table">';
-echo'<tr>
-	<th>Student Code</th>
-	<th>First Name</th>
-	<th>Middle Name</th>
-	<th>Last Name</th>
-	<th>E-mail</th>
-	<th>scholastic Status</th>
+echo'<tr style="background-color: #2D486A;">
+	<th style="color: #fbf7de;">Student Code</th>
+	<th style="color: #fbf7de;">First Name</th>
+	<th style="color: #fbf7de;">Middle Name</th>
+	<th style="color: #fbf7de;">Last Name</th>
+	<th style="color: #fbf7de;">E-mail</th>
+	<th style="color: #fbf7de;">Scholastic Status</th>
 	 </tr>';
 			$Query = "SELECT studentCode,firstName,middleName,lastName,
 			email,mobileNum,scholasticStatus 
@@ -28,21 +28,21 @@ echo'<tr>
 			join enrollment as E on SO.so_enrollmentFK=E.enrollmentCode
 			join section as Se on SO.so_sectionFK=Se.sectionCode
 			where S.subjectCode='$code'
-			and E.semester='$sem' and E.schoolYear=$year
+			and E.semester='$sem' and E.schoolYear='$year'
 			and Se.sectionCode='$sec'
 			order by studentCode";
    			if  ($sql = $conn ->query($Query));
 				{
 					while($row = $sql ->fetch_assoc())
 					{
-						echo '<tr>
-							 <td  >'.$row['studentCode'].'</td>
-							 <td  >'.$row['firstName'].'</td>
-							 <td   >'.$row['middleName'].'</td>
-							 <td   >'.$row['lastName'].'</td>
-							 <td   >'.$row['middleName'].'</td>
-							 <td   >'.$row['scholasticStatus'].'</td>
-							 </tr >';
+						echo '<tr style="background-color: white;">
+							 <td>'.$row['studentCode'].'</td>
+							 <td>'.$row['firstName'].'</td>
+							 <td>'.$row['middleName'].'</td>
+							 <td>'.$row['lastName'].'</td>
+							 <td>'.$row['middleName'].'</td>
+							 <td>'.$row['scholasticStatus'].'</td>
+							 </tr>';
 					}
 					
 					$conn->close();

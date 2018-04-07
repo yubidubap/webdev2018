@@ -40,7 +40,6 @@
             <select class="form-control" name="course "id="course" onchange="selectSem(course.value)">
               <option disabled selected hidden>Choose a course...</option>
               <option value="BSIT">BS Information Technology</option>
-              <option value="BSA">BS Accountancy</option>
               <option value="BSECE">BS Electronics And Communications Engineer</option>
               
           </select>

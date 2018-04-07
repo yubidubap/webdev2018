@@ -20,9 +20,10 @@
 	{
 		color: black;
 	}
+
  #table-content:hover
 	{
-		background:lightblue;
+		color:lightblue;
 		cursor:pointer
 	}
 </style>
@@ -42,16 +43,19 @@
 			<img src="Quadrant1\logo.png">
 
 	</div>
+
+
 <div class="row">
-<div class="col-sm-4">
-	<label for="course">ENROLLMENT YEAR:</label>
+  <div class="col-sm-4">
+	   <label for="course">ENROLLMENT YEAR:</label>
   					<select class="form-control" name="year" id="year" onchange="displaySubjects(year.value,semester.value,section.value)">
     						<option disabled selected hidden>Chooose a semester...</option>
     						<?php include 'fillDropdown(Subjects).php';
     						 getYear();?>
  					</select>
  	</div>
-	<div class="col-sm-4">
+
+<div class="col-sm-4">
  		<label for="course">SEMESTER:</label>
   					<select class="form-control" name="semester" id="semester" onchange="displaySubjects(year.value,semester.value,section.value)">
     						<option disabled selected hidden>Chooose a year...</option>		
@@ -60,6 +64,7 @@
 
  					</select>
  	</div>
+
  	<div class="col-sm-4">
  		<label for="course">SECTION:</label>
   					<select class="form-control" name="section" id="section" onchange="displaySubjects(year.value,semester.value,section.value)">
@@ -74,10 +79,10 @@
 	<div class="col-sm-12">
 	<h1></h1>
 			<table class="table">
-				<tr >
-					<th>#</th>
-					<th>Subject Code</th>
-					<th>Units</th>
+				<tr style="background-color: #2D486A;">
+					<th style="color: #fbf7de;">#</th>
+					<th  style="color: #fbf7de;">Subject Code</th>
+					<th  style="color: #fbf7de;">Units</th>
 				</tr>
 
 					<tbody id ="output">
