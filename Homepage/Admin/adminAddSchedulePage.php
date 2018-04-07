@@ -348,50 +348,58 @@
 				$slot = $_POST['Slot'];
 
 
-				$sql = "INSERT INTO subject_offering(slots, so_enrollmentFK, so_sectionFK,so_curriculumSubjectFK)
-				VALUES (40, (SELECT enrollmentCode FROM enrollment
-				WHERE semester = '$sem' AND schoolYear = '$schYear'), '$sec', (SELECT curriculumSubjectCode from curriculum_subject WHERE cs_subjectFK= '$sub'));";
-
-				$result = $conn->query($sql);
-
-				if(!empty($_POST['checklist'])) 
+				if(!empty($_POST['checklist']))
 				{
+					$sql = "INSERT INTO subject_offering(slots, so_enrollmentFK, so_sectionFK,so_curriculumSubjectFK)
+					VALUES (40, (SELECT enrollmentCode FROM enrollment
+					WHERE semester = '$sem' AND schoolYear = '$schYear'), '$sec', (SELECT curriculumSubjectCode from curriculum_subject WHERE cs_subjectFK= '$sub'));";
 
-					$sql1 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
-					VALUES ('$timeSLec','$timeELec', '$roomLec',
-					(SELECT MAX(subjectOfferingCode) from subject_offering));";
+					$result = $conn->query($sql);
 
-					$result = $conn->query($sql1);
-
-					foreach($_POST['checklist'] as $selectedLec) 
+					if(!empty($_POST['checklist'])) 
 					{
 
-						$sql2 = "INSERT INTO day(day, d_scheduleFK) VALUES ('$selectedLec', (SELECT MAX(scheduleCode) FROM schedule));";
+						$sql1 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
+						VALUES ('$timeSLec','$timeELec', '$roomLec',
+						(SELECT MAX(subjectOfferingCode) from subject_offering));";
 
-						$result = $conn->query($sql2);
+						$result = $conn->query($sql1);
+
+						foreach($_POST['checklist'] as $selectedLec) 
+						{
+
+							$sql2 = "INSERT INTO day(day, d_scheduleFK) VALUES ('$selectedLec', (SELECT MAX(scheduleCode) FROM schedule));";
+
+							$result = $conn->query($sql2);
+						}
+
+						echo "<script>alert('Successfully Added Subject Offering and Schedule');</script>";
 					}
 
-					echo "<script>alert('Successfully Added Subject Offering and Schedule');</script>";
+					if(!empty($_POST['checklist1'])) 
+					{
+						$roomLab = $_POST['RoomLab'];
+						$timeSLab = $_POST['TimeStartLab'];
+						$timeELab = $_POST['TimeEndLab'];
+
+						$sql3 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
+						VALUES ('$timeSLab','$timeELab', '$roomLab',
+						(SELECT MAX(subjectOfferingCode) from subject_offering));";
+
+						$result = $conn->query($sql3);
+
+						foreach($_POST['checklist1'] as $selectedLab) 
+						{
+							$sql4 = "INSERT INTO day(day, d_scheduleFK) VALUES ('$selectedLab', (SELECT MAX(scheduleCode) FROM schedule));";
+
+							$result = $conn->query($sql4);
+						}
+					}
 				}
 
-				if(!empty($_POST['checklist1'])) 
+				else
 				{
-					$roomLab = $_POST['RoomLab'];
-					$timeSLab = $_POST['TimeStartLab'];
-					$timeELab = $_POST['TimeEndLab'];
-
-					$sql3 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
-					VALUES ('$timeSLab','$timeELab', '$roomLab',
-					(SELECT MAX(subjectOfferingCode) from subject_offering));";
-
-					$result = $conn->query($sql3);
-
-					foreach($_POST['checklist1'] as $selectedLab) 
-					{
-						$sql4 = "INSERT INTO day(day, d_scheduleFK) VALUES ('$selectedLab', (SELECT MAX(scheduleCode) FROM schedule));";
-
-						$result = $conn->query($sql4);
-					}
+					echo "<script>alert('Failed to Add Subject Offering and Schedule');</script>";
 				}
 			}
 		?>
