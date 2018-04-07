@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+$(document).ready(function() {
+  $('#slot').bind("cut copy paste drag drop", function(e) {
+      e.preventDefault();
+  });     
+});
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+=======
 function numbersOnly(txt, e) {
     var arr = "1234567890";
     var code;
@@ -10,7 +24,27 @@ function numbersOnly(txt, e) {
                 return false;
         }
 
+>>>>>>> master
+=======
 
+$(document).ready(function() {
+  $('#slot').bind("cut copy paste drag drop", function(e) {
+      e.preventDefault();
+  });     
+});
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+>>>>>>> 478f0e8f21ac061d8ffc3edaf1aadbb58ca43177
+
+
+  function handleChange(input) {
+    if (input.value < 20) input.value = 20;
+    if (input.value > 40) input.value = "not more than 50";
+  }
         function showOptions(str, currentFunction, url)
         {
             if (window.XMLHttpRequest) 
@@ -166,11 +200,11 @@ function numbersOnly(txt, e) {
 		},
 		Slot: {
 			validators: {
-				notEmpty: {
-					message: 'Please specify the total number of slots'
+	        	notEmpty: {
+					message: 'Provide the number of slot'
+					}
 				}
-			}
-		},
+			},
 		TimeStartLec: {
 			validators: {
 				notEmpty: {
@@ -194,10 +228,27 @@ function numbersOnly(txt, e) {
 				}
 			}
 		},
-		lecday: {
+
+		RoomLab:{
 			validators: {
 				notEmpty: {
-					message: 'Please select a day/s'
+					message: 'Select a room'
+				}
+			}
+		},
+
+		"checklist[]": {
+			validators: {
+				notEmpty: {
+					message: 'Please select day/s'
+				}
+			}
+		},
+
+		"checklist1[]": {
+			validators: {
+				notEmpty: {
+					message: 'Please select day/s'
 				}
 			}
 		},
