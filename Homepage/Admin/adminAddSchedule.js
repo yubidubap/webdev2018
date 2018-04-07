@@ -5,20 +5,12 @@ function isNumberKey(evt) {
         return false;
     return true;
 }
-<<<<<<< HEAD
-
-  function handleChange(input) {
-    if (input.value < 20) input.value = 20;
-    if (input.value > 40) input.value = "not more than 50";
-  	}
-=======
-
 
   function handleChange(input) {
     if (input.value < 20) input.value = 20;
     if (input.value > 40) input.value = 40;
   }
->>>>>>> addAccountValidation
+
         function showOptions(str, currentFunction, url)
         {
             if (window.XMLHttpRequest) 
