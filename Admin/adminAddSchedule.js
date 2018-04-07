@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   $('#slot').bind("cut copy paste drag drop", function(e) {
       e.preventDefault();

@@ -344,11 +344,9 @@
 				$roomLec = $_POST['RoomLec'];
 				$timeSLec = $_POST['TimeStartLec'];
 				$timeELec = $_POST['TimeEndLec'];
-				$roomLab = $_POST['RoomLab'];
-				$timeSLab = $_POST['TimeStartLab'];
-				$timeELab = $_POST['TimeEndLab'];
 				$schYear = $_POST['SchoolYear'];
 				$slot = $_POST['Slot'];
+
 
 				$sql = "INSERT INTO subject_offering(slots, so_enrollmentFK, so_sectionFK,so_curriculumSubjectFK)
 				VALUES (40, (SELECT enrollmentCode FROM enrollment
@@ -372,10 +370,16 @@
 
 						$result = $conn->query($sql2);
 					}
+
+					echo "<script>alert('Successfully Added Subject Offering and Schedule');</script>";
 				}
 
 				if(!empty($_POST['checklist1'])) 
 				{
+					$roomLab = $_POST['RoomLab'];
+					$timeSLab = $_POST['TimeStartLab'];
+					$timeELab = $_POST['TimeEndLab'];
+
 					$sql3 = "INSERT INTO schedule(startTime, endTime, s_roomFK, s_subjectOfferingFK)
 					VALUES ('$timeSLab','$timeELab', '$roomLab',
 					(SELECT MAX(subjectOfferingCode) from subject_offering));";

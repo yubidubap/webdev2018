@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $("#fname,#Mname,#lname").keypress(function(event){
         var inputValue = event.which;
@@ -52,46 +53,8 @@ function showCurriculum(xmlhttp)
 	document.getElementById("curriculum").innerHTML = xmlhttp.responseText;
 }
 
-
  $(document).ready(function() {
-
- $("#subButton").click(function() {
- 		var acctType = $("#accounttype").val();
-		var course = $("#course").val();
-		var curr = $("#curriculum").val();
-		var fName = $("#fname").val();
-		var mName = $("#Mname").val();
-		var lName = $("#lname").val();
-		var num = $("#mobNum").val();
-		var email = $("#email").val();
-		var confPass = $("#pass2").val();
-
-		var number = "+63".concat(num);
-
-		console.log(acctType);
-
-     	$.ajax(
-		{
-			type: "POST",
-			url:  "insertAccount.php",
-			data: { acctType: acctType,
-	        		course: course,
-					curr: curr,
-					fName: fName,
-					mName: mName,
-					lName: lName,
-					number: number,
-					email: email,
-					confPass: confPass
-				},
-
-			success: function(data)
-			{
-				alert("Success Added!");
-			}
-		});
- 	});
-
+ 	
  	$("#accounttype").change(function() {
 		var type = $("#accounttype").val();
 
@@ -99,6 +62,9 @@ function showCurriculum(xmlhttp)
 		{
 			$("#course").slideUp("fast");
 			$("#curriculum").slideUp("fast");
+
+			$("#course").prop("disabled", true);
+			$("#curriculum").prop("disabled", true);
 
 			$("#label1").fadeOut("fast");
 			$("#label2").fadeOut("fast");
@@ -109,24 +75,24 @@ function showCurriculum(xmlhttp)
 			$("#course").slideDown("fast");
 			$("#curriculum").slideDown("fast");
 
+			$("#course").prop("disabled", false);
+			$("#curriculum").prop("disabled", false);
+
 			$("#label1").fadeIn("fast");
 			$("#label2").fadeIn("fast");
 		}
 	});
 
-		
-
 	$('#validateForm').bootstrapValidator({
-
-		
 		feedbackIcons: {
-
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
 			validating: 'glyphicon glyphicon-refresh'
 		},
 
 		fields: {
 
-			accountType: {
+			role: {
 				validators: {
 					notEmpty: {
 						message: 'Choose your user role'
@@ -210,22 +176,22 @@ function showCurriculum(xmlhttp)
 					}
 				}
 			},
-		password: {
-            validators: {
-            	identical: {
-                    field: 'confirmPassword',
-                    message: 'Confirm your password below - type same password please'
-                }
-            }
-        },
-        confirmPassword: {
-            validators: {
-                identical: {
-                    field: 'password',
-                    message: 'The password and its confirm are not the same'
-                }
-            }
-         },
+			 	password: {
+	            validators: {
+	            	identical: {
+	                    field: 'confirmPassword',
+	                    message: 'Confirm your password below - type same password please'
+	                }
+	            }
+	        },
+	        confirmPassword: {
+	            validators: {
+	                identical: {
+	                    field: 'password',
+	                    message: 'The password and its confirm are not the same'
+	                }
+	            }
+	         },
 			
 			semester: {
 				validators: {
@@ -239,9 +205,6 @@ function showCurriculum(xmlhttp)
 	});
 
 });
-
-
-
 
 
 
