@@ -1,31 +1,24 @@
-
-function lettersOnly(txt, e) {
-    var arr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
-    var code;
-    	if (window.event)
-            code = e.keyCode;
-        else
-        {
-            code = e.which;
-            var char = keychar = String.fromCharCode(code);
-            if (arr.indexOf(char) == -1)
-                return false;
+$(document).ready(function(){
+    $("#fname,#Mname,#lname").keypress(function(event){
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
         }
+    });
+});
+
+$(document).ready(function() {
+  $('#mobNum').bind("cut copy paste drag drop", function(e) {
+      e.preventDefault();
+  });     
+});
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
 }
-
-function numbersOnly(txt, e) {
-    var arr = "1234567890";
-    var code;
-    	if (window.event)
-            code = e.keyCode;
-        else
-        {
-            code = e.which;
-            var char = keychar = String.fromCharCode(code);
-            if (arr.indexOf(char) == -1)
-                return false;
-        }
- }
  
 function showOptions(str, currentFunction, url)
 {
@@ -161,7 +154,7 @@ function showCurriculum(xmlhttp)
 				validators: {
 					stringLength: {
 	                        min: 2,
-	                        message: 'Please Enter your First name'
+	                        
 
 	                },
 	        
@@ -175,7 +168,7 @@ function showCurriculum(xmlhttp)
 				validators: {
 					stringLength: {
 	                        min: 2,
-	                        message: 'Please Enter your Middle name'
+	                        
 	                },
 					notEmpty: {
 						message: 'Please Enter your Middle name'
@@ -187,7 +180,7 @@ function showCurriculum(xmlhttp)
 				validators: {
 					stringLength: {
 	                        min: 2,
-	                        message: 'Please Enter your Last name'
+	                      
 
 	                },
 					notEmpty: {

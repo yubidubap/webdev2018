@@ -19,6 +19,7 @@
 		<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 		<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 
+
 	</head>
 
 	<body>
@@ -138,7 +139,7 @@
 					<h3>Slots:</h3>
 						<div class="form-group">
 	  						<input type="text" id="slot" name="Slot" placeholder="Specify the total number of slots" 
-								class="form-control" type="text" onkeypress="return numbersOnly(this, event)" maxlength="2"></input>
+								class="form-control" type="text" onkeypress="return isNumberKey(event)" maxlength="2" onchange="handleChange(this);"></input>
 						</div>
 				</div>
 
@@ -204,10 +205,10 @@
  								</select>
 							</div>
 
-							<div class="form-group">
+							<div class="form-group"  name="lecday">
 								<div class="container">
 									<h4>Day:</h4>
-										<div class="checkbox" id="dayLec">
+										<div class="checkbox">
 											<label><input type="checkbox" name="checklist[]" value="MO">Monday</label>
 										</div>
 										<div class="checkbox">

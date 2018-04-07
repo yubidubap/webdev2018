@@ -93,7 +93,7 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<label for="fname">First Name:</label>
-						<input type="text" class="form-control" id="fname" name="firstname" placeholder="First Name" onkeypress="return lettersOnly(this, event)" maxlength="30">
+						<input type="text" class="form-control" id="fname" name="firstname" placeholder="First Name" maxlength="30">
 						</input>
 					</div>
 				</div>
@@ -120,7 +120,7 @@
 					<div class="form-group">
 						<label for="mobilenumber">Mobile Number:</label>
 						<input type="text" id="mobNum" name="mobilenumber" placeholder="Enter 10 digit no. (9123456789)" 
-						class="form-control bfh-phone" type="text" onkeypress="return numbersOnly(this, event)" maxlength="10"></input>
+						class="form-control bfh-phone" type="text" onkeypress="return isNumberKey(event)" maxlength="10"></input>
 					</div>
 				</div>
 
