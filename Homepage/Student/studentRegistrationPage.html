@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Registration</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="studentRegistration.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="header">
+
+			<ul>
+
+				<li><a href="studentProfilePage.html">Profile</a></li>
+				<li><a href="studentGradesPage.html">Grades</a></li>
+				<li><a href="studentSchedulePage.html">Schedule</a></li>
+				<li><a href="studentRegistrationPage.html">Registration</a></li>
+				<li><a href="studentPasswordPage.html">Password</a></li> 	 	
+				<li>SIGN OUT</li>
+
+			</ul>
+
+			<img class="img-rounded" src="Quadrant1\logo.png">
+
+		</div>
+		<div class="row">
+
+			<div class="col-sm-4">
+				<h3><span class="label label-default">List of Sections</span></h3>
+					<div class="list-group">
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#myModal">BSIT 1-1</a>
+
+							<div id="myModal" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<!-- MODAL CONTENT -->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Available Schedules</h4>
+										</div>
+										<div class="modal-body">
+											<table class="table">
+												<tr>
+													<th>#</th>
+													<th>Subject Code</th>
+													<th>Subject Title</th>
+													<th>Units</th>
+													<th>Schedule Type</th>
+													<th>Time</th>
+													<th>Room</th>
+
+												</tr>
+												<tr>
+													<td><input type="checkbox" value=""></input></td>
+													<td>Subject Code</td>
+													<td>Subject Title</td>
+													<td>Units</td>
+													<td>Schedule Type</td>
+													<td>Time</td>
+													<td>Room</td>
+
+												</tr>
+											</table>
+										</div>
+										<div class="modal-footer">
+										<button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+          								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       									</div>
+									</div>
+									
+								</div>
+							</div>
+
+						<a href="#" class="list-group-item" data-toggle="modal" data-target="#myModal">BSIT 1-2</a>
+							<div id="myModal" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<!-- MODAL CONTENT -->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Available Schedules</h4>
+										</div>
+										<div class="modal-body">
+											<table class="table">
+												<tr>
+													<th>#</th>
+													<th>Subject Code</th>
+													<th>Subject Title</th>
+													<th>Units</th>
+													<th>Schedule Type</th>
+													<th>Time</th>
+													<th>Room</th>
+
+												</tr>
+												<tr>
+													<td><input type="checkbox" value=""></input></td>
+													<td>Subject Code</td>
+													<td>Subject Title</td>
+													<td>Units</td>
+													<td>Schedule Type</td>
+													<td>Time</td>
+													<td>Room</td>
+
+												</tr>
+											</table>
+										</div>
+										<div class="modal-footer">
+										<button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+          								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       									</div>
+									</div>
+									
+								</div>
+							</div>
+
+					</div>
+			</div>
+
+			<div class="col-sm-8">
+				<h3><span class="label label-default">Saved Subjects</span></h3>
+				<table class="table">
+					<tr>
+						<th>Subject Code</th>
+						<th>Subject Title</th>
+						<th>Schedule Type</th>
+						<th>Day</th>
+						<th>Time</th>
+					</tr>
+					<tr>
+						<td>COMP 2033</td>
+						<td>System Analysis and Design</td>
+						<td>Lec/Lab</td>
+						<td>M</td>
+						<td>1:30pm-7:30pm</td>
+					</tr>
+					<tr>
+						<td>COMP 2033</td>
+						<td>System Analysis and Design</td>
+						<td>Lec/Lab</td>
+						<td>M</td>
+						<td>1:30pm-7:30pm</td>
+					</tr>
+
+				</table>
+			</div>
+			<div class="col-sm-12">
+				<div class="btn-group-lg pull-right">
+  					<button type="button" class="btn btn-success">Assess</button>
+  					<button type="button" class="btn btn-default">Clear</button>
+				</div>
+
+			</div>
+		</div>
+
+		
+
+
+
+		
+
+</body>
+</html>
