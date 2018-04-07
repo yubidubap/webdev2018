@@ -46,9 +46,6 @@ if(!empty($_SESSION['user']))
 										{						
 											while($row = $sql ->fetch_assoc())
 											{
-							
-								
-							
 													$_SESSION['studentCode'] = $row['studentCode'];
 													$_SESSION['curriculumType'] = $row['s_curriculumFK'];
 													$_SESSION['status']= $row['scholasticStatus'];
@@ -70,7 +67,7 @@ if(!empty($_SESSION['user']))
 
 							else
 							{
-								header("Location:Registrar\RegistrarProfilePage.php");
+								header("Location:RegistrarProfilePage.php");
 							}
 
 						}
