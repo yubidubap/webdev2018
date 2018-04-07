@@ -1,6 +1,6 @@
 <?php
 
-include( $_SERVER['DOCUMENT_ROOT'].'/universidad/Homepage/dbconnect.php');
+include( $_SERVER['DOCUMENT_ROOT'].'/webdev2018/Homepage/dbconnect.php');
  $curri = $_GET['curri'];
 
 
@@ -65,8 +65,7 @@ for($i=1;$i<=$year;$i++)
     		  <th>EQUIVALENT</th>
     		  </tr>';
 		//REMOVE GROUP_CONCAT() IF STILL NOT WORKING
-    	$Query="SELECT subjectCode,subjectTitle,units,sp_SubPreReq as prereq,
-    			es_SubjectEquivalent as equivalent 
+    	$Query="SELECT subjectCode,subjectTitle,units,GROUP_CONCAT(sp_SubPreReq) as 'prereq',es_SubjectEquivalent as equivalent 
     			FROM subject as S JOIN curriculum_subject as CS
 				ON S.subjectCode = CS.cs_subjectFK
 				LEFT JOIN subject_prereq as SP

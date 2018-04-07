@@ -20,9 +20,9 @@
 
 			<ul>
 
-				<li>Profile</a></li>
-				<li><a href="adminAddAccount.php">Accounts</a></li>
-				<li><a href="adminAddSchedulePage.php">Add Schedule</a></li>
+				<li>Profile</li>
+				<li><a href="adminAddAccountPage.php">Accounts</a></li>
+				<li><a href="adminAddSchedulePage.php">Section Offering</a></li>
 				<li><a href="adminViewSchedulePage.php">View Schedule</a></li>	
 				<li>SIGN OUT</li>
 
@@ -34,7 +34,7 @@
 
 		<div class="infobodyheader">
 
-			<h1>Welcome!, <?php echo $_SESSION['name'];?></h1>
+			<h1>Welcome, <b><?php echo $_SESSION['name'];?></b>!</h1>
 			
 		</div>
 
@@ -48,18 +48,18 @@
 			<div class="col-sm-12">
 			<table class="table-condensed">
 				<tr>
-					<th>Name</th>
-					<td><?php echo $_SESSION['fullname'];?></td>
+					<th><h3>Name</h3></th>
+					<td><h3><b><?php echo $_SESSION['fullname'];?></b></h3></td>
 				</tr>
 
 				<tr>
-					<th>Phone Number</th>
-					<td><?php echo $_SESSION['phone'];?></td>
+					<th><h3>Phone Number</h3></th>
+					<td><h3><b><?php echo $_SESSION['phone'];?></b></h3></td>
 				</tr>
 
 				<tr>
-					<th>E-mail Address</th>
-					<td><?php echo $_SESSION['email'];?></td>
+					<th><h3>E-mail Address</h3></th>
+					<td><h3><b><?php echo $_SESSION['email'];?></b></h3></td>
 				</tr>
 			</table>
 			</div>
