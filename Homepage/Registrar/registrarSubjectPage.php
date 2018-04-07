@@ -29,7 +29,7 @@
 
 	<div class="header">
 
-			<ul>
+			<ul style="padding-right: 0;">
 
 				<li><a href="registrarProfilePage.php">Profile</a></li>
 				<li><a href="registrarCurriculumPage.php">Curriculum</a></li>
@@ -43,7 +43,7 @@
 
 	</div>
 <div class="row">
-	<div class="col-sm-4">
+<div class="col-sm-4">
 	<label for="course">ENROLLMENT YEAR:</label>
   					<select class="form-control" name="year" id="year" onchange="displaySubjects(year.value,semester.value,section.value)">
     						<option disabled selected hidden>Chooose a semester...</option>
@@ -97,7 +97,7 @@ $(document).ready(function() {
     }).get();
    
     var subjCode = $.trim(tableData[0]);
-    alert("Your data is: " + $.trim(tableData[0]) + " , " + $.trim(tableData[1]) + " , " + $.trim(tableData[2]) );
+
     displayStudents(subjCode,year.value,semester.value,section.value)
     $("#studentOutput").show();
 });
