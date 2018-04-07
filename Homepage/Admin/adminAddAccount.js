@@ -89,13 +89,11 @@ function showCurriculum(xmlhttp)
 	$('#validateForm').bootstrapValidator({
 		feedbackIcons: {
 			valid: 'glyphicon glyphicon-ok',
-			invalid: 'glyphicon glyphicon-remove',
-			validating: 'glyphicon glyphicon-refresh'
 		},
 
 		fields: {
 
-			role: {
+			accountType: {
 				validators: {
 					notEmpty: {
 						message: 'Choose your user role'

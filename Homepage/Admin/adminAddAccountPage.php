@@ -49,7 +49,7 @@
 					<div class="form-group">
 						<label for="accounttype">Account Type:</label>
 	  					<select name="accountType" class="form-control" id="accounttype">
-	  						<option disabled hidden>Select Account Type</option>>
+	  						<option disabled hidden >Select Account Type</option>>
 	    					<option value="Student">Student</option>
 	    					<option value="Admin">Administrator</option>
 	    					<option value="Registrar">Registrar</option>
@@ -61,7 +61,7 @@
 					<div class="form-group">
 						<label id="label1" for="Course">Course:</label>
 	  					<select name="course" class="form-control" id="course" onchange="showOptions(this.value, showCurriculum, 'getCurriculum.php')">
-	  						<option disabled selected hidden>Select Student's Course</option>
+	  						<option disabled selected hidden value="">Select Student's Course</option>
   							<?php
 								$sql = "SELECT courseCode, courseTitle FROM Course";
 								$result = $conn->query($sql);
